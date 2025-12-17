@@ -82,6 +82,9 @@ const translations = {
     // Project Tech
     'project.1.tech': ["React", "Rest API", "Component Architecture", "CSS"],
     'project.2.tech': ["JavaScript", "Game Logic", "DOM Manipulation", "State Management"],
+    'projects.subtitle': 'Explore these live projects. Hover for details and click to visit.',
+    'project.actions.visit': 'Visit Website',
+    'project.preview.unavailable': 'Preview not available',
 
     // Contact
     'contact.title': 'Looking for a',
@@ -124,6 +127,9 @@ const translations = {
     // Projects
     'projects.label': 'Trabajos Seleccionados',
     'projects.title': 'Soluciones Técnicas',
+    'projects.subtitle': 'Explora estos proyectos en vivo. Pasa el cursor para ver detalles y haz clic para visitar.',
+    'project.actions.visit': 'Visitar Sitio',
+    'project.preview.unavailable': 'Vista previa no disponible',
     'project.1.title': 'Movie Explorer App',
     'project.1.desc': 'Aplicación frontend para exploración de películas. Resolví el desafío de consumir APIs externas eficientemente mediante una arquitectura de componentes reutilizables.',
     'project.2.title': 'Juego Pokémon',
