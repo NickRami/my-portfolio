@@ -1,0 +1,25 @@
+import { motion } from "framer-motion";
+import { useApp } from "../context/AppContext";
+
+export default function About() {
+  const { t } = useApp();
+  
+  return (
+    <section id="about" className="py-20 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-6 md:px-12">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+            >
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">{t('about.title')}</h2>
+                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                    <p dangerouslySetInnerHTML={{ __html: t('about.p1') }} />
+                    <p dangerouslySetInnerHTML={{ __html: t('about.p2') }} />
+                </div>
+            </motion.div>
+        </div>
+    </section>
+  )
+}
