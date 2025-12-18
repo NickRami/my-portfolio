@@ -189,10 +189,22 @@ const translations = {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem('portfolio-language');
+    return (saved === 'es' || saved === 'en') ? saved : 'en';
+  });
+  
+  const [theme, setTheme] = useState<Theme>(() => {
+    const saved = localStorage.getItem('portfolio-theme');
+    return (saved === 'dark' || saved === 'light') ? saved : 'dark';
+  });
 
   useEffect(() => {
+    localStorage.setItem('portfolio-language', language);
+  }, [language]);
+
+  useEffect(() => {
+    localStorage.setItem('portfolio-theme', theme);
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);

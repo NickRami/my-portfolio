@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../context/AppContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,11 +18,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: t('nav.about'), href: isHome ? "#about" : "/#about" },
-    { name: t('nav.projects'), href: isHome ? "#projects" : "/#projects" },
-    { name: t('nav.expertise'), href: isHome ? "#skills" : "/#skills" },
-    { name: t('nav.resume'), href: "/resume" }, 
-    { name: t('nav.contact'), href: isHome ? "#contact" : "/#contact" },
+    { name: t('nav.about'), href: isHome ? "#about" : "/#about", isHash: true },
+    { name: t('nav.projects'), href: isHome ? "#projects" : "/#projects", isHash: true },
+    { name: t('nav.expertise'), href: isHome ? "#skills" : "/#skills", isHash: true },
+    { name: t('nav.resume'), href: language === 'es' ? "/curriculum" : "/resume", isHash: false }, 
+    { name: t('nav.contact'), href: isHome ? "#contact" : "/#contact", isHash: true },
   ];
 
   const handleLanguageToggle = () => {
@@ -33,16 +33,22 @@ export default function Navbar() {
     <>
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "top-4" : "top-0 py-6 bg-transparent"}`}>
       <div className={`relative mx-auto flex justify-between items-center transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md border border-white/5 shadow-lg rounded-full px-6 py-3 max-w-5xl" : "max-w-screen-2xl px-6 md:px-12 lg:px-24"}`}>
-        <a href="/" className="text-xl font-bold tracking-tighter hover:text-yellow-400 transition-colors font-mono">
+        <Link to="/" className="text-xl font-bold tracking-tighter hover:text-yellow-400 transition-colors font-mono">
           &lt;Ramiro.Silva /&gt;
-        </a>
+        </Link>
         
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2">
             {navLinks.map(link => (
-                <a key={link.name} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-yellow-400 transition-colors">
-                    {link.name}
-                </a>
+                link.isHash ? (
+                   <a key={link.name} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-yellow-400 transition-colors">
+                        {link.name}
+                    </a>
+                ) : (
+                    <Link key={link.name} to={link.href} className="text-sm font-medium text-muted-foreground hover:text-yellow-400 transition-colors">
+                        {link.name}
+                    </Link>
+                )
             ))}
         </div>
 
@@ -87,13 +93,19 @@ export default function Navbar() {
             >
              <div className="flex flex-col gap-6 items-center">
                 {navLinks.map(link => (
-                    <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-3xl font-bold text-foreground hover:text-yellow-400 transition-colors">
-                        {link.name}
-                    </a>
+                    link.isHash ? (
+                        <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-3xl font-bold text-foreground hover:text-yellow-400 transition-colors">
+                            {link.name}
+                        </a>
+                    ) : (
+                        <Link key={link.name} to={link.href} onClick={() => setIsOpen(false)} className="text-3xl font-bold text-foreground hover:text-yellow-400 transition-colors">
+                            {link.name}
+                        </Link>
+                    )
                 ))}
                 
                 <div className="mt-8">
-                     <a href="#contact" onClick={() => setIsOpen(false)} className="px-8 py-4 text-lg font-medium bg-foreground text-background rounded-full hover:bg-yellow-400 hover:text-black transition-all">
+                     <a href={isHome ? "#contact" : "/#contact"} onClick={() => setIsOpen(false)} className="px-8 py-4 text-lg font-medium bg-foreground text-background rounded-full hover:bg-yellow-400 hover:text-black transition-all">
                         {t('nav.talk')}
                     </a>
                 </div>
