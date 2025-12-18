@@ -59,7 +59,7 @@ body {
 
 @media print {
   @page {
-    margin: 1.5cm 1.8cm;
+    margin: 0; /* Hide default browser headers and footers */
     size: A4;
   }
 
@@ -69,6 +69,7 @@ body {
   }
 
   body {
+    padding: 1.5cm 1.8cm !important; /* Re-apply margins to body content */
     background: white !important;
     background-color: white !important;
     color: #000000 !important;
@@ -131,12 +132,24 @@ body {
     color: #334155 !important;
   }
 
-  /* Section Spacing - Increased for vertical distribution */
+  /* Section Spacing */
   section {
     break-inside: avoid;
     margin-top: 1rem !important;
     margin-bottom: 2.5rem !important;
     page-break-inside: avoid;
+  }
+
+  /* Page 2 Optimization: Center the last section (Projects) vertically on its own page */
+  section:last-of-type {
+    page-break-before: always !important;
+    break-before: page !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 22cm !important; /* Occupy most of the printable vertical space */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   /* Header Spacing */

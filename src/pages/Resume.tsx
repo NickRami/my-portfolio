@@ -171,6 +171,28 @@ export default function Resume() {
 
           <div className="border-t border-muted my-12 no-print" />
 
+          {/* Skills / Tech Stack - Moved up as per Recruiter recommendation */}
+          <section className="mb-12 print:mb-8 break-inside-avoid">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8 flex items-center gap-3 print:mb-4">
+                 <span className="w-4 h-4 rounded-full border-2 border-yellow-400 block print:border-amber-600"></span>
+                 {t('skills.subtitle')}
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-8 print:gap-4 print:grid-cols-4">
+                  {skills.map((grp, i) => (
+                      <div key={i} className="break-inside-avoid">
+                          <h4 className="text-base font-bold text-foreground mb-3 border-b border-muted/50 pb-2 print:mb-1.5 print:pb-1 print:text-sm print:border-gray-300">{grp.category}</h4>
+                          <div className="flex flex-wrap gap-x-4 gap-y-2 print:flex-col print:gap-0.5">
+                              {grp.items.map((item: string, idx: number) => (
+                                  <span key={idx} className="text-sm text-muted-foreground print:text-xs print:text-gray-700 font-medium">
+                                      {item}
+                                  </span>
+                              ))}
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </section>
+
           {/* Experience */}
           <section className="mb-16 print:mb-10">
               <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
@@ -213,7 +235,7 @@ export default function Resume() {
                   href={proj.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col rounded-2xl overflow-hidden bg-muted/20 border border-muted/30 hover:border-yellow-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/5 print:bg-white print:border-gray-200 print:shadow-none print:hover:border-gray-200"
+                  className="group flex flex-col h-full rounded-2xl overflow-hidden bg-muted/20 border border-muted/30 hover:border-yellow-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/5 print:bg-white print:border-gray-200 print:shadow-none print:hover:border-gray-200"
                 >
                   {/* Image Preview - Screen Only */}
                   <div className="relative aspect-[16/9] overflow-hidden bg-muted no-print">
@@ -259,28 +281,6 @@ export default function Resume() {
                 </a>
               ))}
             </div>
-          </section>
-
-          {/* Skills */}
-          <section className="break-inside-avoid">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
-                 <span className="w-4 h-4 rounded-full border-2 border-yellow-400 block print:border-amber-600"></span>
-                 {t('skills.subtitle')}
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-8 print:gap-6 print:grid-cols-4">
-                  {skills.map((grp, i) => (
-                      <div key={i}>
-                          <h4 className="text-base font-bold text-foreground mb-4 border-b border-muted/50 pb-2 print:mb-2 print:pb-1.5 print:text-sm print:border-gray-200">{grp.category}</h4>
-                          <div className="flex flex-wrap gap-x-4 gap-y-2 print:flex-col print:gap-1">
-                              {grp.items.map((item: string, idx: number) => (
-                                  <span key={idx} className="text-sm text-muted-foreground print:text-xs print:text-gray-700">
-                                      {item}
-                                  </span>
-                              ))}
-                          </div>
-                      </div>
-                  ))}
-              </div>
           </section>
 
           <footer className="mt-20 pt-12 border-t border-muted text-center text-muted-foreground text-sm flex flex-col items-center gap-4 no-print">
