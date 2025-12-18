@@ -225,7 +225,7 @@ export default function Resume() {
             </section>
 
             {/* Projects */}
-            <section className="mb-16 print:mb-10 break-inside-avoid">
+            <section className="mb-16 print:mb-10 break-inside-avoid page-2-content">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 block print:bg-gray-600"></span>
                 {t('projects.label')}
@@ -264,7 +264,7 @@ export default function Resume() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 flex-1 flex flex-col print:p-0">
+                    <div className="p-6 flex-1 flex flex-col print:p-4">
                       <div className="flex justify-between items-start mb-3 print:mb-1.5">
                         <h4 className="text-xl md:text-2xl font-bold group-hover:text-yellow-400 transition-colors print:text-base print:group-hover:text-black">{proj.title}</h4>
                         <ExternalLink size={16} className="text-muted-foreground group-hover:text-yellow-400 transition-colors no-print" />

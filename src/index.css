@@ -57,6 +57,11 @@ body {
   }
 }
 
+/* Ensure page-2-content has no effect on screen */
+.page-2-content {
+  /* No special styling for screen view */
+}
+
 @media print {
   @page {
     margin: 0; /* Hide default browser headers and footers */
@@ -69,7 +74,7 @@ body {
   }
 
   body {
-    padding: 1.5cm 1.8cm !important; /* Re-apply margins to body content */
+    padding: 2cm !important; /* Professional A4 margins */
     background: white !important;
     background-color: white !important;
     color: #000000 !important;
@@ -91,13 +96,22 @@ body {
     min-height: auto !important;
   }
   
+  /* Reset outer container to full width */
+  .max-w-screen-2xl {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Reset inner document container to full width */
   .max-w-4xl {
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
   }
   
-  .py-32 {
+  /* Reset all responsive padding classes */
+  .py-32, .px-6, .px-12, .px-24 {
      padding: 0 !important;
   }
 
@@ -108,48 +122,40 @@ body {
   }
   
   h1 { 
-    font-size: 3rem !important; 
+    font-size: 2.5rem !important; 
     margin-bottom: 0.5rem !important; 
     letter-spacing: -0.025em !important;
     line-height: 1.1 !important;
   }
   
   h2 { 
-    font-size: 1.5rem !important; 
-    margin-bottom: 1rem !important; 
+    font-size: 1.25rem !important; 
+    margin-bottom: 0.75rem !important; 
     color: #b45309 !important;
   }
 
   p { 
-    font-size: 1rem !important; 
+    font-size: 0.95rem !important; 
     line-height: 1.6 !important; 
     color: #334155 !important;
   }
   
   li { 
-    font-size: 0.95rem !important; 
+    font-size: 0.9rem !important; 
     line-height: 1.5 !important;
     color: #334155 !important;
   }
 
-  /* Section Spacing */
+  /* Section Spacing - Simplified for clean multi-page output */
   section {
     break-inside: avoid;
-    margin-top: 1rem !important;
-    margin-bottom: 2.5rem !important;
     page-break-inside: avoid;
+    margin-bottom: 1.5rem !important;
   }
 
-  /* Page 2 Optimization: Center the last section (Projects) vertically on its own page */
-  section:last-of-type {
-    page-break-before: always !important;
-    break-before: page !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    min-height: 22cm !important; /* Occupy most of the printable vertical space */
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+  /* Ensure proper spacing between sections */
+  section + section {
+    margin-top: 1.5rem !important;
   }
 
   /* Header Spacing */
@@ -175,5 +181,14 @@ body {
     background-color: #f8fafc !important;
     border: 1px solid #e2e8f0 !important;
     padding: 1.5rem !important;
+  }
+
+  /* Page 2 Spacing - Projects Section */
+  .page-2-content {
+    page-break-before: always !important;
+    break-before: page !important;
+    padding-top: 3cm !important; /* Professional top margin for page 2 */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
