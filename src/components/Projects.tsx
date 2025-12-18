@@ -26,7 +26,7 @@ export default function Projects() {
          <h2 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-4">
             {t('projects.label')}
          </h2>
-         <h3 className="text-4xl font-medium">{t('projects.title')}</h3>
+         <h3 className="text-3xl md:text-5xl font-medium tracking-tight">{t('projects.title')}</h3>
       </div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -50,8 +50,8 @@ export default function Projects() {
                 </div>
             </div>
 
-            <h4 className="text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">{project.title}</h4>
-            <p className="text-muted-foreground mb-8 text-sm leading-relaxed flex-grow">
+            <h4 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">{project.title}</h4>
+            <p className="text-muted-foreground mb-8 text-base leading-relaxed flex-grow">
                 {project.description}
             </p>
 

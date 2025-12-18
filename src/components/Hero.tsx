@@ -29,7 +29,7 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 pt-32 pb-20 max-w-screen-2xl mx-auto relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 lg:px-24 pt-32 pb-20 max-w-screen-2xl mx-auto relative overflow-hidden">
       
       {/* Background Decoration - More Subtle */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 blur-[140px] rounded-full -z-10 opacity-20 pointer-events-none" />
@@ -42,7 +42,7 @@ export default function Hero() {
         className="text-center max-w-4xl mx-auto space-y-8"
       >
         <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight text-balance">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight text-balance">
               <span className="bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/60">
                 {t('hero.role')}
               </span>
@@ -52,7 +52,7 @@ export default function Hero() {
             </p>
         </div>
 
-        <p className="text-lg text-muted-foreground/80 leading-relaxed font-light max-w-2xl mx-auto text-balance">
+        <p className="text-lg md:text-xl text-muted-foreground/80 leading-relaxed font-light max-w-2xl mx-auto text-balance">
           {t('hero.desc')}
         </p>
         
@@ -83,7 +83,7 @@ export default function Hero() {
                         <tech.icon size={24} strokeWidth={1.5} />
                     </div>
                     <h3 className="text-sm font-semibold mb-1 tracking-wide">{tech.category}</h3>
-                    <p className="text-xs text-muted-foreground">{tech.items}</p>
+                    <p className="text-sm text-muted-foreground">{tech.items}</p>
                 </div>
             ))}
         </div>
