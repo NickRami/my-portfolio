@@ -35,9 +35,9 @@ const translations = {
     'hero.tech.devops': 'DevOps',
 
     // About
-    'about.title': 'Engineering Principles',
-    'about.p1': 'I approach development with a strong focus on scalability and maintainability. My expertise lies in designing modular frontend architectures that can grow with the product, avoiding the common pitfalls of technical debt.',
-    'about.p2': 'On the backend, I design robust, type-safe APIs ensuring data integrity and high performance. I prioritize clean code practices, testing, and efficient infrastructure to deliver reliable software solutions.',
+    'about.title': 'About Me',
+    'about.p1': 'I specialize in building scalable applications using React, TypeScript, and Node.js, focusing on high-performance architectures and clean code. I leverage modern AI tools to accelerate development cycles and ensure technical excellence across the full stack.',
+    'about.p2': 'I design robust systems with a focus on complex state management, SSR with Next.js, and scalable API design. I combine this technical depth with a collaborative mindset, always prioritizing teamwork and maintainable solutions.',
 
     // Projects
     'projects.label': 'Selected Work',
@@ -95,7 +95,7 @@ const translations = {
     'contact.subtitle': 'Full Stack Developer?',
     'contact.desc': 'I help build scalable, high-performance web applications using modern JavaScript stacks.',
     'contact.status': 'Currently open to full-time and freelance opportunities',
-    'resume.summary': 'Senior Full Stack Developer specializing in scalable frontend architectures and high-performance APIs. Proven track record in building maintainable systems using React, Node.js, and TypeScript. Focused on code quality, testing, and modern development practices.',
+    'resume.summary': 'Full Stack Developer specializing in React, TypeScript, and scalable Node.js architectures. Expert in building high-performance systems enhanced by AI-driven development. Committed to technical excellence, clean code, and collaborative teamwork.',
     'resume.download': 'Download PDF',
     'contact.cta': 'Let’s talk about your project',
     'contact.socials': 'Connect',
@@ -124,9 +124,9 @@ const translations = {
     'hero.tech.devops': 'DevOps',
 
     // About
-    'about.title': 'Principios de Ingeniería',
-    'about.p1': 'Abordo el desarrollo con un fuerte enfoque en la escalabilidad y la mantenibilidad. Mi experiencia radica en diseñar arquitecturas frontend modulares que puedan crecer con el producto, evitando la deuda técnica.',
-    'about.p2': 'En el backend, diseño APIs robustas y tipadas asegurando la integridad de datos y alto rendimiento. Priorizo el código limpio, testing e infraestructura eficiente.',
+    'about.title': 'Sobre Mí',
+    'about.p1': 'Me especializo en construir aplicaciones escalables utilizando React, TypeScript y Node.js, enfocándome en arquitecturas de alto rendimiento y código limpio. Potencio el desarrollo mediante herramientas de IA para acelerar ciclos y asegurar la excelencia técnica en todo el stack.',
+    'about.p2': 'Diseño sistemas robustos con foco en el manejo de estado complejo, SSR con Next.js y diseño de APIs escalables. Combino esta profundidad técnica con una mentalidad colaborativa, priorizando siempre el trabajo en equipo y las soluciones mantenibles.',
 
     // Projects
     'projects.label': 'Trabajos Seleccionados',
@@ -184,7 +184,7 @@ const translations = {
     'contact.subtitle': 'Desarrollador Full Stack?',
     'contact.desc': 'Ayudo a construir aplicaciones web escalables y de alto rendimiento utilizando stacks modernos de JavaScript.',
     'contact.status': 'Actualmente abierto a oportunidades freelance y full-time',
-    'resume.summary': 'Desarrollador Full Stack Senior especializado en arquitecturas frontend escalables y APIs de alto rendimiento. Historial probado en la construcción de sistemas mantenibles usando React, Node.js y TypeScript. Enfocado en calidad de código, testing y prácticas modernas de desarrollo.',
+    'resume.summary': 'Desarrollador Full Stack especialista en React, TypeScript y arquitecturas escalables en Node.js. Experto en crear sistemas de alto rendimiento potenciados por desarrollo asistido por IA. Comprometido con la excelencia técnica, el código limpio y el trabajo colaborativo en equipo.',
     'resume.download': 'Descargar PDF',
     'contact.cta': 'Hablemos de tu proyecto',
     'contact.socials': 'Conectar',
