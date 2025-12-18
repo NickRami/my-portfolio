@@ -7,6 +7,7 @@ interface AppContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   theme: Theme;
+  setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   t: (key: string) => any;
 }
@@ -225,7 +226,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AppContext.Provider value={{ language, setLanguage, theme, toggleTheme, t }}>
+    <AppContext.Provider value={{ language, setLanguage, theme, setTheme, toggleTheme, t }}>
       {children}
     </AppContext.Provider>
   );

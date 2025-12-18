@@ -59,14 +59,25 @@ body {
 
 @media print {
   @page {
-    margin: 1.5cm;
-    size: auto;
+    margin: 1.5cm 1.8cm;
+    size: A4;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   body {
     background: white !important;
-    color: black !important;
-    print-color-adjust: exact;
+    background-color: white !important;
+    color: #000000 !important;
+    
+    /* Force light theme variables */
+    --background: #ffffff !important;
+    --foreground: #000000 !important;
+    --muted: #f8fafc !important;
+    --muted-foreground: #64748b !important;
   }
 
   /* Hide navigation, buttons, and decorative elements */
@@ -79,47 +90,77 @@ body {
     min-height: auto !important;
   }
   
-  .max-w-4xl, .max-w-screen-2xl {
-    max-width: none !important;
+  .max-w-4xl {
+    max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
   }
   
-  .py-32, .pt-32, .pb-20, .mb-16, .mb-20, .my-12 {
-     padding-top: 0 !important;
-     padding-bottom: 2rem !important;
-     margin-bottom: 1.5rem !important;
-     margin-top: 1rem !important;
+  .py-32 {
+     padding: 0 !important;
   }
 
   /* Typography adjustments for print */
-  body, p, h1, h2, h3, h4, span, div {
-     color: #000 !important;
+  * {
+     color: #000000 !important;
      text-shadow: none !important;
   }
-
-  h1 { font-size: 2.5rem !important; margin-bottom: 0.5rem !important; }
-  h2 { font-size: 1.2rem !important; margin-bottom: 1rem !important; color: #444 !important; }
-  p { font-size: 0.95rem !important; line-height: 1.5 !important; }
-  li { font-size: 0.95rem !important; }
-
-  /* Ensure links are visible but not underlined aggressively if not needed */
-  a { text-decoration: none !important; color: #000 !important; }
   
-  /* Layout adjustments */
+  h1 { 
+    font-size: 3rem !important; 
+    margin-bottom: 0.5rem !important; 
+    letter-spacing: -0.025em !important;
+    line-height: 1.1 !important;
+  }
+  
+  h2 { 
+    font-size: 1.5rem !important; 
+    margin-bottom: 1rem !important; 
+    color: #b45309 !important;
+  }
+
+  p { 
+    font-size: 1rem !important; 
+    line-height: 1.6 !important; 
+    color: #334155 !important;
+  }
+  
+  li { 
+    font-size: 0.95rem !important; 
+    line-height: 1.5 !important;
+    color: #334155 !important;
+  }
+
+  /* Section Spacing - Increased for vertical distribution */
+  section {
+    break-inside: avoid;
+    margin-top: 1rem !important;
+    margin-bottom: 2.5rem !important;
+    page-break-inside: avoid;
+  }
+
+  /* Header Spacing */
+  .flex.justify-between.items-start {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Grid layouts */
   .grid-cols-2 {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 2rem !important;
   }
-  
-  /* Force clean breaks */
-  section {
-    break-inside: avoid;
-    margin-bottom: 2rem !important;
+
+  .grid-cols-4 {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.5rem !important;
   }
 
-  .print-break-after {
-     break-after: page;
+  /* Boxes and containers */
+  .bg-muted\/20 {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 1.5rem !important;
   }
 }

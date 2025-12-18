@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 export default function Resume() {
-  const { t } = useApp();
+  const { t, theme, setTheme } = useApp();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -75,7 +75,24 @@ export default function Resume() {
   ];
 
   const handlePrint = () => {
-    window.print();
+    const originalTheme = theme;
+    
+    // Switch to light theme for printing
+    if (theme === 'dark') {
+      setTheme('light');
+    }
+    
+    // Wait for theme to apply, then print
+    setTimeout(() => {
+      window.print();
+      
+      // Restore original theme after print dialog
+      setTimeout(() => {
+        if (originalTheme === 'dark') {
+          setTheme('dark');
+        }
+      }, 100);
+    }, 100);
   };
 
   return (
@@ -90,7 +107,7 @@ export default function Resume() {
 
        <Navbar />
 
-       <div className="max-w-4xl mx-auto px-6 md:px-12 py-32 relative z-10 print:py-0 print:px-0">
+       <div className="max-w-4xl mx-auto px-6 md:px-12 py-32 relative z-10 print:max-w-full print:px-0 print:py-0">
           
           <div className="mb-8 no-print">
              <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-yellow-400 transition-colors group">
@@ -99,67 +116,69 @@ export default function Resume() {
              </Link>
           </div>
 
-          <div className="flex justify-between items-start mb-12 print:mb-8 print:items-center">
-             <div>
-                <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-3 print:text-4xl text-pretty">Ramiro Silva</h1>
-                <h2 className="text-xl md:text-2xl text-yellow-500 font-semibold mb-6 print:text-lg print:text-black/70 print:mb-2">{t('hero.role')}</h2>
-                <p className="text-muted-foreground max-w-xl leading-relaxed text-lg print:text-sm print:leading-normal print:text-black">
+          <div className="flex justify-between items-start mb-10 print:mb-6">
+             <div className="flex-1">
+                <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2 text-pretty">Ramiro Silva</h1>
+                <h2 className="text-xl md:text-2xl text-yellow-500 font-semibold mb-6 print:mb-4">{t('hero.role')}</h2>
+                <p className="text-muted-foreground max-w-xl leading-relaxed text-lg print:text-base">
                     {t('resume.summary')}
                 </p>
              </div>
-             <div className="flex flex-col gap-3 items-end no-print">
+             <div className="flex items-center gap-4 no-print ml-4">
                 <button 
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-foreground text-background rounded-full font-medium hover:bg-yellow-400 hover:text-black transition-all shadow-lg hover:shadow-yellow-400/20"
+                  className="p-3 bg-muted/50 text-foreground rounded-full hover:bg-yellow-400 hover:text-black transition-all shadow-sm hover:shadow-yellow-400/20"
+                  title={t('resume.download')}
                 >
-                    <Download size={18} />
-                    {t('resume.download')}
+                    <Download size={22} />
                 </button>
-                <div className="flex gap-4 mt-2 text-muted-foreground">
-                    <a href="https://github.com/NickRami" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition-colors"><Github size={20} /></a>
-                    <a href="#" className="hover:text-yellow-400 transition-colors"><Globe size={20} /></a>
-                    <a href="mailto:ramisilva8@gmail.com" className="hover:text-yellow-400 transition-colors"><Mail size={20} /></a>
-                </div>
+                <div className="h-8 w-px bg-muted mx-1" />
+                <a href="https://github.com/NickRami" target="_blank" rel="noopener noreferrer" className="p-3 bg-muted/50 text-foreground rounded-full hover:bg-yellow-400 hover:text-black transition-all social-icon-btn"><Github size={22} /></a>
+                <a href="https://www.linkedin.com/in/ramiro-silva-333918231" target="_blank" rel="noopener noreferrer" className="p-3 bg-muted/50 text-foreground rounded-full hover:bg-yellow-400 hover:text-black transition-all social-icon-btn"><Linkedin size={22} /></a>
+                <a href="mailto:ramisilva8@gmail.com" className="p-3 bg-muted/50 text-foreground rounded-full hover:bg-yellow-400 hover:text-black transition-all social-icon-btn"><Mail size={22} /></a>
              </div>
           </div>
 
-          {/* Print only visible Modern Contact Header */}
-          <div className="hidden print:flex w-full items-center justify-between border-y border-black/10 py-4 mb-8">
-              <div className="flex items-center gap-2 text-black/80">
-                  <Mail size={16} /> 
-                  <span className="text-sm font-medium">ramisilva8@gmail.com</span>
+          {/* Print only visible Modern Contact Header - Refined & Aligned */}
+          <div className="hidden print:flex w-full items-center justify-center gap-8 border-y border-gray-200 py-3 mb-8 text-[11px] font-medium tracking-tight">
+              <div className="flex items-center gap-1.5 grayscale">
+                  <Mail size={12} className="text-gray-600" /> 
+                  <span className="text-gray-800">ramisilva8@gmail.com</span>
               </div>
-              <div className="flex items-center gap-2 text-black/80">
-                  <Globe size={16} /> 
-                  <span className="text-sm font-medium">my-portfolio-coral-nine-ssq2pgvs8x.vercel.app</span>
+              <div className="w-px h-3 bg-gray-300" />
+              <div className="flex items-center gap-1.5 grayscale">
+                  <Globe size={12} className="text-gray-600" /> 
+                  <span className="text-gray-800">my-portfolio-coral-nine-ssq2pgvs8x.vercel.app</span>
               </div>
-              <div className="flex items-center gap-2 text-black/80">
-                  <Linkedin size={16} /> 
-                  <span className="text-sm font-medium">linkedin.com/in/ramiro-silva-333918231</span>
+              <div className="w-px h-3 bg-gray-300" />
+              <div className="flex items-center gap-1.5 grayscale">
+                  <Linkedin size={12} className="text-gray-600" /> 
+                  <span className="text-gray-800">linkedin.com/in/ramiro-silva-333918231</span>
               </div>
           </div>
 
-          <div className="border-t border-muted my-12 print:my-6 print:border-black/20" />
+          <div className="border-t border-muted my-12 no-print" />
 
           {/* Experience */}
-          <section className="mb-16 print:mb-8">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8 flex items-center gap-3 print:mb-4 print:text-black/60 print:text-xs">
-                 <span className="w-4 h-4 rounded-full border border-yellow-400/50 block print:border-black/50"></span>
+          <section className="mb-16 print:mb-10">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
+                 <span className="w-4 h-4 rounded-full border-2 border-yellow-400 block print:border-amber-600"></span>
                  {t('experience.title')}
               </h3>
-              <div className="space-y-12 border-l border-muted ml-2 pl-8 print:border-black/20 print:space-y-6 print:pl-6">
+              <div className="space-y-12 border-l-2 border-muted ml-2 pl-8 print:space-y-6 print:pl-6 print:border-gray-200">
                   {experiences.map((exp, i) => (
                       <div key={i} className="relative break-inside-avoid">
-                          <span className="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-muted border-2 border-background group-hover:bg-yellow-400 transition-colors print:bg-black print:border-white print:-left-[29px]"></span>
-                          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2 print:mb-1">
-                              <h4 className="text-xl font-bold text-foreground print:text-black print:text-lg">{exp.company}</h4>
-                              <span className="text-sm font-mono text-muted-foreground print:text-black/70 print:text-xs font-semibold">{exp.date}</span>
+                          {/* Dot alignment: top-1.5 matches heading height for top alignment */}
+                          <span className="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-muted border-2 border-background group-hover:bg-yellow-400 transition-colors print:bg-amber-600 print:border-white print:-left-[29px]"></span>
+                          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2 print:mb-0.5">
+                              <h4 className="text-xl font-bold text-foreground print:text-lg">{exp.company}</h4>
+                              <span className="text-sm font-mono text-muted-foreground font-semibold print:text-gray-500">{exp.date}</span>
                           </div>
-                          <p className="text-yellow-500 font-medium text-sm mb-3 uppercase tracking-wide print:text-black/80 print:mb-2 print:text-xs">{exp.role}</p>
-                          <ul className="space-y-2 text-muted-foreground/90 leading-relaxed print:text-black print:space-y-1">
+                          <p className="text-yellow-500 font-medium text-sm mb-3 uppercase tracking-wide print:text-amber-700 print:mb-2">{exp.role}</p>
+                          <ul className="space-y-2 text-muted-foreground/90 leading-relaxed print:space-y-1">
                               {exp.bullets.map((b, idx) => (
-                                  <li key={idx} className="flex items-start gap-2 text-base print:text-xs">
-                                      <span className="mt-2.5 w-1 h-1 rounded-full bg-muted-foreground/50 shrink-0 print:bg-black/80 print:mt-1.5"></span>
+                                  <li key={idx} className="flex items-start gap-2 text-base print:text-sm">
+                                      <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-muted-foreground/50 shrink-0 print:bg-gray-400 print:mt-1.5"></span>
                                       {b}
                                   </li>
                               ))}
@@ -170,23 +189,23 @@ export default function Resume() {
           </section>
 
           {/* Projects */}
-          <section className="mb-16 print:mb-8 break-inside-avoid">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8 flex items-center gap-3 print:mb-4 print:text-black/60 print:text-xs">
-                 <span className="w-4 h-4 rounded-full border border-yellow-400/50 block print:border-black/50"></span>
+          <section className="mb-16 print:mb-10 break-inside-avoid">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
+                 <span className="w-4 h-4 rounded-full border-2 border-yellow-400 block print:border-amber-600"></span>
                  {t('projects.label')}
               </h3>
-              <div className="grid md:grid-cols-2 gap-6 print:gap-4">
+              <div className="grid md:grid-cols-2 gap-6 print:gap-4 print:grid-cols-2">
                   {projects.map((proj, i) => (
-                      <div key={i} className="p-6 rounded-2xl bg-muted/20 border border-muted/30 print:border print:border-black/10 print:bg-transparent print:p-4">
-                          <div className="flex justify-between items-start mb-3 print:mb-1">
+                      <div key={i} className="p-6 rounded-2xl bg-muted/20 border border-muted/30 print:bg-white print:p-4">
+                          <div className="flex justify-between items-start mb-3 print:mb-1.5">
                              <h4 className="text-lg font-bold print:text-base">{proj.title}</h4>
                           </div>
-                          <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 print:text-black print:text-xs print:mb-2 print:line-clamp-none">
+                          <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 print:mb-3 print:line-clamp-none">
                               {proj.description}
                           </p>
                           <div className="flex flex-wrap gap-2">
                               {proj.tech.map((t: string, idx: number) => (
-                                  <span key={idx} className="text-xs px-2 py-1 rounded bg-muted/50 text-muted-foreground/80 font-mono print:border print:border-black/20 print:bg-transparent print:text-black/70 print:p-0.5 print:px-1">
+                                  <span key={idx} className="text-xs px-2 py-1 rounded bg-muted/50 text-white/10 text-muted-foreground/80 font-mono print:bg-gray-100 print:text-gray-700 print:px-2 print:py-0.5">
                                       {t}
                                   </span>
                               ))}
@@ -198,17 +217,17 @@ export default function Resume() {
 
           {/* Skills */}
           <section className="break-inside-avoid">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8 flex items-center gap-3 print:mb-4 print:text-black/60 print:text-xs">
-                 <span className="w-4 h-4 rounded-full border border-yellow-400/50 block print:border-black/50"></span>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
+                 <span className="w-4 h-4 rounded-full border-2 border-yellow-400 block print:border-amber-600"></span>
                  {t('skills.subtitle')}
               </h3>
-              <div className="grid sm:grid-cols-2 gap-8 print:gap-4 print:grid-cols-4">
+              <div className="grid sm:grid-cols-2 gap-8 print:gap-6 print:grid-cols-4">
                   {skills.map((grp, i) => (
                       <div key={i}>
-                          <h4 className="text-base font-bold text-foreground mb-3 border-b border-muted/50 pb-2 print:text-sm print:text-black print:mb-1 print:pb-1 print:border-black/20">{grp.category}</h4>
-                          <div className="flex flex-wrap gap-x-4 gap-y-2 print:gap-x-2 print:gap-y-1">
+                          <h4 className="text-base font-bold text-foreground mb-4 border-b border-muted/50 pb-2 print:mb-2 print:pb-1.5 print:text-sm print:border-gray-200">{grp.category}</h4>
+                          <div className="flex flex-wrap gap-x-4 gap-y-2 print:flex-col print:gap-1">
                               {grp.items.map((item: string, idx: number) => (
-                                  <span key={idx} className="text-sm text-muted-foreground print:text-black print:text-xs">
+                                  <span key={idx} className="text-sm text-muted-foreground print:text-xs print:text-gray-700">
                                       {item}
                                   </span>
                               ))}
