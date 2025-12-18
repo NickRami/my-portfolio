@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Download, Mail, Github, Globe, ArrowLeft, Linkedin } from "lucide-react";
+import { Download, Mail, Github, Globe, ArrowLeft, Linkedin, ExternalLink, ArrowUpRight } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
@@ -15,6 +15,12 @@ export default function Resume() {
     window.addEventListener("mousemove", updateMousePosition);
     return () => window.removeEventListener("mousemove", updateMousePosition);
   }, []);
+
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
+
+  const getPreviewUrl = (url: string) => {
+    return `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url&screenshot.waitFor=5000&viewport.width=1440&viewport.height=900`;
+  };
 
   const experiences = [
     {
@@ -51,19 +57,25 @@ export default function Resume() {
 
   const projects = [
     {
+      id: 1,
       title: t('project.1.title'),
       description: t('project.1.desc'),
-      tech: t('project.1.tech')
+      tech: t('project.1.tech'),
+      url: 'https://cine-scope-cyan.vercel.app/'
     },
     {
+      id: 2,
       title: t('project.2.title'),
       description: t('project.2.desc'),
-      tech: t('project.2.tech')
+      tech: t('project.2.tech'),
+      url: 'https://poke-juego.vercel.app/'
     },
     {
+      id: 3,
       title: t('project.3.title'),
       description: t('project.3.desc'),
-      tech: t('project.3.tech')
+      tech: t('project.3.tech'),
+      url: 'https://cursor-calendary.vercel.app/'
     }
   ];
 
@@ -190,29 +202,63 @@ export default function Resume() {
 
           {/* Projects */}
           <section className="mb-16 print:mb-10 break-inside-avoid">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
-                 <span className="w-4 h-4 rounded-full border-2 border-yellow-400 block print:border-amber-600"></span>
-                 {t('projects.label')}
-              </h3>
-              <div className="grid md:grid-cols-2 gap-6 print:gap-4 print:grid-cols-2">
-                  {projects.map((proj, i) => (
-                      <div key={i} className="p-6 rounded-2xl bg-muted/20 border border-muted/30 print:bg-white print:p-4">
-                          <div className="flex justify-between items-start mb-3 print:mb-1.5">
-                             <h4 className="text-lg font-bold print:text-base">{proj.title}</h4>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 print:mb-3 print:line-clamp-none">
-                              {proj.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                              {proj.tech.map((t: string, idx: number) => (
-                                  <span key={idx} className="text-xs px-2 py-1 rounded bg-muted/50 text-white/10 text-muted-foreground/80 font-mono print:bg-gray-100 print:text-gray-700 print:px-2 print:py-0.5">
-                                      {t}
-                                  </span>
-                              ))}
-                          </div>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-10 flex items-center gap-3 print:mb-6">
+              <span className="w-4 h-4 rounded-full border-2 border-yellow-400 block print:border-amber-600"></span>
+              {t('projects.label')}
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8 print:gap-4 print:grid-cols-2">
+              {projects.map((proj, i) => (
+                <a 
+                  key={i} 
+                  href={proj.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col rounded-2xl overflow-hidden bg-muted/20 border border-muted/30 hover:border-yellow-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/5 print:bg-white print:border-gray-200 print:shadow-none print:hover:border-gray-200"
+                >
+                  {/* Image Preview - Screen Only */}
+                  <div className="relative aspect-[16/9] overflow-hidden bg-muted no-print">
+                    {imageErrors[proj.id] ? (
+                      <div className="w-full h-full bg-gradient-to-br from-muted/50 to-muted flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
+                        <span className="text-3xl mb-2 opacity-50">✨</span>
+                        <h4 className="font-semibold text-muted-foreground text-xs">{proj.title}</h4>
                       </div>
-                  ))}
-              </div>
+                    ) : (
+                      <img
+                        src={getPreviewUrl(proj.url)}
+                        alt={proj.title}
+                        onError={() => setImageErrors(prev => ({ ...prev, [proj.id]: true }))}
+                        className="w-full h-full object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-110"
+                      />
+                    )}
+                    {/* Overlay - Unified with Home */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-[2px]">
+                      <div className="flex items-center gap-2 text-white text-xs font-medium translate-y-2 group-hover:translate-y-0 transition-transform duration-300 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20">
+                        <span>{t('project.actions.visit')}</span>
+                        <ArrowUpRight size={14} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex-1 flex flex-col print:p-0">
+                    <div className="flex justify-between items-start mb-3 print:mb-1.5">
+                      <h4 className="text-lg font-bold group-hover:text-yellow-400 transition-colors print:text-base print:group-hover:text-black">{proj.title}</h4>
+                      <ExternalLink size={16} className="text-muted-foreground group-hover:text-yellow-400 transition-colors no-print" />
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed line-clamp-2 group-hover:text-foreground/80 transition-colors print:mb-3 print:line-clamp-none print:text-gray-700">
+                      {proj.description}
+                    </p>
+                    <div className="mt-auto flex flex-wrap gap-2">
+                      {proj.tech.map((techItem: string, idx: number) => (
+                        <span key={idx} className="text-[10px] px-2 py-1 rounded-md bg-muted/50 border border-muted-foreground/10 text-muted-foreground font-mono transition-colors group-hover:bg-yellow-400/10 group-hover:text-yellow-500 print:bg-gray-100 print:text-gray-700 print:border-gray-200 print:px-2 print:py-0.5">
+                          {techItem}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </section>
 
           {/* Skills */}
