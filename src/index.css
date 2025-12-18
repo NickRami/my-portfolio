@@ -56,3 +56,70 @@ body {
     text-wrap: balance;
   }
 }
+
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: auto;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    print-color-adjust: exact;
+  }
+
+  /* Hide navigation, buttons, and decorative elements */
+  nav, footer, button, .pointer-events-none, .no-print {
+    display: none !important;
+  }
+
+  /* Reset layout constraints for print */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+  
+  .max-w-4xl, .max-w-screen-2xl {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .py-32, .pt-32, .pb-20, .mb-16, .mb-20, .my-12 {
+     padding-top: 0 !important;
+     padding-bottom: 2rem !important;
+     margin-bottom: 1.5rem !important;
+     margin-top: 1rem !important;
+  }
+
+  /* Typography adjustments for print */
+  body, p, h1, h2, h3, h4, span, div {
+     color: #000 !important;
+     text-shadow: none !important;
+  }
+
+  h1 { font-size: 2.5rem !important; margin-bottom: 0.5rem !important; }
+  h2 { font-size: 1.2rem !important; margin-bottom: 1rem !important; color: #444 !important; }
+  p { font-size: 0.95rem !important; line-height: 1.5 !important; }
+  li { font-size: 0.95rem !important; }
+
+  /* Ensure links are visible but not underlined aggressively if not needed */
+  a { text-decoration: none !important; color: #000 !important; }
+  
+  /* Layout adjustments */
+  .grid-cols-2 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  /* Force clean breaks */
+  section {
+    break-inside: avoid;
+    margin-bottom: 2rem !important;
+  }
+
+  .print-break-after {
+     break-after: page;
+  }
+}

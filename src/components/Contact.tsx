@@ -16,7 +16,7 @@ export default function Contact() {
                  </p>
                  
                  <div className="flex flex-col gap-4 pt-4">
-                    <a href="mailto:ramiro@example.com?subject=Job Opportunity - Full Stack Developer" className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold hover:text-yellow-400 transition-colors w-fit group">
+                    <a href="mailto:ramisilva8@gmail.com?subject=Job Opportunity - Full Stack Developer" className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold hover:text-yellow-400 transition-colors w-fit group">
                         {t('contact.cta')} <ArrowRight size={28} className="group-hover:translate-x-2 transition-transform duration-300" />
                     </a>
                     <div className="flex items-center gap-2 text-sm text-green-500/90 font-medium bg-green-500/5 px-3 py-1.5 rounded-full w-fit">
@@ -32,13 +32,13 @@ export default function Contact() {
             <div className="flex flex-col gap-6 md:items-end">
                <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground hidden md:block">{t('contact.socials')}</span>
                <div className="flex gap-4">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-muted/30 hover:bg-muted text-foreground transition-all hover:scale-110 hover:text-[#0A66C2]" title="LinkedIn">
+                  <a href="https://www.linkedin.com/in/ramiro-silva-333918231" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-muted/30 hover:bg-muted text-foreground transition-all hover:scale-110 hover:text-[#0A66C2]" title="LinkedIn">
                     <Linkedin size={28} />
                   </a>
                   <a href="https://github.com/NickRami" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-muted/30 hover:bg-muted text-foreground transition-all hover:scale-110 hover:text-white" title="GitHub">
                     <Github size={28} />
                   </a>
-                  <a href="mailto:ramiro@example.com?subject=Job Opportunity - Full Stack Developer" className="p-4 rounded-full bg-muted/30 hover:bg-muted text-foreground transition-all hover:scale-110 hover:text-yellow-400" title="Email">
+                  <a href="mailto:ramisilva8@gmail.com?subject=Job Opportunity - Full Stack Developer" className="p-4 rounded-full bg-muted/30 hover:bg-muted text-foreground transition-all hover:scale-110 hover:text-yellow-400" title="Email">
                     <Mail size={28} />
                   </a>
                </div>

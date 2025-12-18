@@ -45,6 +45,8 @@ const translations = {
     'project.1.desc': 'Frontend application for exploring movies. Solved the challenge of efficiently consuming external APIs and managing large datasets by implementing a reusable component architecture, ensuring a clean UI and fluid navigation.',
     'project.2.title': 'Pokémon Battle Game',
     'project.2.desc': 'Interactive web game logic entirely on the frontend. Focused on decoupling game state from UI rendering to ensure easy testability and clean separation of concerns.',
+    'project.3.title': 'Cursor Calendar',
+    'project.3.desc': 'Modern calendar application with drag-and-drop functionality. Built to demonstrate advanced state management and complex interactions in a React environment.',
     
     // Experience
     'experience.title': 'Professional Experience',
@@ -82,6 +84,7 @@ const translations = {
     // Project Tech
     'project.1.tech': ["React", "Rest API", "Component Architecture", "CSS"],
     'project.2.tech': ["JavaScript", "Game Logic", "DOM Manipulation", "State Management"],
+    'project.3.tech': ["React", "Date Logic", "Drag & Drop", "Tailwind CSS"],
     'projects.subtitle': 'Explore these live projects. Hover for details and click to visit.',
     'project.actions.visit': 'Visit Website',
     'project.preview.unavailable': 'Preview not available',
@@ -134,6 +137,8 @@ const translations = {
     'project.1.desc': 'Aplicación frontend para exploración de películas. Resolví el desafío de consumir APIs externas eficientemente mediante una arquitectura de componentes reutilizables.',
     'project.2.title': 'Juego Pokémon',
     'project.2.desc': 'Juego web interactivo con lógica en el frontend. Enfoque en desacoplar el estado del juego de la renderización UI para facilitar mantenibilidad y separación de responsabilidades.',
+    'project.3.title': 'Cursor Calendar',
+    'project.3.desc': 'Aplicación de calendario moderna con funcionalidad drag-and-drop. Construida para demostrar manejo avanzado de estado e interacciones complejas en React.',
 
     // Experience
     'experience.title': 'Experiencia Profesional',
@@ -171,6 +176,7 @@ const translations = {
     // Project Tech
     'project.1.tech': ["React", "Rest API", "Arquitectura de Componentes", "CSS"],
     'project.2.tech': ["JavaScript", "Lógica de Juego", "Manipulación del DOM", "Manejo de Estado"],
+    'project.3.tech': ["React", "Lógica de Fechas", "Drag & Drop", "Tailwind CSS"],
 
     // Contact
     'contact.title': '¿Buscas un',
