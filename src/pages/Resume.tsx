@@ -219,7 +219,26 @@ export default function Resume() {
                 >
                   {/* Image Preview - Screen Only */}
                   <div className="relative aspect-[16/9] overflow-hidden bg-muted no-print">
-                    {/* Image Content */}
+                    {imageErrors[proj.id] ? (
+                      <div className="w-full h-full bg-gradient-to-br from-muted/50 to-muted flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
+                        <span className="text-3xl mb-2 opacity-50">✨</span>
+                        <h4 className="font-semibold text-muted-foreground text-xs">{proj.title}</h4>
+                      </div>
+                    ) : (
+                      <img
+                        src={getPreviewUrl(proj.url)}
+                        alt={proj.title}
+                        onError={() => setImageErrors(prev => ({ ...prev, [proj.id]: true }))}
+                        className="w-full h-full object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-110"
+                      />
+                    )}
+                    {/* Overlay - Unified with Home */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-[2px]">
+                      <div className="flex items-center gap-2 text-white text-xs font-medium translate-y-2 group-hover:translate-y-0 transition-transform duration-300 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20">
+                        <span>{t('project.actions.visit')}</span>
+                        <ArrowUpRight size={14} />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Content */}
