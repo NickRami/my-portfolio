@@ -28,7 +28,7 @@ export default function Skills() {
             <Cpu size={20} />
           </span>
           <h2 className="text-2xl md:text-3xl font-medium">
-            Technical Expertise
+            {t('skills.title')}
           </h2>
         </div>
 

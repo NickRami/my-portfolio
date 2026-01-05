@@ -10,36 +10,7 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
-  // Tech Stack Data structure for the Exploded View
-  const layers = [
-    {
-      id: 'frontend',
-      title: 'Frontend Arch',
-      icon: Layout,
-      color: 'from-blue-500/20 to-blue-600/20',
-      border: 'border-blue-500/30',
-      text: 'text-blue-400',
-      items: ['React 19', 'Next.js 15', 'Tailwind v4', 'Framer Motion']
-    },
-    {
-      id: 'backend',
-      title: 'Backend Systems',
-      icon: Terminal,
-      color: 'from-purple-500/20 to-purple-600/20',
-      border: 'border-purple-500/30',
-      text: 'text-purple-400',
-      items: ['Node.js', 'NestJS', 'GraphQL', 'Redis']
-    },
-    {
-      id: 'data',
-      title: 'Data & Infra',
-      icon: Database,
-      color: 'from-emerald-500/20 to-emerald-600/20',
-      border: 'border-emerald-500/30',
-      text: 'text-emerald-400',
-      items: ['PostgreSQL', 'Docker', 'AWS', 'CI/CD']
-    }
-  ];
+
 
   return (
     <section
@@ -73,7 +44,7 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="font-display text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1] text-balance">
-            Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Digital Products</span> that Scale.
+            {t('hero.title.start')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">{t('hero.title.highlight')}</span> {t('hero.title.end')}
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light max-w-xl mx-auto lg:mx-0 text-balance">
@@ -83,10 +54,10 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <a href="#projects" className="px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg hover:bg-yellow-400 hover:text-black transition-all shadow-lg hover:shadow-yellow-400/20 flex items-center justify-center gap-2 group">
-            View Work <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            {t('hero.cta.work')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a href={language === 'es' ? "/curriculum" : "/resume"} className="px-8 py-4 rounded-full border border-muted-foreground/20 hover:bg-muted/10 hover:border-foreground/50 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
-            <FileUser size={20} /> {language === 'es' ? 'Ver Curriculum' : 'View Resume'}
+            <FileUser size={20} /> {t('hero.cta.resume')}
           </a>
         </div>
 
@@ -94,15 +65,15 @@ export default function Hero() {
         <div className="mt-12 pt-8 border-t border-muted/50 flex items-center justify-center lg:justify-start gap-8 text-muted-foreground">
           <div className="flex items-center gap-2">
             <Code2 size={20} className="text-yellow-500" />
-            <span className="text-sm font-medium">Clean Code</span>
+            <span className="text-sm font-medium">{t('hero.features.clean')}</span>
           </div>
           <div className="flex items-center gap-2">
             <Cpu size={20} className="text-yellow-500" />
-            <span className="text-sm font-medium">High Perf</span>
+            <span className="text-sm font-medium">{t('hero.features.perf')}</span>
           </div>
           <div className="flex items-center gap-2">
             <Server size={20} className="text-yellow-500" />
-            <span className="text-sm font-medium">Scalable</span>
+            <span className="text-sm font-medium">{t('hero.features.scale')}</span>
           </div>
         </div>
       </motion.div>
@@ -183,7 +154,7 @@ export default function Hero() {
           >
             <div className="bg-[#0D0D0D]/90 backdrop-blur-md border border-white/10 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
               <div className="flex items-center justify-between mb-3 border-b border-white/5 pb-2">
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">Client Layer</span>
+                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.client')}</span>
                 <Layout size={12} className="text-blue-400" />
               </div>
               {/* Real Code Snippet Representation */}
@@ -214,7 +185,7 @@ export default function Hero() {
           >
             <div className="bg-[#0D0D0D]/90 backdrop-blur-md border border-white/10 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
               <div className="flex items-center justify-between mb-3 border-b border-white/5 pb-2">
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">API Layer</span>
+                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.api')}</span>
                 <Terminal size={12} className="text-purple-400" />
               </div>
               <div className="space-y-1.5 font-mono text-[9px] md:text-[10px] text-muted-foreground/60 leading-tight">
@@ -260,7 +231,7 @@ export default function Hero() {
               <Cpu size={32} className="text-foreground/80 md:w-[40px] md:h-[40px] relative z-10" />
 
               <div className="absolute -bottom-10 whitespace-nowrap px-2 py-1 rounded bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-[10px] font-mono text-yellow-500 tracking-widest uppercase">System Core</span>
+                <span className="text-[10px] font-mono text-yellow-500 tracking-widest uppercase">{t('hero.layer.core')}</span>
               </div>
             </div>
           </motion.div>
@@ -282,11 +253,11 @@ export default function Hero() {
 
               <div className="grid grid-cols-2 gap-2 text-center">
                 <div className="bg-white/5 rounded p-1.5 border border-white/5">
-                  <div className="text-[9px] text-muted-foreground font-mono mb-0.5">Uptime</div>
+                  <div className="text-[9px] text-muted-foreground font-mono mb-0.5">{t('hero.stats.uptime')}</div>
                   <div className="text-[10px] text-green-400 font-mono font-bold">99.99%</div>
                 </div>
                 <div className="bg-white/5 rounded p-1.5 border border-white/5">
-                  <div className="text-[9px] text-muted-foreground font-mono mb-0.5">Latency</div>
+                  <div className="text-[9px] text-muted-foreground font-mono mb-0.5">{t('hero.stats.latency')}</div>
                   <div className="text-[10px] text-yellow-400 font-mono font-bold">24ms</div>
                 </div>
               </div>

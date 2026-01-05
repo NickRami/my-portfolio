@@ -1,85 +1,92 @@
 import { motion } from "framer-motion";
 import { useApp } from "../context/AppContext";
-import { Briefcase } from "lucide-react";
+import { GitCommit, GitPullRequest, Calendar } from "lucide-react";
 
 export default function Experience() {
   const { t } = useApp();
+
+  // Helper to safely get bullets
+  const getBullets = (key: string) => {
+    const items = t(key);
+    return Array.isArray(items) ? items : [];
+  };
 
   const experiences = [
     {
       company: t('experience.constructora.company'),
       role: t('experience.constructora.role'),
       date: t('experience.constructora.date'),
-      bullets: [
-        t('experience.constructora.b1'),
-        t('experience.constructora.b2'),
-        t('experience.constructora.b3')
-      ]
+      bullets: getBullets('experience.constructora.bullets')
     },
     {
       company: t('experience.labitec.company'),
       role: t('experience.labitec.role'),
       date: t('experience.labitec.date'),
-      bullets: [
-        t('experience.labitec.b1'),
-        t('experience.labitec.b2'),
-        t('experience.labitec.b3')
-      ]
+      bullets: getBullets('experience.labitec.bullets')
     },
     {
       company: t('experience.quorum.company'),
       role: t('experience.quorum.role'),
       date: t('experience.quorum.date'),
-      bullets: [
-        t('experience.quorum.b1'),
-        t('experience.quorum.b2'),
-        t('experience.quorum.b3')
-      ]
+      bullets: getBullets('experience.quorum.bullets')
     }
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
-      <div className="mb-20 flex items-center gap-3">
-         <div className="p-2 rounded-lg bg-yellow-400/10 text-yellow-400">
-            <Briefcase size={24} />
-         </div>
-         <h3 className="text-3xl md:text-4xl font-medium">{t('experience.title')}</h3>
-      </div>
-      
-      <div className="relative border-l border-muted ml-3 md:ml-4 space-y-16">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative pl-8 md:pl-12 group"
-          >
-            {/* Timeline Dot */}
-            <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-yellow-400 ring-4 ring-background group-hover:ring-yellow-400/20 transition-all duration-300" />
-            
-            <div className="flex flex-col mb-4">
-                <div className="flex flex-wrap justify-between items-baseline gap-2">
-                    <span className="text-xl md:text-2xl font-bold text-foreground mb-1">{exp.company}</span>
-                    <span className="text-xs md:text-sm font-medium text-yellow-500/90 bg-yellow-400/10 px-3 py-1 rounded-full whitespace-nowrap">
-                        {exp.date}
-                    </span>
+    <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-white/5">
+
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="flex items-center gap-3 mb-16">
+          <span className="p-2 rounded bg-yellow-500/10 text-yellow-500">
+            <GitCommit size={20} />
+          </span>
+          <h2 className="text-2xl md:text-3xl font-medium">
+            {t('experience.title')}
+          </h2>
+        </div>
+
+        {/* Timeline "Git Log" Style */}
+        <div className="relative space-y-12">
+          {/* Vertical Line Gradient */}
+          <div className="absolute left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-yellow-500/50 via-white/10 to-transparent md:left-[11px]" />
+
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="relative pl-10 md:pl-12 group"
+            >
+              {/* Node/Dot */}
+              <div className="absolute left-0 top-1.5 h-6 w-6 rounded-full bg-[#0A0A0A] border border-white/20 flex items-center justify-center group-hover:border-yellow-500/50 group-hover:scale-110 transition-all duration-300 z-10">
+                <div className="h-2 w-2 rounded-full bg-white/20 group-hover:bg-yellow-500 transition-colors" />
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
+                <h3 className="text-xl font-bold text-foreground">
+                  {exp.role} <span className="text-muted-foreground font-normal">@ {exp.company}</span>
+                </h3>
+                <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground bg-white/5 px-2 py-1 rounded">
+                  <Calendar size={12} className="opacity-70" />
+                  {exp.date}
                 </div>
-                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{exp.role}</span>
-            </div>
-            
-            <ul className="space-y-2">
-                {exp.bullets.map((bullet, i) => (
-                    <li key={i} className="text-muted-foreground/90 text-base md:text-lg flex items-start leading-relaxed">
-                        <span className="mr-3 mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400/60 shrink-0" />
-                        {bullet}
-                    </li>
+              </div>
+
+              <div className="space-y-3">
+                {exp.bullets.map((bullet: string, i: number) => (
+                  <div key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed hover:text-foreground transition-colors">
+                    <GitPullRequest size={16} className="shrink-0 mt-0.5 opacity-30 group-hover:opacity-100 group-hover:text-yellow-500 transition-opacity" />
+                    <span>{bullet}</span>
+                  </div>
                 ))}
-            </ul>
-          </motion.div>
-        ))}
+              </div>
+
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
