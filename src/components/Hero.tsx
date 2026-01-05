@@ -8,7 +8,7 @@ export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
 
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+
 
 
 
@@ -80,7 +80,8 @@ export default function Hero() {
 
       {/* RIGHT CONTENT: System Architecture Blueprint */}
       <motion.div
-        style={{ y: y1 }}
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="flex-1 w-full h-[400px] lg:h-[600px] relative flex items-center justify-center mt-12 lg:mt-0"
       >
         {/* Central Architecture Node */}

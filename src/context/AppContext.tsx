@@ -42,6 +42,17 @@ const translations = {
     'hero.tech.backend': 'System Design',
     'hero.tech.database': 'Data Strategy',
     'hero.tech.devops': 'DevOps & CI/CD',
+    // Hero Features - Refined
+    'hero.features.clean': 'Clean Architecture',
+    'hero.features.perf': 'High Performance',
+    'hero.features.scale': 'Scalability',
+
+    // Hero Layers - Refined
+    'hero.layer.client': 'Client Layer',
+    'hero.layer.api': 'API Layer',
+    'hero.layer.core': 'Core Engine',
+    'hero.stats.uptime': 'Uptime',
+    'hero.stats.latency': 'Latency',
     'hero.title.start': 'Building ',
     'hero.title.highlight': 'Digital Products',
     'hero.title.end': ' that Scale.',
@@ -152,12 +163,12 @@ const translations = {
     'hero.cta.resume': 'Ver CV',
     'hero.layer.client': 'Capa Cliente',
     'hero.layer.api': 'Capa API',
-    'hero.layer.core': 'Núcleo',
+    'hero.layer.core': 'Núcleo del Sistema', // More formal than just "Núcleo"
     'hero.stats.uptime': 'Uptime',
     'hero.stats.latency': 'Latencia',
-    'hero.features.clean': 'Código Limpio',
+    'hero.features.clean': 'Arquitectura Limpia', // Matches "Clean Architecture"
     'hero.features.perf': 'Alto Rendimiento',
-    'hero.features.scale': 'Escalable',
+    'hero.features.scale': 'Escalabilidad', // Noun matching "Scalability"
 
     // About
     'about.title': 'Sobre Mí',
