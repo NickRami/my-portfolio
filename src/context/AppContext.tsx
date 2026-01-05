@@ -101,17 +101,18 @@ const translations = {
       'Ensured system stability through rigorous testing practices.'
     ],
 
-    // Skills
-    'skills.title': 'Expertise',
-    'skills.subtitle': 'Technical Toolkit',
-    'skills.frontend': 'Frontend Ecosystem',
-    'skills.backend': 'Backend & Systems',
-    'skills.data': 'Data & Infrastructure',
-    'skills.practices': 'Engineering Standards',
-    'skills.frontend.items': ["React", "TypeScript", "Next.js", "Zustand/Redux", "Tailwind CSS"],
-    'skills.backend.items': ["Node.js", "Express/NestJS", "PostgreSQL", "REST/GraphQL", "Auth Systems"],
-    'skills.data.items': ["Docker", "Redis", "AWS Services", "Prisma ORM", "CI/CD Pipelines"],
-    'skills.practices.items': ["Clean Architecture", "TDD", "Git Flow", "System Design", "Agile/Scrum"],
+    // Skills - Senior/Product Profile
+    'skills.title': 'Tech Stack',
+    'skills.subtitle': 'Technical Mastery',
+    'skills.frontend': 'Modern Frontend & UI',
+    'skills.backend': 'Backend & Architecture',
+    'skills.data': 'Cloud & Infrastructure',
+    'skills.practices': 'Engineering Quality',
+
+    'skills.frontend.items': ["React / Next.js", "Advanced TypeScript", "Tailwind + Motion", "State Management"],
+    'skills.backend.items': ["Node.js / NestJS", "API Design (REST/GraphQL)", "SQL/NoSQL Databases", "Auth & Security"],
+    'skills.data.items': ["Docker & Containers", "CI/CD Pipelines", "AWS Services", "Performance Optimization"],
+    'skills.practices.items': ["Clean Architecture", "Code Review & Git Flow", "Testing (Unit/E2E)", "Agile Methodologies"],
 
     // Contact
     'contact.title': 'Ready to',
@@ -211,17 +212,19 @@ const translations = {
       'Aseguramiento la estabilidad del sistema mediante prácticas rigurosas de testing.'
     ],
 
-    // Skills
-    'skills.title': 'Competencias',
-    'skills.subtitle': 'Toolkit Técnico',
-    'skills.frontend': 'Ecosistema Frontend',
-    'skills.backend': 'Backend y Sistemas',
-    'skills.data': 'Data e Infraestructura',
-    'skills.practices': 'Estándares de Ingeniería',
-    'skills.frontend.items': ["React", "TypeScript", "Next.js", "Gestión de Estado", "Tailwind CSS"],
-    'skills.backend.items': ["Node.js", "Express/NestJS", "PostgreSQL", "REST/GraphQL", "Auth"],
-    'skills.data.items': ["Docker", "Redis", "AWS / Cloud", "Prisma ORM", "CI/CD"],
-    'skills.practices.items': ["Clean Architecture", "TDD", "Git Flow", "Diseño de Sistemas", "Agile"],
+    // Skills - Refinado para perfil Senior/Product
+    'skills.title': 'Stack Tecnológico',
+    'skills.subtitle': 'Dominio Técnico',
+    'skills.frontend': 'Frontend & UI Moderno',
+    'skills.backend': 'Backend & Arquitectura',
+    'skills.data': 'Infraestructura & Cloud',
+    'skills.practices': 'Calidad de Ingeniería',
+
+    // Items - Mezcla balanceada de Inglés técnico (estándar) y español funcional
+    'skills.frontend.items': ["React / Next.js", "TypeScript Avanzado", "Tailwind + Motion", "Gestión de Estado"],
+    'skills.backend.items': ["Node.js / NestJS", "Diseño de APIs (REST/GraphQL)", "Base de Datos SQL/NoSQL", "Auth & Seguridad"],
+    'skills.data.items': ["Docker & Contenedores", "CI/CD Pipelines", "Servicios AWS", "Optimización de Rendimiento"],
+    'skills.practices.items': ["Clean Architecture", "Code Review & Git Flow", "Testing (Unit/E2E)", "Metodologías Ágiles"],
 
     // Contact
     'contact.title': '¿Listo para',
