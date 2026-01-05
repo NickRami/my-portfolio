@@ -86,30 +86,30 @@ const translations = {
     // Experience (Arrays for "Career Changelog")
     'experience.title': 'Career History',
     'experience.constructora.company': 'Constructora',
-    'experience.constructora.role': 'Lead Full Stack Dev',
+    'experience.constructora.role': 'Full Stack Developer',
     'experience.constructora.date': '2025 - Present',
     'experience.constructora.bullets': [
-      'Leading the development of internal administrative dashboards to optimize operational workflows.',
-      'Designing scalable system architectures focusing on long-term maintainability.',
-      'Automating internal processes through custom web tools, reducing manual data entry by 40%.'
+      'Building and maintaining administrative dashboards that streamline internal operational workflows.',
+      'Designing and implementing end-to-end features, from database modeling to client-side state management.',
+      'Automating manual processes through custom web tools, increasing overall team efficiency.'
     ],
 
     'experience.labitec.company': 'Labitec Marketing',
     'experience.labitec.role': 'Full Stack Developer',
-    'experience.labitec.date': '2023 - 2024',
+    'experience.labitec.date': '2024',
     'experience.labitec.bullets': [
-      'Architected and maintained business-critical web applications for digital transformation.',
-      'Developed scalable RESTful APIs and responsive React interfaces ensuring 99.9% uptime.',
-      'Standardized component libraries to boost development speed and ensure consistency.'
+      'Developed robust full-stack web applications, integrating responsive UIs with scalable RESTful APIs.',
+      'Implemented reusable component libraries and optimized database queries for better performance.',
+      'Collaborated with cross-functional teams to translate business requirements into technical solutions.'
     ],
 
     'experience.quorum.company': 'Quorum',
-    'experience.quorum.role': 'Software Developer',
+    'experience.quorum.role': 'Junior Software Developer',
     'experience.quorum.date': '2023',
     'experience.quorum.bullets': [
-      ' delivered full-stack features for legacy system modernization projects.',
-      'Refactored critical codebases to improve performance and readability.',
-      'Ensured system stability through rigorous testing practices.'
+      'Collaborated on the modernization of legacy systems, implementing specific frontend and backend features.',
+      'Assisted in refactoring code modules to improve readability and reduce technical debt under guidance.',
+      'Participated in testing processes to identify and resolve bugs, contributing to system stability.'
     ],
 
     // Skills - Senior/Product Profile
@@ -197,30 +197,30 @@ const translations = {
     // Experience (Arrays)
     'experience.title': 'Historial Profesional',
     'experience.constructora.company': 'Constructora',
-    'experience.constructora.role': 'Líder Técnico Full Stack',
+    'experience.constructora.role': 'Desarrollador Full Stack',
     'experience.constructora.date': '2025 - Presente',
     'experience.constructora.bullets': [
-      'Lidero el desarrollo de dashboards administrativos internos para optimizar flujos operativos.',
-      'Diseño arquitecturas de sistemas escalables enfocadas en mantenibilidad a largo plazo.',
-      'Automatizo procesos internos mediante herramientas web personalizadas, reduciendo carga manual.'
+      'Construyo y mantengo dashboards administrativos que optimizan los flujos de trabajo operativos internos.',
+      'Diseño e implemento funcionalidades end-to-end, desde el modelado de datos hasta la gestión de estado.',
+      'Automatizo procesos manuales mediante herramientas web propias, mejorando la eficiencia general del equipo.'
     ],
 
     'experience.labitec.company': 'Labitec Marketing',
     'experience.labitec.role': 'Desarrollador Full Stack',
-    'experience.labitec.date': '2023 - 2024',
+    'experience.labitec.date': '2024',
     'experience.labitec.bullets': [
-      'Arquitectura y mantenimiento de aplicaciones web críticas para la transformación digital del negocio.',
-      'Desarrollo de APIs RESTful escalables e interfaces React responsivas con 99.9% de uptime.',
-      'Estandarización de librerías de componentes para acelerar el desarrollo y asegurar consistencia.'
+      'Desarrollé aplicaciones web full-stack robustas, integrando interfaces responsivas con APIs RESTful escalables.',
+      'Implementé librerías de componentes reutilizables y optimicé consultas a bases de datos para mayor rendimiento.',
+      'Colaboré con equipos multidisciplinarios para transformar requerimientos de negocio en soluciones técnicas.'
     ],
 
     'experience.quorum.company': 'Quorum',
-    'experience.quorum.role': 'Desarrollador de Software',
+    'experience.quorum.role': 'Desarrollador Junior',
     'experience.quorum.date': '2023',
     'experience.quorum.bullets': [
-      'Desarrollo funcionalidades full-stack para proyectos de modernización de sistemas legacy.',
-      'Refactorización de código crítico para mejorar rendimiento, legibilidad y reducir deuda técnica.',
-      'Aseguramiento la estabilidad del sistema mediante prácticas rigurosas de testing.'
+      'Colaboré en la modernización de sistemas legacy, implementando funcionalidades específicas en frontend y backend.',
+      'Asistí en la refactorización de módulos de código para mejorar la legibilidad bajo supervisión técnica.',
+      'Participé en procesos de testing para identificar y resolver errores, contribuyendo a la estabilidad del sistema.'
     ],
 
     // Skills - Refinado para perfil Senior/Product
