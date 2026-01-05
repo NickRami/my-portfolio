@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Code2, Server, Database, FileUser, Layout, Terminal, Cpu, Cloud } from "lucide-react";
 import { useApp } from "../context/AppContext";
 
@@ -7,7 +7,7 @@ export default function Hero() {
   const { t, language, devMode } = useApp();
   const containerRef = useRef<HTMLElement>(null);
 
-  const { scrollY } = useScroll();
+
 
 
 
