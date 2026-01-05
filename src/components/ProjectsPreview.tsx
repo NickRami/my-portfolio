@@ -9,26 +9,26 @@ interface Project {
 }
 
 const projects: Project[] = [
-  { 
-    id: 1, 
-    title: 'Cine Scope', 
-    url: 'https://cine-scope-cyan.vercel.app/' 
+  {
+    id: 1,
+    title: 'Cine Scope',
+    url: 'https://cine-scope-cyan.vercel.app/'
   },
-  { 
-    id: 2, 
-    title: 'Pokemon Game', 
-    url: 'https://poke-juego.vercel.app/' 
+  {
+    id: 2,
+    title: 'Pokemon Game',
+    url: 'https://poke-juego.vercel.app/'
   },
-  { 
-    id: 3, 
-    title: 'Cursor Calendar', 
-    url: 'https://cursor-calendary.vercel.app/' 
+  {
+    id: 3,
+    title: 'Cursor Calendar',
+    url: 'https://cursor-calendary.vercel.app/'
   },
 ];
 
 export const ProjectsPreview: React.FC = () => {
   const { t } = useApp();
-  
+
   const [imageErrors, setImageErrors] = React.useState<Record<number, boolean>>({});
 
   const getPreviewUrl = (url: string) => {
@@ -40,17 +40,17 @@ export const ProjectsPreview: React.FC = () => {
     <section id="projects" className="w-full py-24">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-        <h2 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-4">
+          <h2 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-4">
             {t('projects.label')}
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground mb-4">
+          <h3 className="font-display text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground mb-4">
             {t('projects.title')}
           </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-                {t('projects.subtitle')}
-            </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t('projects.subtitle')}
+          </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <a
@@ -64,9 +64,9 @@ export const ProjectsPreview: React.FC = () => {
               <div className="w-full h-full overflow-hidden bg-muted flex items-center justify-center">
                 {imageErrors[project.id] ? (
                   <div className="w-full h-full bg-gradient-to-br from-muted/50 to-muted flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-transform duration-500">
-                     <span className="text-4xl mb-4 opacity-50">✨</span>
-                     <h4 className="font-semibold text-muted-foreground">{project.title}</h4>
-                     <span className="text-xs text-muted-foreground mt-2 opacity-70">{t('project.preview.unavailable')}</span>
+                    <span className="text-4xl mb-4 opacity-50">✨</span>
+                    <h4 className="font-semibold text-muted-foreground">{project.title}</h4>
+                    <span className="text-xs text-muted-foreground mt-2 opacity-70">{t('project.preview.unavailable')}</span>
                   </div>
                 ) : (
                   <img
@@ -89,7 +89,7 @@ export const ProjectsPreview: React.FC = () => {
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
-              
+
               {/* Corner Icon */}
               <div className="absolute top-3 right-3 p-2 bg-black/40 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
                 <ExternalLink className="w-4 h-4" />
