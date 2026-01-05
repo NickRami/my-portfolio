@@ -1,105 +1,128 @@
-import React from 'react';
-import { ExternalLink, ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Github, FolderGit2 } from 'lucide-react';
 import { useApp } from "../context/AppContext";
 
 interface Project {
   id: number;
-  title: string;
+  titleKey: string;
+  descKey: string;
+  techKey: string;
   url: string;
+  repoUrl?: string; // Prepared for future Use
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Cine Scope',
-    url: 'https://cine-scope-cyan.vercel.app/'
+    titleKey: 'project.1.title',
+    descKey: 'project.1.desc',
+    techKey: 'project.1.tech',
+    url: 'https://cine-scope-cyan.vercel.app/',
   },
   {
     id: 2,
-    title: 'Pokemon Game',
-    url: 'https://poke-juego.vercel.app/'
+    titleKey: 'project.2.title',
+    descKey: 'project.2.desc',
+    techKey: 'project.2.tech',
+    url: 'https://poke-juego.vercel.app/',
   },
   {
     id: 3,
-    title: 'Cursor Calendar',
-    url: 'https://cursor-calendary.vercel.app/'
+    titleKey: 'project.3.title',
+    descKey: 'project.3.desc',
+    techKey: 'project.3.tech',
+    url: 'https://cursor-calendary.vercel.app/',
   },
 ];
 
-export const ProjectsPreview: React.FC = () => {
+export default function ProjectsPreview() {
   const { t } = useApp();
 
-  const [imageErrors, setImageErrors] = React.useState<Record<number, boolean>>({});
-
-  const getPreviewUrl = (url: string) => {
-    // Increased wait time to 5s and viewport width to force a fresh render attempt
-    return `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url&screenshot.waitFor=5000&viewport.width=1440&viewport.height=900`;
-  };
-
   return (
-    <section id="projects" className="w-full py-24">
-      <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <h2 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-4">
-            {t('projects.label')}
-          </h2>
-          <h3 className="font-display text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground mb-4">
-            {t('projects.title')}
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+    <section id="projects" className="w-[90%] md:w-full py-24 mx-auto ">
+      <div className="container mx-auto px-4 md:px-12 lg:px-24 max-w-screen-2xl">
+
+        {/* Header simple y directo */}
+        <div className="mb-16 border-b border-white/10 pb-8">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-yellow-500/10 text-yellow-500">
+              <FolderGit2 size={20} />
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-medium">
+              {t('projects.title')}
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-lg max-w-2xl">
             {t('projects.subtitle')}
           </p>
         </div>
 
+        {/* Grid Limpio - Escaneable por Recruiters */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <a
-              key={project.id}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block w-full aspect-video rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/50 bg-card"
-            >
-              {/* Image Preview */}
-              <div className="w-full h-full overflow-hidden bg-muted flex items-center justify-center">
-                {imageErrors[project.id] ? (
-                  <div className="w-full h-full bg-gradient-to-br from-muted/50 to-muted flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-transform duration-500">
-                    <span className="text-4xl mb-4 opacity-50">✨</span>
-                    <h4 className="font-semibold text-muted-foreground">{project.title}</h4>
-                    <span className="text-xs text-muted-foreground mt-2 opacity-70">{t('project.preview.unavailable')}</span>
-                  </div>
-                ) : (
+          {projects.map((project, index) => {
+            const techs = t(project.techKey) as string[];
+
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1 }}
+                className="flex flex-col bg-[#0A0A0A] border border-white/10 rounded-xl overflow-hidden hover:border-yellow-500/30 transition-all duration-300 group shadow-lg"
+              >
+                {/* 1. Preview Visual (Clear & Large) */}
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aspect-video w-full bg-zinc-900 relative overflow-hidden block"
+                >
                   <img
-                    src={getPreviewUrl(project.url)}
-                    alt={`Preview of ${project.title}`}
+                    src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280`}
+                    alt="Preview"
                     loading="lazy"
-                    onError={() => setImageErrors(prev => ({ ...prev, [project.id]: true }))}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                   />
-                )}
-              </div>
+                  {/* Overlay info on hover only if needed, keeps it clean */}
+                </a>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-[2px]">
-                <h3 className="text-white text-2xl font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                  {project.title}
-                </h3>
-                <div className="flex items-center gap-2 text-white/90 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md">
-                  <span>{t('project.actions.visit')}</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                {/* 2. Content Body */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-bold group-hover:text-yellow-400 transition-colors">
+                      {t(project.titleKey)}
+                    </h3>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-white transition-colors"
+                    >
+                      <ArrowUpRight size={20} />
+                    </a>
+                  </div>
+
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
+                    {t(project.descKey)}
+                  </p>
+
+                  {/* 3. Footer: Tech Stack & Actions */}
+                  <div className="space-y-4 mt-auto">
+                    <div className="flex flex-wrap gap-2">
+                      {techs && techs.map((tech, i) => (
+                        <span key={i} className="text-[10px] font-mono px-2 py-1 rounded-md bg-white/5 border border-white/5 text-muted-foreground">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              {/* Corner Icon */}
-              <div className="absolute top-3 right-3 p-2 bg-black/40 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
-                <ExternalLink className="w-4 h-4" />
-              </div>
-            </a>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-};
-
-export default ProjectsPreview;
+}
