@@ -88,7 +88,7 @@ export default function Hero() {
         <div className="relative w-full max-w-[350px] md:max-w-[500px] aspect-square flex items-center justify-center">
 
           {/* Blueprint Grid Background (Subtle) */}
-          <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-grid-foreground/[0.02] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)] pointer-events-none" />
 
           {/* SVG Systematic Connections */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -111,15 +111,15 @@ export default function Hero() {
             {/* Connection Paths: Clear Angled Lines (Circuit-like) */}
             <motion.path
               d="M140 160 L240 160 L240 240"
-              stroke="#333" strokeWidth="1" fill="none" opacity="0.3"
+              stroke="currentColor" strokeWidth="1" fill="none" className="text-muted-foreground/30"
             />
             <motion.path
               d="M360 160 L260 160 L260 240"
-              stroke="#333" strokeWidth="1" fill="none" opacity="0.3"
+              stroke="currentColor" strokeWidth="1" fill="none" className="text-muted-foreground/30"
             />
             <motion.path
               d="M250 340 L250 260"
-              stroke="#333" strokeWidth="1" fill="none" opacity="0.3"
+              stroke="currentColor" strokeWidth="1" fill="none" className="text-muted-foreground/30"
             />
 
             {/* Data Flow Animations (Pulses) */}
@@ -153,26 +153,26 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-[#0D0D0D]/90 backdrop-blur-md border border-white/10 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
-              <div className="flex items-center justify-between mb-3 border-b border-white/5 pb-2">
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
+              <div className="flex items-center justify-between mb-3 border-b border-border/30 pb-2">
                 <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.client')}</span>
-                <Layout size={12} className="text-blue-400" />
+                <Layout size={12} className="text-blue-500" />
               </div>
               {/* Real Code Snippet Representation */}
-              <div className="space-y-1.5 font-mono text-[9px] md:text-[10px] text-muted-foreground/60 leading-tight">
+              <div className="space-y-1.5 font-mono text-[9px] md:text-[10px] text-muted-foreground/80 leading-tight">
                 <div className="flex gap-2">
-                  <span className="text-purple-400">const</span>
-                  <span className="text-yellow-100">App</span> = () <span className="text-purple-400">{`=>`}</span> {`{`}
+                  <span className="text-purple-500">const</span>
+                  <span className="text-foreground">App</span> = () <span className="text-purple-500">{`=>`}</span> {`{`}
                 </div>
                 <div className="pl-3 flex gap-2">
-                  <span className="text-blue-400">useQuery</span>(<span className="text-green-400">'data'</span>)
+                  <span className="text-blue-500">useQuery</span>(<span className="text-green-500">'data'</span>)
                 </div>
-                <div className="pl-3 text-white/40">...</div>
+                <div className="pl-3 text-muted-foreground/60">...</div>
                 <div>{`}`}</div>
               </div>
               <div className="mt-3 flex gap-2 justify-end">
-                <span className="px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[9px] font-mono border border-blue-500/20">Next.js 15</span>
-                <span className="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[9px] font-mono border border-cyan-500/20">React 19</span>
+                <span className="px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-500 text-[9px] font-mono border border-blue-500/20">Next.js 15</span>
+                <span className="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-500 text-[9px] font-mono border border-cyan-500/20">React 19</span>
               </div>
             </div>
           </motion.div>
@@ -184,22 +184,22 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="bg-[#0D0D0D]/90 backdrop-blur-md border border-white/10 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
-              <div className="flex items-center justify-between mb-3 border-b border-white/5 pb-2">
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
+              <div className="flex items-center justify-between mb-3 border-b border-border/30 pb-2">
                 <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.api')}</span>
-                <Terminal size={12} className="text-purple-400" />
+                <Terminal size={12} className="text-purple-500" />
               </div>
-              <div className="space-y-1.5 font-mono text-[9px] md:text-[10px] text-muted-foreground/60 leading-tight">
+              <div className="space-y-1.5 font-mono text-[9px] md:text-[10px] text-muted-foreground/80 leading-tight">
                 <div>
-                  <span className="text-yellow-400">@Controller</span>(<span className="text-green-400">'/v1'</span>)
+                  <span className="text-yellow-500">@Controller</span>(<span className="text-green-500">'/v1'</span>)
                 </div>
                 <div>
-                  <span className="text-purple-400">class</span> <span className="text-yellow-100">Gateway</span> {`{`}
+                  <span className="text-purple-500">class</span> <span className="text-foreground">Gateway</span> {`{`}
                 </div>
                 <div className="pl-3">
-                  <span className="text-blue-400">async</span> <span className="text-yellow-100">handle</span>() {`{`}
+                  <span className="text-blue-500">async</span> <span className="text-foreground">handle</span>() {`{`}
                 </div>
-                <div className="pl-5 text-white/40">await service.exec()</div>
+                <div className="pl-5 text-muted-foreground/60">await service.exec()</div>
                 <div className="pl-3">{`}`}</div>
                 <div>{`}`}</div>
               </div>
@@ -213,26 +213,26 @@ export default function Hero() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#0A0A0A] border border-white/10 flex items-center justify-center relative shadow-[0_0_40px_rgba(0,0,0,0.5)] group cursor-pointer hover:border-yellow-500/50 transition-colors duration-500">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-card border border-border/30 flex items-center justify-center relative shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(0,0,0,0.5)] group cursor-pointer hover:border-yellow-500/50 transition-colors duration-500">
               {/* Inner glow pulse */}
-              <div className="absolute inset-0 rounded-full bg-yellow-500/5 blur-xl animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-yellow-500/10 blur-xl animate-pulse" />
 
               {/* Spinning ring - slower, technical */}
               <motion.div
-                className="absolute w-[110%] h-[110%] rounded-full border border-white/5 border-dashed"
+                className="absolute w-[110%] h-[110%] rounded-full border border-border/20 border-dashed"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className="absolute w-[130%] h-[130%] rounded-full border border-white/5"
+                className="absolute w-[130%] h-[130%] rounded-full border border-border/10"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
 
-              <Cpu size={32} className="text-foreground/80 md:w-[40px] md:h-[40px] relative z-10" />
+              <Cpu size={32} className="text-foreground md:w-[40px] md:h-[40px] relative z-10" />
 
-              <div className="absolute -bottom-10 whitespace-nowrap px-2 py-1 rounded bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-[10px] font-mono text-yellow-500 tracking-widest uppercase">{t('hero.layer.core')}</span>
+              <div className="absolute -bottom-10 whitespace-nowrap px-2 py-1 rounded bg-card/80 border border-border/30 backdrop-blur-sm">
+                <span className="text-[10px] font-mono text-yellow-600 dark:text-yellow-500 tracking-widest uppercase">{t('hero.layer.core')}</span>
               </div>
             </div>
           </motion.div>
@@ -245,21 +245,21 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <div className="bg-[#0D0D0D]/90 backdrop-blur-md border border-white/10 p-3 rounded-lg w-48 md:w-56 shadow-lg hover:border-green-500/30 transition-colors group cursor-default">
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-lg w-48 md:w-56 shadow-lg hover:border-green-500/30 transition-colors group cursor-default">
               <div className="flex items-center gap-3 justify-center mb-2">
                 <Database size={14} className="text-emerald-500/70" />
-                <div className="h-3 w-px bg-white/10"></div>
+                <div className="h-3 w-px bg-border/20"></div>
                 <Cloud size={14} className="text-cyan-500/70" />
               </div>
 
               <div className="grid grid-cols-2 gap-2 text-center">
-                <div className="bg-white/5 rounded p-1.5 border border-white/5">
+                <div className="bg-muted/50 rounded p-1.5 border border-border/20">
                   <div className="text-[9px] text-muted-foreground font-mono mb-0.5">{t('hero.stats.uptime')}</div>
-                  <div className="text-[10px] text-green-400 font-mono font-bold">99.99%</div>
+                  <div className="text-[10px] text-green-600 dark:text-green-400 font-mono font-bold">99.99%</div>
                 </div>
-                <div className="bg-white/5 rounded p-1.5 border border-white/5">
+                <div className="bg-muted/50 rounded p-1.5 border border-border/20">
                   <div className="text-[9px] text-muted-foreground font-mono mb-0.5">{t('hero.stats.latency')}</div>
-                  <div className="text-[10px] text-yellow-400 font-mono font-bold">24ms</div>
+                  <div className="text-[10px] text-yellow-600 dark:text-yellow-400 font-mono font-bold">24ms</div>
                 </div>
               </div>
             </div>
