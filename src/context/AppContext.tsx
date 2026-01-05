@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from '
 type Language = 'es' | 'en';
 type Theme = 'dark' | 'light';
 
+
 interface AppContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
@@ -10,7 +11,15 @@ interface AppContextType {
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   t: (key: string) => any;
+  devMode: boolean;
+  toggleDevMode: () => void;
 }
+
+// ... (translations object remains unchanged)
+// We will just update the logic below, assuming translations are already there. 
+// However, since we are replacing a large chunk, I'll keep the translations object in the 'TargetContent' reference if possible, 
+// or I will just target the Provider and Hook part if I can. 
+// Actually, let's just replace the Provider implementation to be safe and clean.
 
 const translations = {
   en: {
@@ -22,7 +31,7 @@ const translations = {
     'nav.resume': 'Resume',
     'nav.back': 'Back to Home',
     'nav.talk': "Let's Talk",
-    
+
     // Hero
     'hero.role': 'Full Stack Developer',
     'hero.subtitle': 'Building Scalable & High-Performance Apps',
@@ -48,7 +57,7 @@ const translations = {
     'project.2.desc': 'Developed a decoupled game logic engine in pure JavaScript. Segregated state management from UI rendering to ensure extensive testability and clear separation of concerns.',
     'project.3.title': 'Cursor Calendar',
     'project.3.desc': 'Built a complex state-managed calendar with React DnD. Demonstrated advanced skills in event handling, drag-and-drop mechanics, and date manipulation logic.',
-    
+
     // Experience - Action & Impact
     'experience.title': 'Professional Experience',
     'experience.labitec.role': 'Full Stack Developer',
@@ -69,7 +78,7 @@ const translations = {
     'experience.quorum.b1': 'Delivered full-stack features for legacy system modernization projects.',
     'experience.quorum.b2': 'Refactored codebase to improve performance, readability, and reduce technical debt.',
     'experience.quorum.b3': 'Ensured system stability through rigorous testing and consistent coding standards.',
-    
+
     // Skills
     'skills.title': 'Expertise',
     'skills.subtitle': 'Technical Stack',
@@ -175,7 +184,7 @@ const translations = {
     'skills.practices.items': ["Testing (Jest/Cypress)", "Arquitectura Limpia", "Git Flow", "Revisiones de Código", "Diseño de Sistemas"],
 
     // Project Tech
-    'project.1.tech': ["React", "Rest API", "Arquitectura de Componentes", "CSS"],
+    'project.1.tech': ["React", "Rest API", "Arquitectura de Componentes", "CSS Modules"],
     'project.2.tech': ["JavaScript", "Lógica de Juego", "Manipulación del DOM", "Manejo de Estado"],
     'project.3.tech': ["React", "Lógica de Fechas", "Drag & Drop", "Tailwind CSS"],
 
@@ -200,11 +209,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const saved = localStorage.getItem('portfolio-language');
     return (saved === 'es' || saved === 'en') ? saved : 'en';
   });
-  
+
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('portfolio-theme');
     return (saved === 'dark' || saved === 'light') ? saved : 'dark';
   });
+
+  const [devMode, setDevMode] = useState<boolean>(false);
 
   useEffect(() => {
     localStorage.setItem('portfolio-language', language);
@@ -217,16 +228,29 @@ export function AppProvider({ children }: { children: ReactNode }) {
     root.classList.add(theme);
   }, [theme]);
 
+  // Apply dev-mode class to body for global styling overrides if needed
+  useEffect(() => {
+    if (devMode) {
+      document.body.classList.add('dev-mode');
+    } else {
+      document.body.classList.remove('dev-mode');
+    }
+  }, [devMode]);
+
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
+
+  const toggleDevMode = () => {
+    setDevMode(prev => !prev);
+  }
 
   const t = (key: string) => {
     return (translations[language] as any)[key] || key;
   };
 
   return (
-    <AppContext.Provider value={{ language, setLanguage, theme, setTheme, toggleTheme, t }}>
+    <AppContext.Provider value={{ language, setLanguage, theme, setTheme, toggleTheme, t, devMode, toggleDevMode }}>
       {children}
     </AppContext.Provider>
   );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Code2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../context/AppContext";
 import { useLocation, Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { useLocation, Link } from "react-router-dom";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme, language, setLanguage, t } = useApp();
+  const { theme, toggleTheme, language, setLanguage, t, devMode, toggleDevMode } = useApp();
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -54,6 +54,8 @@ export default function Navbar() {
 
           {/* Right Actions */}
           <div className="hidden md:flex items-center gap-6 min-w-fit flex-nowrap">
+
+
             <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-yellow-400">
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
