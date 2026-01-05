@@ -43,9 +43,9 @@ export default function ProjectsPreview() {
       <div className="max-w-full">
 
         {/* Header simple y directo */}
-        <div className="mb-16 border-b border-white/10 pb-8">
+        <div className="mb-16 border-b border-border/30 pb-8">
           <div className="flex items-center gap-3 mb-4">
-            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-yellow-500/10 text-yellow-500">
+            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
               <FolderGit2 size={20} />
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-medium">
@@ -69,14 +69,14 @@ export default function ProjectsPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.1 }}
-                className="flex flex-col bg-[#0A0A0A] border border-white/10 rounded-xl overflow-hidden hover:border-yellow-500/30 transition-all duration-300 group shadow-lg"
+                className="flex flex-col bg-card border border-border/50 rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300 group shadow-lg"
               >
                 {/* 1. Preview Visual (Clear & Large) */}
                 <a
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="aspect-video w-full bg-zinc-900 relative overflow-hidden block"
+                  className="aspect-video w-full bg-muted/20 relative overflow-hidden block"
                 >
                   <img
                     src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280`}
@@ -90,14 +90,14 @@ export default function ProjectsPreview() {
                 {/* 2. Content Body */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold group-hover:text-yellow-400 transition-colors">
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                       {t(project.titleKey)}
                     </h3>
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-white transition-colors"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <ArrowUpRight size={20} />
                     </a>
@@ -111,7 +111,7 @@ export default function ProjectsPreview() {
                   <div className="space-y-4 mt-auto">
                     <div className="flex flex-wrap gap-2">
                       {techs && techs.map((tech, i) => (
-                        <span key={i} className="text-[10px] font-mono px-2 py-1 rounded-md bg-white/5 border border-white/5 text-muted-foreground">
+                        <span key={i} className="text-[10px] font-mono px-2 py-1 rounded-md bg-muted/50 border border-border/50 text-muted-foreground">
                           {tech}
                         </span>
                       ))}
