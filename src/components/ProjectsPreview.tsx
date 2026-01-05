@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, FolderGit2 } from 'lucide-react';
+import { ArrowUpRight, FolderGit2 } from 'lucide-react';
 import { useApp } from "../context/AppContext";
 
 interface Project {

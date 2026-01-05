@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 export default function Resume() {
-  const { t, theme, setTheme } = useApp();
+  const { t } = useApp();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
