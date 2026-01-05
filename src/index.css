@@ -97,28 +97,38 @@ body::before {
 
 @media print {
   @page {
-    margin: 0;
-    /* Hide default browser headers and footers */
+    margin: 0mm;
+    /* Removes default browser headers/footers (URL, Date, Page #) */
     size: A4;
   }
 
+  /* Reset global styles */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
   }
 
   body {
     padding: 2cm !important;
-    /* Professional A4 margins */
+    /* Re-adds valid print margins inside the body */
+    margin: 0 !important;
     background: white !important;
-    background-color: white !important;
-    color: #000000 !important;
+    color: #1a202c !important;
+    /* Nearly black for better readability */
 
     /* Force light theme variables */
     --background: #ffffff !important;
-    --foreground: #000000 !important;
-    --muted: #f8fafc !important;
+    --foreground: #1a202c !important;
+    --primary: #ca8a04 !important;
+    /* Darker yellow/gold for print text readability */
+    --muted: #f1f5f9 !important;
     --muted-foreground: #64748b !important;
+    --card: #ffffff !important;
+    --border: #e2e8f0 !important;
   }
 
   /* Hide navigation, buttons, and decorative elements */
@@ -126,30 +136,27 @@ body::before {
   footer,
   button,
   .pointer-events-none,
-  .no-print {
+  .no-print,
+  .fixed,
+  iframe,
+  [role="dialog"] {
     display: none !important;
   }
 
   /* Reset layout constraints for print */
   .min-h-screen {
     min-height: auto !important;
+    height: auto !important;
   }
 
-  /* Reset outer container to full width */
-  .max-w-screen-2xl {
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* Reset inner document container to full width */
+  .max-w-screen-2xl,
   .max-w-4xl {
     max-width: 100% !important;
+    width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
   }
 
-  /* Reset all responsive padding classes */
   .py-32,
   .px-6,
   .px-12,
@@ -158,81 +165,113 @@ body::before {
   }
 
   /* Typography adjustments for print */
-  * {
-    color: #000000 !important;
-    text-shadow: none !important;
-  }
-
   h1 {
-    font-size: 2.5rem !important;
-    margin-bottom: 0.5rem !important;
-    letter-spacing: -0.025em !important;
-    line-height: 1.1 !important;
+    font-size: 2.25rem !important;
+    /* Slightly smaller than screen */
+    margin-bottom: 0.25rem !important;
+    color: #000000 !important;
+    line-height: 1.2 !important;
   }
 
   h2 {
-    font-size: 1.25rem !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+    color: #ca8a04 !important;
+    /* Darkened yellow */
+    font-weight: 600 !important;
+  }
+
+  h3 {
+    /* Section headers */
+    font-size: 0.85rem !important;
     margin-bottom: 0.75rem !important;
-    color: #b45309 !important;
+    margin-top: 1.5rem !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-bottom: 0.25rem !important;
   }
 
-  p {
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-    color: #334155 !important;
+  h4 {
+    /* Item titles (Company/Project) */
+    font-size: 1rem !important;
+    color: #000000 !important;
+    margin-bottom: 0.25rem !important;
   }
 
-  li {
+  p,
+  li,
+  span {
     font-size: 0.9rem !important;
     line-height: 1.5 !important;
     color: #334155 !important;
   }
 
-  /* Section Spacing - Simplified for clean multi-page output */
+  /* Section Spacing */
   section {
-    break-inside: avoid;
-    page-break-inside: avoid;
     margin-bottom: 1.5rem !important;
+    break-inside: avoid;
   }
 
-  /* Ensure proper spacing between sections */
-  section+section {
-    margin-top: 1.5rem !important;
-  }
-
-  /* Header Spacing */
-  .flex.justify-between.items-start {
-    margin-bottom: 2rem !important;
-  }
-
-  /* Grid layouts */
-  .grid-cols-2 {
+  /* Grid layouts - Simplified */
+  .grid-cols-2,
+  .grid-cols-4,
+  .sm\:grid-cols-2 {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 2rem !important;
+    gap: 1rem !important;
   }
 
-  .grid-cols-4 {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
+  .grid-cols-1 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Skills Grid specific overrides */
+  div[class*="grid sm:grid-cols-2"] {
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem !important;
   }
 
-  /* Boxes and containers */
-  .bg-muted\/20 {
-    background-color: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
-    padding: 1.5rem !important;
+  /* Experience dots rework for print */
+  .absolute.-left-\[37px\],
+  .absolute.left-0 {
+    display: none !important;
+    /* Hide complex dots */
   }
 
-  /* Page 2 Spacing - Projects Section */
+  .border-l {
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Projects - Clean List View instead of cards */
   .page-2-content {
-    page-break-before: always !important;
-    break-before: page !important;
-    padding-top: 3cm !important;
-    /* Professional top margin for page 2 */
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-top: 2rem !important;
+    /* Remove forced page break gap, let it flow naturally if possible, or force break if requested */
+    padding-top: 0 !important;
+  }
+
+  /* Project Cards in print */
+  a[class*="rounded-2xl"] {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    display: block !important;
+    margin-bottom: 1.5rem !important;
+    break-inside: avoid;
+  }
+
+  /* Hide image previews in projects to save space/ink */
+  a[class*="rounded-2xl"]>div:first-child {
+    display: none !important;
+  }
+
+  /* Links */
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
   }
 }
 

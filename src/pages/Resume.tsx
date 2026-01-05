@@ -126,11 +126,11 @@ export default function Resume() {
             </Link>
           </div>
 
-          <div className="flex justify-between items-start mb-12 print:mb-6">
-            <div className="flex-1">
+          <div className="flex justify-between items-start mb-12 print:mb-8 print:flex-col print:items-center print:text-center">
+            <div className="flex-1 print:w-full">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-pretty leading-tight">Ramiro Silva</h1>
               <h2 className="text-2xl md:text-3xl text-primary/90 font-medium mb-6 print:mb-4 tracking-tight">{t('hero.role')}</h2>
-              <p className="text-muted-foreground/80 max-w-2xl leading-relaxed text-lg md:text-xl font-light print:text-base">
+              <p className="text-muted-foreground/80 max-w-2xl leading-relaxed text-lg md:text-xl font-light print:text-base print:mx-auto">
                 {t('resume.summary')}
               </p>
             </div>
