@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useApp } from "../context/AppContext";
-import { Cpu, ChevronsRight } from "lucide-react";
+import { Cpu } from "lucide-react";
 
 export default function Skills() {
   const { t } = useApp();
