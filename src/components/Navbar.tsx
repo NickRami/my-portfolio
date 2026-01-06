@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "top-4" : "top-0 py-6 bg-transparent"}`}>
-        <div className={`relative mx-auto flex justify-between items-center transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md border border-white/5 shadow-lg rounded-full px-6 py-3 max-w-5xl" : "max-w-screen-2xl px-6 md:px-12 lg:px-24"}`}>
+        <div className={`relative mx-auto flex justify-between items-center transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md border border-white/5 shadow-lg rounded-full px-6 py-3 max-w-5xl" : "max-w-screen-2xl px-4 md:px-12 lg:px-24"}`}>
           <Link to="/" className="text-xl font-display font-bold tracking-tight hover:text-yellow-400 transition-colors">
             Ramiro Silva
           </Link>

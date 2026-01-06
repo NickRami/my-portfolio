@@ -33,7 +33,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border/20">
+    <section id="experience" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border/20">
 
       <div className="max-w-4xl mx-auto">
         {/* Header */}

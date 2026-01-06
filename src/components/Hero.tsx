@@ -16,7 +16,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className={`min-h-screen flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 pt-32 pb-20 max-w-screen-2xl mx-auto relative overflow-hidden ${devMode ? 'pt-40' : ''}`}
+      className={`min-h-screen flex flex-col lg:flex-row items-center justify-between px-4 md:px-12 lg:px-24 pt-28 pb-12 md:pb-20 max-w-screen-2xl mx-auto relative overflow-hidden ${devMode ? 'pt-40' : ''}`}
     >
 
       {/* Background Ambience */}
@@ -43,7 +43,7 @@ export default function Hero() {
             {t('contact.status')}
           </motion.div>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1] text-balance">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1] text-balance">
             {t('hero.title.start')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">{t('hero.title.highlight')}</span> {t('hero.title.end')}
           </h1>
 
@@ -52,11 +52,11 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href="#projects" className="px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg hover:bg-yellow-400 hover:text-black transition-all shadow-lg hover:shadow-yellow-400/20 flex items-center justify-center gap-2 group">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
+          <a href="#projects" className="px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg hover:bg-yellow-400 hover:text-black transition-all shadow-lg hover:shadow-yellow-400/20 flex items-center justify-center gap-2 group w-full sm:w-auto">
             {t('hero.cta.work')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href={language === 'es' ? "/curriculum" : "/resume"} className="px-8 py-4 rounded-full border border-muted-foreground/20 hover:bg-muted/10 hover:border-foreground/50 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
+          <a href={language === 'es' ? "/curriculum" : "/resume"} className="px-8 py-4 rounded-full border border-muted-foreground/20 hover:bg-muted/10 hover:border-foreground/50 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm w-full sm:w-auto">
             <FileUser size={20} /> {t('hero.cta.resume')}
           </a>
         </div>
@@ -148,18 +148,18 @@ export default function Hero() {
 
           {/* --- Node 1: CLIENT (Architecture) --- */}
           <motion.div
-            className="absolute top-[10%] left-[-5%] md:left-[0%] z-10"
+            className="absolute top-[10%] left-0 md:left-[0%] z-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
-              <div className="flex items-center justify-between mb-3 border-b border-border/30 pb-2">
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.client')}</span>
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-3 rounded-lg w-32 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
+              <div className="flex items-center justify-between mb-2 md:mb-3 border-b border-border/30 pb-2">
+                <span className="text-[9px] md:text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.client')}</span>
                 <Layout size={12} className="text-blue-500" />
               </div>
               {/* Real Code Snippet Representation */}
-              <div className="space-y-1.5 font-mono text-[9px] md:text-[10px] text-muted-foreground/80 leading-tight">
+              <div className="space-y-1 md:space-y-1.5 font-mono text-[8px] md:text-[10px] text-muted-foreground/80 leading-tight">
                 <div className="flex gap-2">
                   <span className="text-purple-500">const</span>
                   <span className="text-foreground">App</span> = () <span className="text-purple-500">{`=>`}</span> {`{`}
@@ -170,26 +170,26 @@ export default function Hero() {
                 <div className="pl-3 text-muted-foreground/60">...</div>
                 <div>{`}`}</div>
               </div>
-              <div className="mt-3 flex gap-2 justify-end">
-                <span className="px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-500 text-[9px] font-mono border border-blue-500/20">Next.js 15</span>
-                <span className="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-500 text-[9px] font-mono border border-cyan-500/20">React 19</span>
+              <div className="mt-2 md:mt-3 flex gap-2 justify-end">
+                <span className="px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-500 text-[8px] md:text-[9px] font-mono border border-blue-500/20">Next.js 15</span>
+                <span className="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-500 text-[8px] md:text-[9px] font-mono border border-cyan-500/20">React 19</span>
               </div>
             </div>
           </motion.div>
 
           {/* --- Node 2: SERVER (Logic) --- */}
           <motion.div
-            className="absolute top-[10%] right-[-5%] md:right-[0%] z-10"
+            className="absolute top-[10%] right-0 md:right-[0%] z-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-lg w-40 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
-              <div className="flex items-center justify-between mb-3 border-b border-border/30 pb-2">
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.api')}</span>
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-3 rounded-lg w-32 md:w-48 shadow-lg hover:border-yellow-500/30 transition-colors group cursor-default">
+              <div className="flex items-center justify-between mb-2 md:mb-3 border-b border-border/30 pb-2">
+                <span className="text-[9px] md:text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.api')}</span>
                 <Terminal size={12} className="text-purple-500" />
               </div>
-              <div className="space-y-1.5 font-mono text-[9px] md:text-[10px] text-muted-foreground/80 leading-tight">
+              <div className="space-y-1 md:space-y-1.5 font-mono text-[8px] md:text-[10px] text-muted-foreground/80 leading-tight">
                 <div>
                   <span className="text-yellow-500">@Controller</span>(<span className="text-green-500">'/v1'</span>)
                 </div>
@@ -213,7 +213,7 @@ export default function Hero() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-card border border-border/30 flex items-center justify-center relative shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(0,0,0,0.5)] group cursor-pointer hover:border-yellow-500/50 transition-colors duration-500">
+            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-card border border-border/30 flex items-center justify-center relative shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(0,0,0,0.5)] group cursor-pointer hover:border-yellow-500/50 transition-colors duration-500">
               {/* Inner glow pulse */}
               <div className="absolute inset-0 rounded-full bg-yellow-500/10 blur-xl animate-pulse" />
 
@@ -229,10 +229,10 @@ export default function Hero() {
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
 
-              <Cpu size={32} className="text-foreground md:w-[40px] md:h-[40px] relative z-10" />
+              <Cpu size={24} className="text-foreground md:w-[40px] md:h-[40px] relative z-10" />
 
-              <div className="absolute -bottom-10 whitespace-nowrap px-2 py-1 rounded bg-card/80 border border-border/30 backdrop-blur-sm">
-                <span className="text-[10px] font-mono text-yellow-600 dark:text-yellow-500 tracking-widest uppercase">{t('hero.layer.core')}</span>
+              <div className="absolute -bottom-8 md:-bottom-10 whitespace-nowrap px-2 py-1 rounded bg-card/80 border border-border/30 backdrop-blur-sm">
+                <span className="text-[8px] md:text-[10px] font-mono text-yellow-600 dark:text-yellow-500 tracking-widest uppercase">{t('hero.layer.core')}</span>
               </div>
             </div>
           </motion.div>

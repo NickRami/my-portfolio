@@ -39,7 +39,7 @@ export default function ProjectsPreview() {
   const { t } = useApp();
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+    <section id="projects" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
       <div className="max-w-full">
 
         {/* Header simple y directo */}

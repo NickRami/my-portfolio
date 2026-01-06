@@ -99,7 +99,7 @@ export default function Resume() {
 
       <Navbar />
 
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-24 py-32 print:py-0 relative z-10 print:max-w-full print:px-0">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-12 lg:px-24 py-24 md:py-32 print:py-0 relative z-10 print:max-w-full print:px-0">
 
         <div className="max-w-4xl mx-auto print:max-w-full">
           <div className="mb-8 no-print">
@@ -111,9 +111,9 @@ export default function Resume() {
 
           <div className="flex justify-between items-start mb-12 print:mb-4 print:flex-col print:items-center print:text-center">
             <div className="flex-1 print:w-full">
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-pretty leading-tight print:text-3xl print:mb-1">Ramiro Silva</h1>
-              <h2 className="text-2xl md:text-3xl text-primary/90 font-medium mb-6 print:mb-2 print:text-lg tracking-tight">{t('hero.role')}</h2>
-              <p className="text-muted-foreground/80 max-w-2xl leading-relaxed text-lg md:text-xl font-light print:text-xs print:leading-normal print:mx-auto print:max-w-[90%]">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-pretty leading-tight print:text-3xl print:mb-1">Ramiro Silva</h1>
+              <h2 className="text-xl md:text-3xl text-primary/90 font-medium mb-6 print:mb-2 print:text-lg tracking-tight">{t('hero.role')}</h2>
+              <p className="text-muted-foreground/80 max-w-2xl leading-relaxed text-base md:text-xl font-light print:text-xs print:leading-normal print:mx-auto print:max-w-[90%]">
                 {t('resume.summary')}
               </p>
             </div>
