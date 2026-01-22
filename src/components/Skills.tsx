@@ -31,7 +31,7 @@ export default function Skills() {
             <p className="text-muted-foreground text-sm mb-4">Core development foundations</p>
           </div>
           <div className="flex flex-wrap gap-2 mt-4">
-            {['TypeScript', 'JavaScript', 'Python', 'Rust'].map((lang) => (
+            {['TypeScript', 'JavaScript', 'Node.js', 'SQL'].map((lang) => (
               <span key={lang} className="bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">
                 {lang}
               </span>
@@ -39,7 +39,7 @@ export default function Skills() {
           </div>
         </motion.div>
 
-        {/* Cloud & Infrastructure Card */}
+        {/* Ecosystem & BaaS Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -48,25 +48,25 @@ export default function Skills() {
           className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-card to-background border border-border p-6 rounded-2xl flex flex-col hover:border-primary/40 transition-all relative h-full"
         >
           <Cloud className="text-primary mb-3" size={24} />
-          <h3 className="text-foreground text-lg font-bold mb-1">Cloud & Infrastructure</h3>
-          <p className="text-muted-foreground text-sm mb-6">Scalable architecture & automation</p>
+          <h3 className="text-foreground text-lg font-bold mb-1">Infrastructure & BaaS</h3>
+          <p className="text-muted-foreground text-sm mb-6">Cloud services & Content management</p>
           <div className="space-y-4 flex-1 flex flex-col justify-center">
             <div className="bg-background/50 p-3 rounded-lg border border-border flex-1">
-              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">Cloud Ecosystem</p>
-              <p className="text-muted-foreground text-sm">AWS (S3, EC2, RDS), Google Cloud, Vercel</p>
+              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">BaaS Ecosystem</p>
+              <p className="text-muted-foreground text-sm">Supabase, Firebase, Appwrite</p>
             </div>
             <div className="bg-background/50 p-3 rounded-lg border border-border flex-1">
-              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">Containerization</p>
-              <p className="text-muted-foreground text-sm">Docker, Kubernetes, Microservices</p>
+              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">Headless CMS</p>
+              <p className="text-muted-foreground text-sm">Strapi, Contentful, Sanity</p>
             </div>
             <div className="bg-background/50 p-3 rounded-lg border border-border flex-1">
-              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">CI/CD</p>
-              <p className="text-muted-foreground text-sm">GitHub Actions, GitLab CI, Jenkins</p>
+              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">Cloud Providers</p>
+              <p className="text-muted-foreground text-sm">AWS, Google Cloud, Docker, Vercel</p>
             </div>
           </div>
         </motion.div>
 
-        {/* Frameworks Card */}
+        {/* Engineering Stack Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,11 +75,11 @@ export default function Skills() {
           className="md:col-span-2 bg-card border border-border p-6 rounded-2xl flex flex-col hover:bg-card/80 transition-colors group h-full"
         >
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-foreground text-lg font-bold">Frameworks</h3>
+            <h3 className="text-foreground text-lg font-bold">Engineering Stack</h3>
             <Layout className="text-primary group-hover:rotate-12 transition-transform" size={24} />
           </div>
-          <div className="grid grid-cols-2 gap-3 mt-auto">
-            {['Next.js', 'React', 'Node.js', 'Tailwind CSS'].map((fw) => (
+          <div className="grid grid-cols-2 gap-x-3 gap-y-2 mt-auto">
+            {['Next.js / React', 'Express.js', 'React Router', 'Zustand', 'Zod', 'Tailwind / SASS'].map((fw) => (
               <div key={fw} className="flex items-center gap-2 text-muted-foreground text-sm">
                 <span className="size-2 bg-primary rounded-full"></span> {fw}
               </div>
@@ -96,11 +96,11 @@ export default function Skills() {
           className="md:col-span-1 bg-card border border-border p-5 rounded-2xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
         >
           <Database className="text-primary mb-2" size={32} />
-          <h4 className="text-foreground text-sm font-bold">Databases</h4>
-          <p className="text-muted-foreground text-[10px] mt-1 font-medium">PostgreSQL, Redis, MongoDB</p>
+          <h4 className="text-foreground text-sm font-bold">Data Strategy</h4>
+          <p className="text-muted-foreground text-[10px] mt-1 font-medium">PostgreSQL, MongoDB, Redis</p>
         </motion.div>
 
-        {/* Testing Card */}
+        {/* Quality Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -109,8 +109,8 @@ export default function Skills() {
           className="md:col-span-1 bg-card border border-border p-5 rounded-2xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
         >
           <ShieldCheck className="text-primary mb-2" size={32} />
-          <h4 className="text-foreground text-sm font-bold">Testing</h4>
-          <p className="text-muted-foreground text-[10px] mt-1 font-medium">Jest, Cypress, Playwright</p>
+          <h4 className="text-foreground text-sm font-bold">Quality Control</h4>
+          <p className="text-muted-foreground text-[10px] mt-1 font-medium">Jest, Testing Library, CI/CD</p>
         </motion.div>
 
         {/* Stats Card */}

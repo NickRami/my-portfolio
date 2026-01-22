@@ -1,6 +1,5 @@
-import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, FolderGit2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FolderGit2 } from 'lucide-react';
 import { useApp } from "../context/AppContext";
 
 interface Project {
@@ -39,15 +38,6 @@ const projects: Project[] = [
 
 export default function ProjectsPreview() {
   const { t } = useApp();
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollTo = direction === 'left' ? scrollLeft - clientWidth / 1.5 : scrollLeft + clientWidth / 1.5;
-      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="projects" className="py-24 md:py-32">
@@ -59,38 +49,19 @@ export default function ProjectsPreview() {
               {t('projects.title')}
             </h2>
           </div>
-          <div className="flex gap-4">
-            <button
-              onClick={() => scroll('left')}
-              className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary hover:bg-primary/5 transition-all active:scale-95"
-              aria-label="Previous project"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary hover:bg-primary/5 transition-all active:scale-95"
-              aria-label="Next project"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
         </div>
 
-        <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar scroll-smooth"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-8">
           {projects.map((project, index) => {
             const techs = t(project.techKey) as string[];
             return (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="min-w-[320px] md:min-w-[450px] snap-start group"
+                className="group"
               >
                 <div className="bg-card border border-border rounded-[2.5rem] overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col shadow-xl">
                   <div className="relative aspect-video overflow-hidden">

@@ -52,7 +52,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <h4 className="text-sm font-bold uppercase tracking-widest text-foreground">Location</h4>
                         <div className="space-y-3 text-muted-foreground">
-                            <p>Buenos Aires, Argentina</p>
+                            <p>San Rafael Mendoza, Argentina</p>
                             <div className="pt-2">
                                 <button
                                     onClick={scrollToTop}
