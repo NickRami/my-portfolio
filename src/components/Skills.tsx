@@ -93,7 +93,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="md:col-span-1 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
+          className="md:col-span-1 lg:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
         >
           <Database className="text-primary mb-2" size={32} />
           <h4 className="text-foreground text-sm font-bold">{t('skills.data_strategy')}</h4>
@@ -106,7 +106,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="md:col-span-1 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
+          className="md:col-span-1 lg:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
         >
           <ShieldCheck className="text-primary mb-2" size={32} />
           <h4 className="text-foreground text-sm font-bold">{t('skills.quality')}</h4>

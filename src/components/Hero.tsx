@@ -47,8 +47,8 @@ export default function Hero() {
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full -z-10 opacity-30 pointer-events-none" />
 
-      <div className="container-responsive w-full py-16 lg:py-0">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 mb-16 lg:mb-24">
+      <div className="container-responsive w-full py-12 lg:py-0">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-24 mb-12 lg:mb-20">
 
           {/* LEFT CONTENT: Text & CTA */}
           <motion.div
@@ -57,7 +57,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex-1 max-w-2xl text-center lg:text-left z-10"
           >
-            <div className="space-y-8 mb-12">
+            <div className="space-y-6 lg:space-y-8 mb-8 lg:mb-12">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -80,11 +80,11 @@ export default function Hero() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start w-full">
-              <a href="#projects" className="px-10 py-5 rounded-2xl bg-primary text-background font-black text-lg hover:brightness-110 transition-all shadow-2xl hover:shadow-primary/30 flex items-center justify-center gap-3 group w-full sm:w-auto hover:scale-105 active:scale-95">
+            <div className="flex flex-col sm:flex-row gap-4 lg:gap-5 justify-center lg:justify-start w-full">
+              <a href="#projects" className="px-8 py-4 lg:px-10 lg:py-5 rounded-2xl bg-primary text-background font-black text-lg hover:brightness-110 transition-all shadow-2xl hover:shadow-primary/30 flex items-center justify-center gap-3 group w-full sm:w-auto hover:scale-105 active:scale-95">
                 {t('hero.cta.work')} <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
               </a>
-              <a href={language === 'es' ? "/curriculum" : "/resume"} className="px-10 py-5 rounded-2xl border border-border bg-background/40 hover:bg-white/5 hover:border-primary/50 transition-all flex items-center justify-center gap-3 backdrop-blur-md w-full sm:w-auto text-foreground font-bold text-lg hover:scale-105 active:scale-95">
+              <a href={language === 'es' ? "/curriculum" : "/resume"} className="px-8 py-4 lg:px-10 lg:py-5 rounded-2xl border border-border bg-background/40 hover:bg-white/5 hover:border-primary/50 transition-all flex items-center justify-center gap-3 backdrop-blur-md w-full sm:w-auto text-foreground font-bold text-lg hover:scale-105 active:scale-95">
                 <FileUser size={22} /> {t('hero.cta.resume')}
               </a>
             </div>
@@ -97,7 +97,7 @@ export default function Hero() {
             className="flex-1 w-full relative flex items-center justify-center mt-12 lg:mt-0"
           >
             {/* Holographic Architecture Container */}
-            <div className="relative w-full max-w-[500px] aspect-square rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden shadow-2xl group">
+            <div className="relative w-full max-w-[400px] lg:max-w-[460px] xl:max-w-[500px] aspect-square rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden shadow-2xl group">
 
               {/* Header Bar */}
               <div className="h-10 border-b border-border/50 flex items-center justify-between px-4 bg-background/50">
