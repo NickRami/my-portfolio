@@ -90,7 +90,7 @@ export default function ProjectsPreview() {
                         target="_blank"
                         className="block w-full bg-primary text-background py-4 rounded-xl font-bold text-sm text-center transition-all hover:scale-[1.02] hover:brightness-110 active:scale-95 shadow-lg shadow-primary/20"
                       >
-                        View Live
+                        {t('project.actions.visit')}
                       </a>
                     </div>
                   </div>
