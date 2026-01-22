@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Server, FileUser, Layout, Terminal, Cpu, Cloud, Database, Sparkles, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, Code2, Server, FileUser, Layout, Terminal, Cpu, ShieldCheck, Zap } from "lucide-react";
 import { useApp } from "../context/AppContext";
 
 export default function Hero() {
