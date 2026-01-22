@@ -5,8 +5,8 @@ export default function Contact() {
   const { t } = useApp();
 
   return (
-    <section id="contact" className="py-16 md:py-24 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-20 relative">
+    <section id="contact" className="section-padding overflow-hidden">
+      <div className="container-responsive relative">
         {/* Background Decorative Glow */}
         <div className="absolute -top-24 -right-24 size-[500px] bg-primary/5 blur-[120px] rounded-full -z-10" />
 
@@ -23,7 +23,7 @@ export default function Contact() {
               {t('contact.status')}
             </div>
 
-            <h2 className="text-4xl md:text-7xl font-black tracking-tight leading-tight text-balance">
+            <h2 className="text-fluid-h2 font-black tracking-tight leading-tight text-balance">
               {t('contact.title')} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#57d4ff]">
                 {t('contact.subtitle')}

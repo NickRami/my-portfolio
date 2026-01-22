@@ -24,13 +24,13 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-20 py-4 flex items-center justify-between">
+        <div className="container-responsive py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-4 group">
             <div className="size-8 bg-primary rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
               <Terminal size={18} className="text-background" />
             </div>
             <h2 className="text-foreground text-xl font-black leading-tight tracking-tight">
-              Ramiro - Full Stack
+              Ramiro | Full Stack Developer
             </h2>
           </Link>
 

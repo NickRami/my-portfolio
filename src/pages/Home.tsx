@@ -37,11 +37,11 @@ export default function Home() {
       <Hero />
 
       {/* Unified Journey Section */}
-      <section id="skills" className="py-16 md:py-24 relative overflow-hidden">
+      <section id="skills" className="section-padding relative overflow-hidden">
         {/* Subtle Background Glow for this section */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
-        <div className="max-w-[1400px] mx-auto px-6 md:px-20">
+        <div className="container-responsive">
           <div className="mb-12 text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function Home() {
                 <span className="w-8 h-px bg-primary/30"></span>
                 Professional Roadmap
               </div>
-              <h2 className="text-foreground text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight">
+              <h2 className="text-foreground text-fluid-h2 font-black leading-[1.1] tracking-tight">
                 {t('home.journey.title')}
               </h2>
               <p className="text-muted-foreground text-lg md:text-xl font-normal max-w-3xl leading-relaxed mx-auto md:mx-0">

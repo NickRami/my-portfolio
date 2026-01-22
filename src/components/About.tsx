@@ -6,11 +6,11 @@ export default function About() {
     const { t } = useApp();
 
     return (
-        <section id="about" className="py-16 md:py-24 relative overflow-hidden">
+        <section id="about" className="section-padding relative overflow-hidden">
             {/* Background Decorative Element */}
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 size-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="max-w-[1400px] mx-auto px-6 md:px-20">
+            <div className="container-responsive">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -24,7 +24,7 @@ export default function About() {
                             {t('about.badge') || "About Me"}
                         </div>
 
-                        <h2 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-tight">
+                        <h2 className="text-fluid-h2 font-black tracking-tight text-foreground leading-tight">
                             {t('about.title')}
                         </h2>
 
@@ -34,14 +34,14 @@ export default function About() {
                         </div>
 
                         <div className="grid grid-cols-2 gap-6 pt-4">
-                            <div className="flex items-start gap-4 p-4 rounded-2xl bg-card border border-border">
+                            <div className="flex items-start gap-4 p-6 rounded-3xl bg-card border border-border">
                                 <Code2 className="text-primary mt-1" size={24} />
                                 <div>
                                     <h4 className="font-bold text-foreground">{t('about.clean_code')}</h4>
                                     <p className="text-sm text-muted-foreground">{t('about.clean_code_desc')}</p>
                                 </div>
                             </div>
-                            <div className="flex items-start gap-4 p-4 rounded-2xl bg-card border border-border">
+                            <div className="flex items-start gap-4 p-6 rounded-3xl bg-card border border-border">
                                 <Rocket className="text-primary mt-1" size={24} />
                                 <div>
                                     <h4 className="font-bold text-foreground">{t('about.fast_delivery')}</h4>

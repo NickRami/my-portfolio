@@ -47,7 +47,7 @@ export default function Hero() {
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full -z-10 opacity-30 pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-20 w-full py-16 lg:py-0">
+      <div className="container-responsive w-full py-16 lg:py-0">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 mb-16 lg:mb-24">
 
           {/* LEFT CONTENT: Text & CTA */}
@@ -71,7 +71,7 @@ export default function Hero() {
                 {t('contact.status')}
               </motion.div>
 
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-balance text-foreground">
+              <h1 className="font-display text-fluid-h1 font-black tracking-tight text-balance text-foreground">
                 {t('hero.title.start')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#57d4ff] to-primary bg-[length:200%_auto] animate-gradient-flow">{t('hero.title.highlight')}</span> {t('hero.title.end')}
               </h1>
 

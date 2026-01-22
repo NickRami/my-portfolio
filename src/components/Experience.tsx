@@ -57,7 +57,7 @@ export default function Experience() {
             <div className={`absolute left-[13px] top-1.5 size-4 rounded-full border-4 border-background z-10 transition-all duration-300 ${index === 0 ? 'bg-primary ring-4 ring-primary/20 scale-125' : 'bg-border group-hover:bg-primary'}`}></div>
 
             {/* Experience Card */}
-            <div className="bg-card border border-border p-5 rounded-xl hover:border-primary/50 transition-all shadow-sm">
+            <div className="bg-card border border-border p-6 rounded-3xl hover:border-primary/50 transition-all shadow-sm">
               <div className="flex flex-col sm:flex-row justify-between items-start mb-2 gap-2">
                 <div>
                   <h3 className="text-foreground text-lg font-bold">{exp.role}</h3>

@@ -40,12 +40,12 @@ export default function ProjectsPreview() {
   const { t } = useApp();
 
   return (
-    <section id="projects" className="py-16 md:py-24">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-20">
+    <section id="projects" className="section-padding">
+      <div className="container-responsive">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3">
             <FolderGit2 className="text-primary" size={32} />
-            <h2 className="text-foreground text-3xl md:text-5xl font-black tracking-tight">
+            <h2 className="text-foreground text-fluid-h2 font-black tracking-tight">
               {t('projects.title')}
             </h2>
           </div>
@@ -63,7 +63,7 @@ export default function ProjectsPreview() {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-card border border-border rounded-[2.5rem] overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col shadow-xl">
+                <div className="bg-card border border-border rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col shadow-xl">
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={project.image || `https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&embed=screenshot.url`}

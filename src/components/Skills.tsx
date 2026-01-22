@@ -20,7 +20,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="md:col-span-2 bg-card border border-border p-6 rounded-2xl flex flex-col justify-start hover:bg-card/80 transition-colors relative overflow-hidden group h-full"
+          className="md:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col justify-start hover:bg-card/80 transition-colors relative overflow-hidden group h-full"
         >
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <Terminal size={64} className="text-foreground" />
@@ -45,7 +45,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-card to-background border border-border p-6 rounded-2xl flex flex-col hover:border-primary/40 transition-all relative h-full"
+          className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-card to-background border border-border p-6 rounded-3xl flex flex-col hover:border-primary/40 transition-all relative h-full"
         >
           <Cloud className="text-primary mb-3" size={24} />
           <h3 className="text-foreground text-lg font-bold mb-1">{t('skills.infrastructure')}</h3>
@@ -72,7 +72,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="md:col-span-2 bg-card border border-border p-6 rounded-2xl flex flex-col hover:bg-card/80 transition-colors group h-full"
+          className="md:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col hover:bg-card/80 transition-colors group h-full"
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-foreground text-lg font-bold">{t('skills.engineering')}</h3>
@@ -93,7 +93,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="md:col-span-1 bg-card border border-border p-5 rounded-2xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
+          className="md:col-span-1 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
         >
           <Database className="text-primary mb-2" size={32} />
           <h4 className="text-foreground text-sm font-bold">{t('skills.data_strategy')}</h4>
@@ -106,7 +106,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="md:col-span-1 bg-card border border-border p-5 rounded-2xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
+          className="md:col-span-1 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
         >
           <ShieldCheck className="text-primary mb-2" size={32} />
           <h4 className="text-foreground text-sm font-bold">{t('skills.quality')}</h4>
@@ -119,7 +119,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="md:col-span-2 lg:col-span-4 bg-primary text-primary-foreground p-6 rounded-2xl flex flex-wrap items-center justify-between relative overflow-hidden h-full min-h-[120px]"
+          className="md:col-span-2 lg:col-span-4 bg-primary text-primary-foreground p-6 rounded-3xl flex flex-wrap items-center justify-between relative overflow-hidden h-full min-h-[120px]"
         >
           <div className="z-10">
             <h3 className="text-3xl font-black leading-none">{t('skills.years')}</h3>
