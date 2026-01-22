@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useApp } from "../context/AppContext";
-import { User, Code2, Sparkles, Rocket } from "lucide-react";
+import { User, Code2, Rocket } from "lucide-react";
 
 export default function About() {
     const { t } = useApp();
