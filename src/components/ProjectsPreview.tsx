@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, FolderGit2 } from 'lucide-react';
+import { ArrowUpRight, FolderGit2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useApp } from "../context/AppContext";
 
 interface Project {
@@ -38,6 +39,15 @@ const projects: Project[] = [
 
 export default function ProjectsPreview() {
   const { t } = useApp();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === 'left' ? scrollLeft - clientWidth / 1.5 : scrollLeft + clientWidth / 1.5;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="projects" className="py-24 md:py-32">
@@ -49,17 +59,28 @@ export default function ProjectsPreview() {
               {t('projects.title')}
             </h2>
           </div>
-          <div className="flex gap-2">
-            <button className="size-10 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary transition-colors">
-              <ArrowUpRight className="rotate-[-135deg]" size={18} />
+          <div className="flex gap-4">
+            <button
+              onClick={() => scroll('left')}
+              className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary hover:bg-primary/5 transition-all active:scale-95"
+              aria-label="Previous project"
+            >
+              <ChevronLeft size={24} />
             </button>
-            <button className="size-10 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary transition-colors">
-              <ArrowUpRight className="rotate-[45deg]" size={18} />
+            <button
+              onClick={() => scroll('right')}
+              className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary hover:bg-primary/5 transition-all active:scale-95"
+              aria-label="Next project"
+            >
+              <ChevronRight size={24} />
             </button>
           </div>
         </div>
 
-        <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory custom-scrollbar scroll-smooth">
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar scroll-smooth"
+        >
           {projects.map((project, index) => {
             const techs = t(project.techKey) as string[];
             return (

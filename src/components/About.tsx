@@ -52,27 +52,97 @@ export default function About() {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative"
+                        transition={{ duration: 0.8 }}
+                        className="relative lg:ml-12"
                     >
-                        <div className="relative z-10 rounded-[3rem] overflow-hidden border border-border aspect-square bg-gradient-to-br from-primary/10 to-secondary flex items-center justify-center group">
-                            <Sparkles className="size-48 text-primary/20 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700" />
+                        {/* Continuous Floating Motion */}
+                        <motion.div
+                            animate={{
+                                y: [0, -15, 0],
+                                rotateZ: [0, 1, 0, -1, 0]
+                            }}
+                            transition={{
+                                duration: 8,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="relative z-10 group cursor-default"
+                        >
+                            <div className="relative rounded-[3rem] overflow-hidden border border-border aspect-square bg-gradient-to-br from-primary/20 via-background to-secondary/10 flex items-center justify-center shadow-2xl transition-all duration-700 group-hover:border-primary/40">
 
-                            {/* Inner Glass Card */}
-                            <div className="absolute inset-8 rounded-[2rem] bg-background/60 backdrop-blur-xl border border-white/5 flex items-center justify-center p-8 text-center">
-                                <div className="space-y-2">
-                                    <span className="text-5xl font-black text-primary">Senior</span>
-                                    <p className="text-lg font-bold text-foreground tracking-widest uppercase">Developer</p>
-                                </div>
+                                {/* Animated Shimmer / Reflection */}
+                                <motion.div
+                                    animate={{
+                                        x: ['-100%', '200%'],
+                                        opacity: [0, 0.5, 0]
+                                    }}
+                                    transition={{
+                                        duration: 4,
+                                        repeat: Infinity,
+                                        ease: "linear",
+                                        repeatDelay: 1
+                                    }}
+                                    className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 z-0 pointer-events-none"
+                                />
+
+                                {/* Background Sparkles with floating animation */}
+                                <motion.div
+                                    animate={{
+                                        scale: [1, 1.1, 1],
+                                        opacity: [0.1, 0.2, 0.1]
+                                    }}
+                                    transition={{ duration: 4, repeat: Infinity }}
+                                >
+                                    <Sparkles className="size-48 text-primary group-hover:text-primary/40 group-hover:scale-125 transition-all duration-700 blur-[3px] group-hover:blur-sm" />
+                                </motion.div>
+
+                                {/* Inner Glass Card with parallax effect on hover */}
+                                <motion.div
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    className="absolute inset-8 rounded-[2rem] bg-background/30 backdrop-blur-3xl border border-white/10 flex items-center justify-center p-8 text-center shadow-[0_0_50px_rgba(13,185,242,0.15)] group-hover:shadow-[0_0_80px_rgba(13,185,242,0.3)] transition-all duration-500 z-10 overflow-hidden"
+                                >
+                                    <div className="space-y-3 relative z-10">
+                                        <span className="text-7xl font-black text-primary drop-shadow-[0_0_20px_rgba(13,185,242,0.6)]">Senior</span>
+                                        <div className="flex flex-col items-center">
+                                            <p className="text-xl font-bold text-foreground tracking-[0.4em] uppercase opacity-80 group-hover:opacity-100 transition-opacity">Developer</p>
+                                            <div className="h-1 w-12 bg-primary/40 rounded-full mt-2 group-hover:w-24 transition-all duration-500" />
+                                        </div>
+                                    </div>
+
+                                    {/* Subtle internal glow that follows (pseudo) */}
+                                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                                </motion.div>
+
+                                {/* Corner Accents with "scanning" animation */}
+                                <div className="absolute top-8 left-8 size-6 border-t-2 border-l-2 border-primary/50 rounded-tl-xl group-hover:border-primary transition-all duration-500" />
+                                <div className="absolute bottom-8 right-8 size-6 border-b-2 border-r-2 border-primary/50 rounded-br-xl group-hover:border-primary transition-all duration-500" />
                             </div>
-                        </div>
 
-                        {/* Decorative Rings */}
-                        <div className="absolute -z-10 inset-0 border-2 border-primary/10 rounded-full scale-110 animate-[spin_20s_linear_infinite]" />
-                        <div className="absolute -z-10 inset-0 border-2 border-dashed border-primary/5 rounded-full scale-125 animate-[spin_30s_linear_infinite_reverse]" />
+                            {/* Floating Stats or Tags around the card */}
+                            <motion.div
+                                animate={{ y: [0, 10, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -right-8 top-1/4 z-20 px-4 py-2 bg-card/90 backdrop-blur-md border border-primary/30 rounded-full shadow-xl"
+                            >
+                                <span className="text-xs font-black text-primary uppercase tracking-tighter">Full Stack</span>
+                            </motion.div>
+
+                            <motion.div
+                                animate={{ y: [0, -12, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                                className="absolute -left-4 bottom-1/4 z-20 px-4 py-2 bg-card/90 backdrop-blur-md border border-secondary/30 rounded-full shadow-xl"
+                            >
+                                <span className="text-xs font-black text-secondary uppercase tracking-tighter">TypeScript</span>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Decorative Background Rings - Enhanced Color and Speed */}
+                        <div className="absolute -z-10 inset-0 border-2 border-primary/20 rounded-full scale-[1.15] animate-[spin_25s_linear_infinite]" />
+                        <div className="absolute -z-10 inset-0 border-2 border-dashed border-secondary/20 rounded-full scale-[1.3] animate-[spin_35s_linear_infinite_reverse]" />
+                        <div className="absolute -z-10 inset-0 bg-primary/10 blur-[120px] rounded-full scale-125" />
                     </motion.div>
                 </div>
             </div>
