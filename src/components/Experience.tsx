@@ -32,68 +32,53 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border bg-background">
-      <div className="max-w-full">
-        {/* Unified Header */}
-        <div className="mb-16 border-b border-border pb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
-              <Briefcase size={20} />
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display font-medium">
-              {t('experience.title')}
-            </h2>
-          </div>
-          <p className="text-muted-foreground text-lg max-w-2xl">
-            {t('experience.subtitle')}
-          </p>
-        </div>
-
-        {/* Unified Timeline / List */}
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12"
-            >
-              {/* Date Column */}
-              <div className="lg:col-span-3">
-                <div className="flex items-center gap-2 text-muted-label font-mono text-sm uppercase tracking-wider bg-secondary w-fit px-3 py-1 rounded-md border border-border">
-                  <Calendar size={14} />
-                  {exp.date}
-                </div>
-              </div>
-
-              {/* Work Details Column */}
-              <div className="lg:col-span-9 space-y-4">
-                <div className="space-y-1">
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {exp.role}
-                  </h3>
-                  <p className="text-lg text-muted-foreground font-medium">
-                    {exp.company}
-                  </p>
-                </div>
-
-                <div className="bg-card border border-border p-6 md:p-8 rounded-2xl hover:border-primary/20 transition-all">
-                  <ul className="space-y-4">
-                    {exp.bullets.map((bullet: string, i: number) => (
-                      <li key={i} className="flex gap-4 text-muted-foreground leading-relaxed group/bullet">
-                        <ChevronRight size={18} className="shrink-0 mt-1 text-primary/40 group-hover/bullet:text-primary transition-colors" />
-                        <span className="group-hover/bullet:text-foreground transition-colors">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+    <div id="experience" className="flex flex-col gap-6">
+      <div className="flex items-center gap-2 mb-2">
+        <Briefcase className="text-primary" size={24} />
+        <h2 className="text-foreground text-2xl font-bold tracking-tight">
+          {t('experience.title')}
+        </h2>
       </div>
-    </section>
+
+      <div className="relative space-y-2">
+        {/* Timeline Line */}
+        <div className="absolute left-5 top-2 bottom-0 w-[2px] bg-gradient-to-b from-primary via-border to-transparent"></div>
+
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="relative pl-14 pb-10 group"
+          >
+            {/* Dot Indicator */}
+            <div className={`absolute left-[13px] top-1.5 size-4 rounded-full border-4 border-background z-10 transition-all duration-300 ${index === 0 ? 'bg-primary ring-4 ring-primary/20 scale-125' : 'bg-border group-hover:bg-primary'}`}></div>
+
+            {/* Experience Card */}
+            <div className="bg-card border border-border p-5 rounded-xl hover:border-primary/50 transition-all shadow-sm">
+              <div className="flex flex-col sm:flex-row justify-between items-start mb-2 gap-2">
+                <div>
+                  <h3 className="text-foreground text-lg font-bold">{exp.role}</h3>
+                  <p className="text-primary font-semibold text-sm">{exp.company}</p>
+                </div>
+                <span className={`px-3 py-1 rounded-full text-xs font-bold ${index === 0 ? 'bg-primary/10 text-primary' : 'bg-border/30 text-muted-foreground'}`}>
+                  {exp.date}
+                </span>
+              </div>
+              <ul className="mt-4 space-y-2 text-muted-foreground text-sm">
+                {exp.bullets.map((bullet: string, i: number) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-primary">•</span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }

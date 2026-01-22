@@ -1,28 +1,20 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Terminal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../context/AppContext";
 import { useLocation, Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme, language, setLanguage, t, } = useApp();
+  const { theme, toggleTheme, language, setLanguage, t } = useApp();
   const location = useLocation();
   const isHome = location.pathname === '/';
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const navLinks = [
-    { name: t('nav.about'), href: isHome ? "#about" : "/#about", isHash: true },
-    { name: t('nav.projects'), href: isHome ? "#projects" : "/#projects", isHash: true },
-    { name: t('nav.expertise'), href: isHome ? "#skills" : "/#skills", isHash: true },
-    { name: t('nav.resume'), href: language === 'es' ? "/curriculum" : "/resume", isHash: false },
-    { name: t('nav.contact'), href: isHome ? "#contact" : "/#contact", isHash: true },
+    { name: t('nav.expertise'), href: isHome ? "#skills" : "/#skills" },
+    { name: t('nav.projects'), href: isHome ? "#projects" : "/#projects" },
+    { name: t('nav.about'), href: isHome ? "#about" : "/#about" },
+    { name: t('nav.contact'), href: isHome ? "#contact" : "/#contact" },
   ];
 
   const handleLanguageToggle = () => {
@@ -31,95 +23,89 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "top-2 md:top-4" : "top-0 py-4 md:py-6 bg-transparent"}`}>
-        <div className={`relative mx-auto flex justify-between items-center transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md border border-white/5 shadow-lg rounded-full px-4 md:px-6 py-2 md:py-3 w-[92%] md:max-w-5xl" : "max-w-screen-2xl px-6 md:px-12 lg:px-24"}`}>
-          <Link to="/" className="text-xl font-display font-bold tracking-tight hover:text-primary transition-colors">
-            Ramiro Silva
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md px-6 md:px-20 py-3">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="size-8 bg-primary rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
+              <Terminal size={18} className="text-background" />
+            </div>
+            <h2 className="text-foreground text-xl font-black leading-tight tracking-tight">
+              DevPortfolio
+            </h2>
           </Link>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2">
-            {navLinks.map(link => (
-              link.isHash ? (
-                <a key={link.name} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
+            <nav className="flex items-center gap-9">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
+                >
                   {link.name}
                 </a>
-              ) : (
-                <Link key={link.name} to={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                  {link.name}
-                </Link>
-              )
-            ))}
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-4 border-l border-border pl-8">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-primary"
+              >
+                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+
+              <button
+                onClick={handleLanguageToggle}
+                className="text-xs font-bold p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-primary"
+              >
+                {language.toUpperCase()}
+              </button>
+
+              <button className="flex min-w-[120px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-background text-sm font-bold transition-transform hover:scale-105 active:scale-95">
+                {t('nav.resume')}
+              </button>
+            </div>
           </div>
 
-          {/* Right Actions */}
-          <div className="hidden md:flex items-center gap-6 min-w-fit flex-nowrap">
-
-
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-primary">
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-
-            <button onClick={handleLanguageToggle} className="p-2 rounded-full hover:bg-muted transition-colors text-lg leading-none" title="Switch Language">
-              {language === 'en' ? '🇺🇸' : '🇦🇷'}
-            </button>
-
-            <a href={isHome ? "#contact" : "/#contact"} className="px-5 py-2 text-sm font-medium bg-foreground text-background rounded-full hover:bg-primary hover:text-white transition-all">
-              {t('nav.talk')}
-            </a>
-          </div>
-
-          {/* Mobile Toggle & Actions */}
+          {/* Mobile Toggle */}
           <div className="flex md:hidden items-center gap-4">
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground">
+            <button onClick={toggleTheme} className="text-muted-foreground">
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={handleLanguageToggle} className="p-1 rounded-full hover:bg-muted transition-colors text-xl leading-none">
-              {language === 'en' ? '🇺🇸' : '🇦🇷'}
-            </button>
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-foreground z-50">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-foreground">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
-      </nav>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-background z-40 flex flex-col pt-32 px-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-x-0 top-[65px] bg-background border-b border-border z-40 p-6 md:hidden flex flex-col gap-4 shadow-xl"
           >
-            <div className="flex flex-col gap-6 items-center">
-              {navLinks.map(link => (
-                link.isHash ? (
-                  <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-3xl font-bold text-foreground hover:text-primary transition-colors">
-                    {link.name}
-                  </a>
-                ) : (
-                  <Link key={link.name} to={link.href} onClick={() => setIsOpen(false)} className="text-3xl font-bold text-foreground hover:text-primary transition-colors">
-                    {link.name}
-                  </Link>
-                )
-              ))}
-
-              <div className="mt-8">
-                <a
-                  href={isHome ? "#contact" : "/#contact"}
-                  onClick={() => setIsOpen(false)}
-                  className="w-full text-center px-8 py-5 text-xl font-bold bg-primary text-white rounded-2xl shadow-lg shadow-primary/20 transition-all active:scale-95"
-                >
-                  {t('nav.talk')}
-                </a>
-              </div>
-            </div>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="text-lg font-bold text-foreground hover:text-primary transition-colors py-2 border-b border-border last:border-0"
+              >
+                {link.name}
+              </a>
+            ))}
+            <button className="w-full bg-primary text-background font-bold py-4 rounded-xl mt-4">
+              {t('nav.resume')}
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

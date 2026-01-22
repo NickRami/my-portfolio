@@ -9,7 +9,7 @@ interface Project {
   techKey: string;
   url: string;
   repoUrl?: string;
-  image?: string; // Optional custom image
+  image?: string;
 }
 
 const projects: Project[] = [
@@ -40,89 +40,78 @@ export default function ProjectsPreview() {
   const { t } = useApp();
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
-      <div className="max-w-full">
-
-        {/* Header simple y directo */}
-        <div className="mb-16 border-b border-border pb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
-              <FolderGit2 size={20} />
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display font-medium">
-              {t('projects.title')}
-            </h2>
-          </div>
-          <p className="text-muted-foreground text-lg max-w-2xl">
-            {t('projects.subtitle')}
-          </p>
+    <section id="projects" className="py-24">
+      <div className="flex items-center justify-between mb-12">
+        <div className="flex items-center gap-3">
+          <FolderGit2 className="text-primary" size={32} />
+          <h2 className="text-foreground text-3xl font-black tracking-tight">
+            {t('projects.title')}
+          </h2>
         </div>
+        <div className="flex gap-2">
+          <button className="size-10 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary transition-colors">
+            <ArrowUpRight className="rotate-[-135deg]" size={18} />
+          </button>
+          <button className="size-10 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary transition-colors">
+            <ArrowUpRight className="rotate-[45deg]" size={18} />
+          </button>
+        </div>
+      </div>
 
-        {/* Grid Limpio - Escaneable por Recruiters */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => {
-            const techs = t(project.techKey) as string[];
-
-            return (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1 }}
-                className="flex flex-col bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300 group shadow-lg"
-              >
-                {/* 1. Preview Visual (Custom Image or Auto-Screenshot) */}
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-video w-full bg-muted/20 relative overflow-hidden block"
-                >
+      <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory custom-scrollbar scroll-smooth">
+        {projects.map((project, index) => {
+          const techs = t(project.techKey) as string[];
+          return (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="min-w-[320px] md:min-w-[450px] snap-start group"
+            >
+              <div className="bg-card border border-border rounded-[2.5rem] overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col shadow-xl">
+                <div className="relative aspect-video overflow-hidden">
                   <img
                     src={project.image || `https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&embed=screenshot.url`}
                     alt={t(project.titleKey)}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  {/* Overlay info on hover only if needed, keeps it clean */}
-                </a>
-
-                {/* 2. Content Body */}
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                      {t(project.titleKey)}
-                    </h3>
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60"></div>
+                </div>
+                <div className="p-8 flex-1 flex flex-col">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {techs && techs.slice(0, 3).map((tech, i) => (
+                      <span key={i} className="bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-lg text-[10px] font-bold uppercase">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-foreground text-2xl font-bold mb-3">{t(project.titleKey)}</h3>
+                  <p className="text-muted-foreground text-sm mb-8 leading-relaxed flex-1">
+                    {t(project.descKey)}
+                  </p>
+                  <div className="flex gap-4">
                     <a
                       href={project.url}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      className="flex-1 bg-primary text-background py-3 rounded-xl font-bold text-sm text-center transition-transform hover:scale-[1.02]"
                     >
-                      <ArrowUpRight size={20} />
+                      View Live
+                    </a>
+                    <a
+                      href={project.repoUrl || '#'}
+                      target="_blank"
+                      className="flex-1 bg-white/5 text-foreground border border-white/10 py-3 rounded-xl font-bold text-sm text-center hover:bg-white/10 transition-colors"
+                    >
+                      Source Code
                     </a>
                   </div>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
-                    {t(project.descKey)}
-                  </p>
-
-                  {/* 3. Footer: Tech Stack & Actions */}
-                  <div className="space-y-4 mt-auto">
-                    <div className="flex flex-wrap gap-2">
-                      {techs && techs.map((tech, i) => (
-                        <span key={i} className="text-[10px] font-mono px-2 py-1 rounded-md bg-muted/50 border border-border text-muted-label">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
