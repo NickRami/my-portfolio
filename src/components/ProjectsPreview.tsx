@@ -84,20 +84,13 @@ export default function ProjectsPreview() {
                     <p className="text-muted-foreground text-sm mb-8 leading-relaxed flex-1">
                       {t(project.descKey)}
                     </p>
-                    <div className="flex gap-4">
+                    <div className="mt-auto">
                       <a
                         href={project.url}
                         target="_blank"
-                        className="flex-1 bg-primary text-background py-3 rounded-xl font-bold text-sm text-center transition-transform hover:scale-[1.02]"
+                        className="block w-full bg-primary text-background py-4 rounded-xl font-bold text-sm text-center transition-all hover:scale-[1.02] hover:brightness-110 active:scale-95 shadow-lg shadow-primary/20"
                       >
                         View Live
-                      </a>
-                      <a
-                        href={project.repoUrl || '#'}
-                        target="_blank"
-                        className="flex-1 bg-white/5 text-foreground border border-white/10 py-3 rounded-xl font-bold text-sm text-center hover:bg-white/10 transition-colors"
-                      >
-                        Source Code
                       </a>
                     </div>
                   </div>
