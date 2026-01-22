@@ -6,7 +6,7 @@ export default function About() {
     const { t } = useApp();
 
     return (
-        <section id="about" className="py-24 md:py-32 relative overflow-hidden">
+        <section id="about" className="py-16 md:py-24 relative overflow-hidden">
             {/* Background Decorative Element */}
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 size-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 

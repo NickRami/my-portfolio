@@ -5,7 +5,7 @@ export default function Contact() {
   const { t } = useApp();
 
   return (
-    <section id="contact" className="py-24 md:py-32 overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-20 relative">
         {/* Background Decorative Glow */}
         <div className="absolute -top-24 -right-24 size-[500px] bg-primary/5 blur-[120px] rounded-full -z-10" />

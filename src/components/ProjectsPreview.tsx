@@ -40,7 +40,7 @@ export default function ProjectsPreview() {
   const { t } = useApp();
 
   return (
-    <section id="projects" className="py-24 md:py-32">
+    <section id="projects" className="py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-20">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3">

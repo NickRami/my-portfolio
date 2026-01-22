@@ -79,13 +79,15 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 0;
 }
 
-@media (min-width: 768px) {
-  html {
-    scroll-padding-top: 100px;
-  }
+/* Sections scroll margin to ensure titles are perfectly visible below navbar */
+#skills,
+#projects,
+#about,
+#contact {
+  scroll-margin-top: 110px;
 }
 
 body {

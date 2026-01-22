@@ -10,11 +10,13 @@ function AnimatedRoutes() {
 
   useEffect(() => {
     if (location.hash) {
-      // Small timeout to ensure DOM is ready and animation doesn't conflict
       const timeout = setTimeout(() => {
         const element = document.getElementById(location.hash.slice(1));
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       }, 100);
       return () => clearTimeout(timeout);
@@ -27,44 +29,44 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={
-             <motion.div
-                initial={{ opacity: 0, x: -100 }} 
-                animate={{ opacity: 1, x: 0 }} 
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-             >
-                <Home />
-             </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          >
+            <Home />
+          </motion.div>
         } />
         <Route path="/resume" element={
-             <motion.div
-                initial={{ opacity: 0, x: 100 }} 
-                animate={{ opacity: 1, x: 0 }} 
-                exit={{ opacity: 0, x: 100 }} // Slide back to right
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-             >
-                <Resume />
-             </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }} // Slide back to right
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          >
+            <Resume />
+          </motion.div>
         } />
         <Route path="/cv" element={
-            <motion.div
-                initial={{ opacity: 0, x: 100 }} 
-                animate={{ opacity: 1, x: 0 }} 
-                exit={{ opacity: 0, x: 100 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-             >
-                <Resume />
-             </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          >
+            <Resume />
+          </motion.div>
         } />
         <Route path="/curriculum" element={
-            <motion.div
-                initial={{ opacity: 0, x: 100 }} 
-                animate={{ opacity: 1, x: 0 }} 
-                exit={{ opacity: 0, x: 100 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-             >
-                <Resume />
-             </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          >
+            <Resume />
+          </motion.div>
         } />
       </Routes>
     </AnimatePresence>
