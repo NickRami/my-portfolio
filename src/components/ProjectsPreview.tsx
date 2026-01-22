@@ -8,7 +8,8 @@ interface Project {
   descKey: string;
   techKey: string;
   url: string;
-  repoUrl?: string; // Prepared for future Use
+  repoUrl?: string;
+  image?: string; // Optional custom image
 }
 
 const projects: Project[] = [
@@ -71,7 +72,7 @@ export default function ProjectsPreview() {
                 transition={{ delay: index * 0.1 }}
                 className="flex flex-col bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300 group shadow-lg"
               >
-                {/* 1. Preview Visual (Clear & Large) */}
+                {/* 1. Preview Visual (Custom Image or Auto-Screenshot) */}
                 <a
                   href={project.url}
                   target="_blank"
@@ -79,8 +80,8 @@ export default function ProjectsPreview() {
                   className="aspect-video w-full bg-muted/20 relative overflow-hidden block"
                 >
                   <img
-                    src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280`}
-                    alt="Preview"
+                    src={project.image || `https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&embed=screenshot.url`}
+                    alt={t(project.titleKey)}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                   />
