@@ -44,7 +44,7 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-balance">
-            {t('hero.title.start')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">{t('hero.title.highlight')}</span> {t('hero.title.end')}
+            {t('hero.title.start')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#57d4ff]">{t('hero.title.highlight')}</span> {t('hero.title.end')}
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light max-w-xl mx-auto lg:mx-0 text-balance">
@@ -53,10 +53,10 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
-          <a href="#projects" className="px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg hover:bg-primary/90 hover:text-white transition-all shadow-lg hover:shadow-primary/20 flex items-center justify-center gap-2 group w-full sm:w-auto">
+          <a href="#projects" className="px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg hover:bg-primary transition-all shadow-lg hover:shadow-primary/20 flex items-center justify-center gap-2 group w-full sm:w-auto">
             {t('hero.cta.work')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href={language === 'es' ? "/curriculum" : "/resume"} className="px-8 py-4 rounded-full border border-muted-foreground/20 hover:bg-muted/10 hover:border-foreground/50 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm w-full sm:w-auto">
+          <a href={language === 'es' ? "/curriculum" : "/resume"} className="px-8 py-4 rounded-full border border-border bg-background/40 hover:bg-muted/10 hover:border-primary/50 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm w-full sm:w-auto">
             <FileUser size={20} /> {t('hero.cta.resume')}
           </a>
         </div>
