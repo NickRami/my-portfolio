@@ -84,7 +84,8 @@ const translations = {
     'project.3.tech': ["React DnD", "Complete State Mgmt", "Date-fns"],
 
     // Experience (Arrays for "Career Changelog")
-    'experience.title': 'Career History',
+    'experience.title': 'Professional History',
+    'experience.subtitle': 'A timeline of my journey in software engineering and product development.',
     'experience.constructora.company': 'Constructora',
     'experience.constructora.role': 'Full Stack Developer',
     'experience.constructora.date': '2025 - Present',
@@ -196,7 +197,8 @@ const translations = {
     'project.3.tech': ["React DnD", "State Management", "Date Logic"],
 
     // Experience (Arrays)
-    'experience.title': 'Historial Profesional',
+    'experience.title': 'Trayectoria Profesional',
+    'experience.subtitle': 'Una cronología de mi recorrido en ingeniería de software y desarrollo de productos.',
     'experience.constructora.company': 'Constructora',
     'experience.constructora.role': 'Desarrollador Full Stack',
     'experience.constructora.date': '2025 - Presente',

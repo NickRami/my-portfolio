@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { useApp } from "../context/AppContext";
-import { GitCommit, GitPullRequest, Calendar } from "lucide-react";
+import { Briefcase, Calendar, ChevronRight } from "lucide-react";
 
 export default function Experience() {
   const { t } = useApp();
 
-  // Helper to safely get bullets
   const getBullets = (key: string) => {
     const items = t(key);
     return Array.isArray(items) ? items : [];
@@ -33,61 +32,68 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border">
-
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="flex items-center gap-3 mb-16">
-          <span className="p-2 rounded bg-primary/10 text-primary">
-            <GitCommit size={20} />
-          </span>
-          <h2 className="text-2xl md:text-3xl font-medium">
-            {t('experience.title')}
-          </h2>
+    <section id="experience" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border bg-background">
+      <div className="max-w-full">
+        {/* Unified Header */}
+        <div className="mb-16 border-b border-border pb-8">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
+              <Briefcase size={20} />
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-medium">
+              {t('experience.title')}
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-lg max-w-2xl">
+            {t('experience.subtitle')}
+          </p>
         </div>
 
-        {/* Timeline "Git Log" Style */}
-        <div className="relative space-y-12">
-          {/* Vertical Line Gradient */}
-          <div className="absolute left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/50 via-border to-transparent md:left-[11px]" />
-
+        {/* Unified Timeline / List */}
+        <div className="space-y-12">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative pl-10 md:pl-12 group"
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12"
             >
-              {/* Node/Dot */}
-              <div className="absolute left-0 top-1.5 h-6 w-6 rounded-full bg-card border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:scale-110 transition-all duration-300 z-10">
-                <div className="h-2 w-2 rounded-full bg-border/50 group-hover:bg-primary transition-colors" />
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
-                <h3 className="text-xl font-bold text-foreground">
-                  {exp.role} <span className="text-muted-foreground font-normal">@ {exp.company}</span>
-                </h3>
-                <div className="flex items-center gap-2 text-xs font-mono text-muted-label bg-muted/50 px-2 py-1 rounded">
-                  <Calendar size={12} className="opacity-70" />
+              {/* Date Column */}
+              <div className="lg:col-span-3">
+                <div className="flex items-center gap-2 text-muted-label font-mono text-sm uppercase tracking-wider bg-secondary w-fit px-3 py-1 rounded-md border border-border">
+                  <Calendar size={14} />
                   {exp.date}
                 </div>
               </div>
 
-              <div className="space-y-3">
-                {exp.bullets.map((bullet: string, i: number) => (
-                  <div key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed hover:text-foreground transition-colors">
-                    <GitPullRequest size={16} className="shrink-0 mt-0.5 opacity-30 group-hover:opacity-100 group-hover:text-primary transition-opacity" />
-                    <span>{bullet}</span>
-                  </div>
-                ))}
-              </div>
+              {/* Work Details Column */}
+              <div className="lg:col-span-9 space-y-4">
+                <div className="space-y-1">
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    {exp.role}
+                  </h3>
+                  <p className="text-lg text-muted-foreground font-medium">
+                    {exp.company}
+                  </p>
+                </div>
 
+                <div className="bg-card border border-border p-6 md:p-8 rounded-2xl hover:border-primary/20 transition-all">
+                  <ul className="space-y-4">
+                    {exp.bullets.map((bullet: string, i: number) => (
+                      <li key={i} className="flex gap-4 text-muted-foreground leading-relaxed group/bullet">
+                        <ChevronRight size={18} className="shrink-0 mt-1 text-primary/40 group-hover/bullet:text-primary transition-colors" />
+                        <span className="group-hover/bullet:text-foreground transition-colors">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
