@@ -96,132 +96,134 @@ export default function Hero() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="flex-1 w-full relative flex items-center justify-center mt-12 lg:mt-0"
           >
-            {/* Central Architecture Node - Compacted vertical space */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[500px] aspect-[4/3] flex items-center justify-center">
+            {/* Holographic Architecture Container */}
+            <div className="relative w-full max-w-[500px] aspect-square rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden shadow-2xl group">
 
-              {/* Blueprint Grid Background (Subtle) */}
-              <div className="absolute inset-0 bg-grid-foreground/[0.02] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)] pointer-events-none" />
-
-              {/* SVG Systematic Connections */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(13, 185, 242, 0)" />
-                    <stop offset="50%" stopColor="rgba(13, 185, 242, 0.8)" />
-                    <stop offset="100%" stopColor="rgba(13, 185, 242, 0)" />
-                  </linearGradient>
-                </defs>
-
-                <motion.path
-                  d="M140 160 L240 160 L240 240"
-                  stroke="currentColor" strokeWidth="1" fill="none" className="text-primary/30"
-                />
-                <motion.path
-                  d="M360 160 L260 160 L260 240"
-                  stroke="currentColor" strokeWidth="1" fill="none" className="text-primary/30"
-                />
-                <motion.path
-                  d="M250 340 L250 260"
-                  stroke="currentColor" strokeWidth="1" fill="none" className="text-primary/30"
-                />
-
-                {/* Data Flow Animations */}
-                <motion.path
-                  d="M140 160 L240 160 L240 240"
-                  stroke="url(#flow-gradient)" strokeWidth="2" fill="none"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: [0, 1, 0], pathOffset: [0, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
-                />
-                <motion.path
-                  d="M360 160 L260 160 L260 240"
-                  stroke="url(#flow-gradient)" strokeWidth="2" fill="none"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: [0, 1, 0], pathOffset: [0, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 1.5 }}
-                />
-                <motion.path
-                  d="M250 260 L250 340"
-                  stroke="url(#flow-gradient)" strokeWidth="2" fill="none"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: [0, 1, 0], pathOffset: [0, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }}
-                />
-              </svg>
-
-              <motion.div className="absolute top-[8%] -left-2 md:-left-8 z-10">
-                <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-4 rounded-xl w-32 md:w-52 shadow-2xl">
-                  <div className="flex items-center justify-between mb-2 md:mb-3 border-b border-border/30 pb-2">
-                    <span className="text-[9px] md:text-[10px] font-mono text-muted-foreground uppercase tracking-wider font-bold">{t('hero.layer.client')}</span>
-                    <Layout size={14} className="text-blue-500" />
-                  </div>
-                  <div className="space-y-1.5 font-mono text-[8px] md:text-[11px] text-muted-foreground/80 leading-tight">
-                    <div className="flex gap-2">
-                      <span className="text-purple-500 font-bold">const</span>
-                      <span className="text-foreground">App</span> = () <span className="text-purple-500">{`=>`}</span>
-                    </div>
-                    <div className="pl-3 text-blue-500/90 font-medium">useDataSync()</div>
-                  </div>
+              {/* Header Bar */}
+              <div className="h-10 border-b border-border/50 flex items-center justify-between px-4 bg-background/50">
+                <div className="flex gap-1.5">
+                  <div className="size-1.5 rounded-full bg-red-500/50" />
+                  <div className="size-1.5 rounded-full bg-yellow-500/50" />
+                  <div className="size-1.5 rounded-full bg-green-500/50" />
                 </div>
-              </motion.div>
-
-              <motion.div className="absolute top-[8%] -right-2 md:-right-8 z-10">
-                <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-4 rounded-xl w-32 md:w-52 shadow-2xl">
-                  <div className="flex items-center justify-between mb-2 md:mb-3 border-b border-border/30 pb-2">
-                    <span className="text-[9px] md:text-[10px] font-mono text-muted-foreground uppercase tracking-wider font-bold">{t('hero.layer.api')}</span>
-                    <Terminal size={14} className="text-purple-500" />
-                  </div>
-                  <div className="space-y-1.5 font-mono text-[8px] md:text-[11px] text-muted-foreground/80 leading-tight">
-                    <div><span className="text-primary font-bold">@Injectable</span>()</div>
-                    <div><span className="text-purple-500 font-bold">class</span> <span className="text-foreground">Core</span> ...</div>
-                  </div>
+                <div className="font-mono text-[9px] text-primary/70 tracking-widest uppercase">
+                  SYSTEM_ARCH.V2
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div className="z-20 relative">
-                <div className="w-24 h-24 md:w-40 md:h-40 rounded-full bg-card border border-border/30 flex items-center justify-center relative shadow-[0_0_50px_rgba(13,185,242,0.1)]">
-                  <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl animate-pulse" />
-                  <motion.div
-                    className="absolute w-[115%] h-[115%] rounded-full border border-primary/20 border-dashed"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              {/* Scanner Effect */}
+              <motion.div
+                animate={{ top: ['0%', '100%', '0%'] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent z-0 pointer-events-none"
+              />
+
+              {/* Grid Background */}
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(13,185,242,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(13,185,242,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+
+              {/* Architecture Content */}
+              <div className="relative w-full h-full flex items-center justify-center p-6">
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="rgba(13, 185, 242, 0)" />
+                      <stop offset="50%" stopColor="rgba(13, 185, 242, 0.8)" />
+                      <stop offset="100%" stopColor="rgba(13, 185, 242, 0)" />
+                    </linearGradient>
+                  </defs>
+
+                  <motion.path
+                    d="M140 160 L240 160 L240 240"
+                    stroke="currentColor" strokeWidth="1" fill="none" className="text-primary/30"
                   />
-                  <div className="relative z-10 flex flex-col items-center gap-1">
-                    <Cpu size={40} className="text-primary animate-[pulse_3s_infinite]" />
-                    <Sparkles size={16} className="text-primary/40 absolute -top-4 -right-4" />
-                  </div>
-                  <div className="absolute -bottom-12 whitespace-nowrap px-4 py-2 rounded-xl bg-card border border-primary/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-30 flex flex-col items-center">
-                    <span className="text-[10px] md:text-[11px] font-mono text-primary font-black tracking-[0.2em] uppercase">{t('hero.layer.core')}</span>
-                    <div className="h-0.5 w-8 bg-primary/50 mt-1 rounded-full"></div>
-                  </div>
-                </div>
-              </motion.div>
+                  <motion.path
+                    d="M360 160 L260 160 L260 240"
+                    stroke="currentColor" strokeWidth="1" fill="none" className="text-primary/30"
+                  />
+                  <motion.path
+                    d="M250 340 L250 260"
+                    stroke="currentColor" strokeWidth="1" fill="none" className="text-primary/30"
+                  />
 
-              <motion.div className="absolute bottom-[2%] left-1/2 -translate-x-1/2 z-10">
-                <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 md:p-4 rounded-2xl w-44 md:w-64 shadow-2xl">
-                  <div className="flex items-center gap-4 justify-center mb-3">
-                    <div className="flex items-center gap-1.5">
-                      <Database size={16} className="text-emerald-500/80" />
-                      <span className="text-[9px] font-mono text-muted-foreground">SQL</span>
+                  {/* Data Flow Animations */}
+                  <motion.path
+                    d="M140 160 L240 160 L240 240"
+                    stroke="url(#flow-gradient)" strokeWidth="2" fill="none"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: [0, 1, 0], pathOffset: [0, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
+                  />
+                  <motion.path
+                    d="M360 160 L260 160 L260 240"
+                    stroke="url(#flow-gradient)" strokeWidth="2" fill="none"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: [0, 1, 0], pathOffset: [0, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 1.5 }}
+                  />
+                  <motion.path
+                    d="M250 260 L250 340"
+                    stroke="url(#flow-gradient)" strokeWidth="2" fill="none"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: [0, 1, 0], pathOffset: [0, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }}
+                  />
+                </svg>
+
+                <motion.div className="absolute top-[15%] left-[5%] z-10">
+                  <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-xl shadow-lg">
+                    <div className="flex items-center gap-2 mb-1 border-b border-border/30 pb-1">
+                      <Layout size={12} className="text-blue-500" />
+                      <span className="text-[9px] font-mono text-muted-foreground uppercase font-bold">{t('hero.layer.client')}</span>
                     </div>
-                    <div className="h-4 w-px bg-border/40"></div>
-                    <div className="flex items-center gap-1.5">
-                      <Cloud size={16} className="text-cyan-500/80" />
-                      <span className="text-[9px] font-mono text-muted-foreground">AWS</span>
+                    <div className="font-mono text-[9px] text-muted-foreground/80 leading-tight">
+                      <span className="text-purple-500">View</span>.render()
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-3 text-center text-[11px] font-mono font-bold">
-                    <div className="bg-muted/30 rounded-xl p-2 md:p-2.5 border border-white/5">
-                      <div className="text-[9px] text-muted-foreground mb-1 uppercase tracking-tight">{t('hero.stats.uptime')}</div>
-                      <div className="text-green-400">99.9%</div>
+                </motion.div>
+
+                <motion.div className="absolute top-[15%] right-[5%] z-10">
+                  <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-xl shadow-lg">
+                    <div className="flex items-center gap-2 mb-1 border-b border-border/30 pb-1">
+                      <Terminal size={12} className="text-purple-500" />
+                      <span className="text-[9px] font-mono text-muted-foreground uppercase font-bold">{t('hero.layer.api')}</span>
                     </div>
-                    <div className="bg-muted/30 rounded-xl p-2 md:p-2.5 border border-white/5">
-                      <div className="text-[9px] text-muted-foreground mb-1 uppercase tracking-tight">{t('hero.stats.latency')}</div>
-                      <div className="text-primary">{"<40ms"}</div>
+                    <div className="font-mono text-[9px] text-muted-foreground/80 leading-tight">
+                      <span className="text-green-500">200 OK</span>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+
+                <motion.div className="z-20 relative">
+                  <div className="size-32 rounded-full bg-card border border-border/30 flex items-center justify-center relative shadow-[0_0_50px_rgba(13,185,242,0.1)]">
+                    <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
+                    <motion.div
+                      className="absolute w-[120%] h-[120%] rounded-full border border-primary/20 border-dashed"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    />
+                    <div className="relative z-10 flex flex-col items-center gap-1">
+                      <Cpu size={32} className="text-primary" />
+                    </div>
+                    <div className="absolute -bottom-8 px-3 py-1 rounded-full bg-card border border-primary/30 z-30">
+                      <span className="text-[9px] font-mono text-primary font-black uppercase tracking-widest">{t('hero.layer.core')}</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 z-10">
+                  <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-2xl w-48 shadow-lg flex justify-between items-center gap-4">
+                    <div className="text-center">
+                      <span className="text-[9px] text-muted-foreground block uppercase">{t('hero.stats.uptime')}</span>
+                      <span className="text-xs font-mono font-bold text-green-400">99.9%</span>
+                    </div>
+                    <div className="h-6 w-px bg-border/40" />
+                    <div className="text-center">
+                      <span className="text-[9px] text-muted-foreground block uppercase">{t('hero.stats.latency')}</span>
+                      <span className="text-xs font-mono font-bold text-primary">~35ms</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
