@@ -46,6 +46,7 @@
   --border: rgba(255, 255, 255, 0.06);
   --input: rgba(255, 255, 255, 0.06);
   --ring: #F97316;
+  --primary-rgb: 249, 115, 22;
 }
 
 .light {
@@ -71,6 +72,7 @@
   --border: #E5E7EB;
   --input: #E5E7EB;
   --ring: #F97316;
+  --primary-rgb: 249, 115, 22;
 }
 
 html {
@@ -131,6 +133,15 @@ body {
     .mouse-follower {
       display: block;
     }
+  }
+
+  .bento-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px -10px rgba(var(--primary-rgb), 0.2);
   }
 }
 

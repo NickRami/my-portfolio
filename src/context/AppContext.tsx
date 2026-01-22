@@ -126,6 +126,15 @@ const translations = {
     'skills.data.items': ["Docker & Containers", "CI/CD Pipelines", "AWS Services", "Performance Optimization"],
     'skills.practices.items': ["Clean Architecture", "Code Review & Git Flow", "Testing (Unit/E2E)", "Agile Methodologies"],
 
+    // Bento Skills Descriptions
+    'skills.bento.frontend.desc': 'Building high-performance interfaces with React/Next.js and advanced state management patterns.',
+    'skills.bento.backend.desc': 'Designing scalable server-side systems and RESTful APIs with Node.js and NestJS.',
+    'skills.bento.typescript.desc': 'Strongly typed code for robust and maintainable enterprise applications.',
+    'skills.bento.database.desc': 'Architecting relational schemas and optimizing queries with PostgreSQL.',
+    'skills.bento.architecture.desc': 'Applying Clean Architecture and Design Patterns to solve complex software problems.',
+    'skills.bento.devops.desc': 'Containerization and automation to streamline development and production workflows.',
+    'skills.bento.cloud.desc': 'Deploying and managing resilient applications on AWS and cloud environments.',
+
     // Contact
     'contact.title': 'Ready to',
     'contact.subtitle': 'Collaborate?',
@@ -239,6 +248,15 @@ const translations = {
     'skills.backend.items': ["Node.js", "Express/NestJS", "SQL (PostgreSQL)", "REST APIs"],
     'skills.data.items': ["Git/GitHub", "Docker", "CI/CD Basics", "AWS Services"],
     'skills.practices.items': ["Clean Code", "Scrum/Agile", "Testing", "System Design"],
+
+    // Bento Skills Descriptions
+    'skills.bento.frontend.desc': 'Construcción de interfaces de alto rendimiento con React/Next.js y patrones avanzados de estado.',
+    'skills.bento.backend.desc': 'Diseño de sistemas escalables y APIs RESTful con Node.js y NestJS.',
+    'skills.bento.typescript.desc': 'Código tipado para aplicaciones empresariales robustas y mantenibles.',
+    'skills.bento.database.desc': 'Arquitectura de esquemas relacionales y optimización de consultas con PostgreSQL.',
+    'skills.bento.architecture.desc': 'Aplicación de Arquitectura Limpia y Patrones de Diseño para problemas complejos.',
+    'skills.bento.devops.desc': 'Containerización y automatización para flujos de trabajo eficientes en producción.',
+    'skills.bento.cloud.desc': 'Despliegue y gestión de aplicaciones resilientes en AWS y entornos cloud.',
 
     // Contact
     'contact.title': '¿Listo para',
