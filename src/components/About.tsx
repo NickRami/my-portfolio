@@ -6,7 +6,7 @@ export default function About() {
 
     return (
         <section id="about" className="py-20 bg-secondary">
-            <div className="max-w-screen-2xl mx-auto px-4 md:px-12 lg:px-24">
+            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

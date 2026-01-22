@@ -16,7 +16,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className={`min-h-screen flex flex-col lg:flex-row items-center justify-between px-4 md:px-12 lg:px-24 pt-28 pb-12 md:pb-20 max-w-screen-2xl mx-auto relative overflow-hidden ${devMode ? 'pt-40' : ''}`}
+      className={`min-h-screen flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-24 pt-32 pb-12 md:pb-20 max-w-screen-2xl mx-auto relative overflow-hidden ${devMode ? 'pt-44' : ''}`}
     >
 
       {/* Background Ambience */}
@@ -43,7 +43,7 @@ export default function Hero() {
             {t('contact.status')}
           </motion.div>
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1] text-balance">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-balance">
             {t('hero.title.start')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">{t('hero.title.highlight')}</span> {t('hero.title.end')}
           </h1>
 
@@ -52,7 +52,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
           <a href="#projects" className="px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg hover:bg-primary/90 hover:text-white transition-all shadow-lg hover:shadow-primary/20 flex items-center justify-center gap-2 group w-full sm:w-auto">
             {t('hero.cta.work')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
@@ -62,18 +62,18 @@ export default function Hero() {
         </div>
 
         {/* Social Proof / Mini Stats */}
-        <div className="mt-12 pt-8 border-t border-muted/50 flex items-center justify-center lg:justify-start gap-8 text-muted-foreground">
+        <div className="mt-12 pt-8 border-t border-muted/50 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 text-muted-foreground">
           <div className="flex items-center gap-2">
-            <Code2 size={20} className="text-primary" />
-            <span className="text-sm font-medium">{t('hero.features.clean')}</span>
+            <Code2 size={18} className="text-primary" />
+            <span className="text-xs md:text-sm font-medium">{t('hero.features.clean')}</span>
           </div>
           <div className="flex items-center gap-2">
-            <Cpu size={20} className="text-primary" />
-            <span className="text-sm font-medium">{t('hero.features.perf')}</span>
+            <Cpu size={18} className="text-primary" />
+            <span className="text-xs md:text-sm font-medium">{t('hero.features.perf')}</span>
           </div>
           <div className="flex items-center gap-2">
-            <Server size={20} className="text-primary" />
-            <span className="text-sm font-medium">{t('hero.features.scale')}</span>
+            <Server size={18} className="text-primary" />
+            <span className="text-xs md:text-sm font-medium">{t('hero.features.scale')}</span>
           </div>
         </div>
       </motion.div>
@@ -82,7 +82,7 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="flex-1 w-full h-[400px] lg:h-[600px] relative flex items-center justify-center mt-12 lg:mt-0"
+        className="flex-1 w-full h-[450px] md:h-[500px] lg:h-[600px] relative flex items-center justify-center mt-12 lg:mt-0"
       >
         {/* Central Architecture Node */}
         <div className="relative w-full max-w-[350px] md:max-w-[500px] aspect-square flex items-center justify-center">
@@ -146,14 +146,13 @@ export default function Hero() {
             />
           </svg>
 
-          {/* --- Node 1: CLIENT (Architecture) --- */}
           <motion.div
-            className="absolute top-[10%] left-0 md:left-[0%] z-10"
+            className="absolute top-[5%] -left-4 md:left-[0%] z-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-3 rounded-lg w-32 md:w-48 shadow-lg hover:border-primary/30 transition-colors group cursor-default">
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-3 rounded-lg w-28 md:w-48 shadow-lg hover:border-primary/30 transition-colors group cursor-default">
               <div className="flex items-center justify-between mb-2 md:mb-3 border-b border-border/30 pb-2">
                 <span className="text-[9px] md:text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.client')}</span>
                 <Layout size={12} className="text-blue-500" />
@@ -177,14 +176,13 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* --- Node 2: SERVER (Logic) --- */}
           <motion.div
-            className="absolute top-[10%] right-0 md:right-[0%] z-10"
+            className="absolute top-[5%] -right-4 md:right-[0%] z-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-3 rounded-lg w-32 md:w-48 shadow-lg hover:border-primary/30 transition-colors group cursor-default">
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-3 rounded-lg w-28 md:w-48 shadow-lg hover:border-primary/30 transition-colors group cursor-default">
               <div className="flex items-center justify-between mb-2 md:mb-3 border-b border-border/30 pb-2">
                 <span className="text-[9px] md:text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{t('hero.layer.api')}</span>
                 <Terminal size={12} className="text-purple-500" />
@@ -238,14 +236,13 @@ export default function Hero() {
           </motion.div>
 
 
-          {/* --- Node 3: INFRASTRUCTURE (Status) --- */}
           <motion.div
-            className="absolute bottom-[0%] left-1/2 -translate-x-1/2 z-10 translate-y-0"
+            className="absolute bottom-[2%] left-1/2 -translate-x-1/2 z-10 translate-y-0"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-3 rounded-lg w-48 md:w-56 shadow-lg hover:border-green-500/30 transition-colors group cursor-default">
+            <div className="bg-card/90 backdrop-blur-md border border-border/50 p-2 md:p-3 rounded-lg w-40 md:w-56 shadow-lg hover:border-green-500/30 transition-colors group cursor-default">
               <div className="flex items-center gap-3 justify-center mb-2">
                 <Database size={14} className="text-emerald-500/70" />
                 <div className="h-3 w-px bg-border/20"></div>

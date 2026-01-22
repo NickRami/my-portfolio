@@ -32,7 +32,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border bg-background">
+    <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border bg-background">
       <div className="max-w-full">
         {/* Unified Header */}
         <div className="mb-16 border-b border-border pb-8">

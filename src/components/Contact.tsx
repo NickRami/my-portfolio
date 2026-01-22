@@ -5,7 +5,7 @@ export default function Contact() {
   const { t } = useApp();
 
   return (
-    <footer id="contact" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border">
+    <footer id="contact" className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
         <div className="space-y-6 max-w-2xl">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">

@@ -75,7 +75,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 80px;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 100px;
+  }
 }
 
 body {
@@ -115,6 +121,16 @@ body {
 
   .text-muted-label {
     color: var(--text-muted);
+  }
+
+  .mouse-follower {
+    display: none;
+  }
+
+  @media (hover: hover) {
+    .mouse-follower {
+      display: block;
+    }
   }
 }
 

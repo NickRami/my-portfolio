@@ -88,7 +88,7 @@ export default function Resume() {
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden relative print:overflow-visible">
       {/* Mouse Follower Gradient */}
       <div
-        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 print:hidden"
+        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 print:hidden mouse-follower"
         style={{
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(var(--color-primary-rgb), 0.05), transparent 40%)` // Adjusted for potential CSS variable usage or keep hardcoded if variable not exported as RGB
         }}

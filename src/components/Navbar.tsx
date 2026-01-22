@@ -31,8 +31,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "top-4" : "top-0 py-6 bg-transparent"}`}>
-        <div className={`relative mx-auto flex justify-between items-center transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md border border-white/5 shadow-lg rounded-full px-6 py-3 max-w-5xl" : "max-w-screen-2xl px-4 md:px-12 lg:px-24"}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "top-2 md:top-4" : "top-0 py-4 md:py-6 bg-transparent"}`}>
+        <div className={`relative mx-auto flex justify-between items-center transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md border border-white/5 shadow-lg rounded-full px-4 md:px-6 py-2 md:py-3 w-[92%] md:max-w-5xl" : "max-w-screen-2xl px-6 md:px-12 lg:px-24"}`}>
           <Link to="/" className="text-xl font-display font-bold tracking-tight hover:text-primary transition-colors">
             Ramiro Silva
           </Link>
@@ -88,10 +88,11 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-background z-40 flex flex-col pt-32 px-6"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-background z-40 flex flex-col pt-32 px-8"
           >
             <div className="flex flex-col gap-6 items-center">
               {navLinks.map(link => (
@@ -107,7 +108,11 @@ export default function Navbar() {
               ))}
 
               <div className="mt-8">
-                <a href={isHome ? "#contact" : "/#contact"} onClick={() => setIsOpen(false)} className="px-8 py-4 text-lg font-medium bg-foreground text-background rounded-full hover:bg-primary hover:text-white transition-all">
+                <a
+                  href={isHome ? "#contact" : "/#contact"}
+                  onClick={() => setIsOpen(false)}
+                  className="w-full text-center px-8 py-5 text-xl font-bold bg-primary text-white rounded-2xl shadow-lg shadow-primary/20 transition-all active:scale-95"
+                >
                   {t('nav.talk')}
                 </a>
               </div>
