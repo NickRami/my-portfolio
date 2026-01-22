@@ -20,6 +20,8 @@
   --color-muted-label: var(--text-muted);
 }
 
+
+
 :root {
   /* Dark Mode (Default) - Matching user provided design */
   --background: #101e22;
@@ -136,19 +138,18 @@ body {
   }
 
   .bento-card {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .bento-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px -10px rgba(var(--primary-rgb), 0.2);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 30px 60px -15px rgba(var(--primary-rgb), 0.15);
+    background: rgba(var(--primary-rgb), 0.05);
   }
 }
 
 /* Ensure page-2-content has no effect on screen */
-.page-2-content {
-  /* No special styling for screen view */
-}
+
 
 @media print {
   @page {

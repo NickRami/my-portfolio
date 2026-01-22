@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X, Sun, Moon, Terminal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../context/AppContext";
@@ -23,14 +23,14 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md px-6 md:px-20 py-3">
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-20 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-4 group">
             <div className="size-8 bg-primary rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
               <Terminal size={18} className="text-background" />
             </div>
             <h2 className="text-foreground text-xl font-black leading-tight tracking-tight">
-              DevPortfolio
+              Ramiro - Full Stack
             </h2>
           </Link>
 

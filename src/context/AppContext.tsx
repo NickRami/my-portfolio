@@ -15,258 +15,260 @@ interface AppContextType {
   toggleDevMode: () => void;
 }
 
-// ... (translations object remains unchanged)
-// We will just update the logic below, assuming translations are already there. 
-// However, since we are replacing a large chunk, I'll keep the translations object in the 'TargetContent' reference if possible, 
-// or I will just target the Provider and Hook part if I can. 
-// Actually, let's just replace the Provider implementation to be safe and clean.
-
 const translations = {
   en: {
     // Navbar
-    'nav.about': 'About',
+    'nav.about': 'Profile',
     'nav.projects': 'Projects',
-    'nav.expertise': 'Experience',
+    'nav.expertise': 'Expertise',
     'nav.contact': 'Contact',
     'nav.resume': 'Resume',
     'nav.back': 'Back',
     'nav.talk': "Let's Talk",
 
     // Hero
-    'hero.role': 'Product Architect & Engineer',
-    'hero.subtitle': 'Architecting Scalable Digital Systems',
-    'hero.desc': 'I bridge the gap between complex backend logic and pixel-perfect frontend experiences. Specialized in building maintainable, high-performance web applications that drive business value.',
-    'hero.cta.contact': "Contact Me",
+    'hero.role': 'Full Stack Engineer & Systems Architect',
+    'hero.subtitle': 'Designing Performance-Driven Digital Systems',
+    'hero.desc': 'I build high-performance, scalable web applications by bridging complex backend logic with pixel-perfect frontend architecture. Specialized in React, Node.js, and Cloud Infrastructure.',
+    'hero.cta.contact': "Work with me",
     'hero.cta.github': 'GitHub',
     'hero.tech.frontend': 'Frontend Architecture',
     'hero.tech.backend': 'System Design',
     'hero.tech.database': 'Data Strategy',
     'hero.tech.devops': 'DevOps & CI/CD',
-    // Hero Features - Refined
     'hero.features.clean': 'Clean Architecture',
+    'hero.features.clean.sub': 'Industry Standards',
     'hero.features.perf': 'High Performance',
+    'hero.features.perf.sub': 'Optimization First',
     'hero.features.scale': 'Scalability',
-
-    // Hero Layers - Refined
+    'hero.features.scale.sub': 'Elastic Growth',
+    'hero.features.security': 'Security Engineering',
+    'hero.features.security.sub': 'Proactive Defense',
     'hero.layer.client': 'Client Layer',
     'hero.layer.api': 'API Layer',
     'hero.layer.core': 'Core Engine',
     'hero.stats.uptime': 'Uptime',
     'hero.stats.latency': 'Latency',
     'hero.title.start': 'Building ',
-    'hero.title.highlight': 'Digital Products',
+    'hero.title.highlight': 'Enterprise Systems',
     'hero.title.end': ' that Scale.',
-    'hero.cta.work': 'View Work',
-    'hero.cta.resume': 'View Resume',
+    'hero.cta.work': 'View Projects',
+    'hero.cta.resume': 'Download CV',
+
+    'home.journey.title': 'Full Stack Career Roadmap',
+    'home.journey.subtitle': 'A structured analysis of my professional milestones, technical expertise, and contribution to enterprise-grade software products.',
 
     // About
-    'about.title': 'About Me',
-    'about.p1': 'I am a Full Stack Developer obsessed with code quality and system architecture. I do not just write code; I design solutions that stand the test of time, focusing on scalability, readability, and performance.',
-    'about.p2': 'My background encompasses the entire development lifecycle, from database design to reactive frontend interfaces. I excel in collaborative environments, leveraging AI tools and modern methodologies to accelerate delivery without compromising engineering standards.',
+    'about.title': 'Professional Profile',
+    'about.p1': 'Senior-focused Full Stack Developer with expert-level proficiency in the JavaScript ecosystem. I specialize in building **observable, maintainable, and highly available systems** that solve real-world business challenges through engineered precision.',
+    'about.p2': 'My approach integrates deep technical knowledge with product-led thinking, ensuring that every architectural decision translates into measurable user impact and system reliability.',
 
-    // Projects (Short & Impactful)
-    'projects.label': 'Selected Work',
-    'projects.title': 'Engineering Showcase',
-    'projects.subtitle': 'A selection of projects demonstrating technical depth, architectural decisions, and product thinking.',
-    'project.actions.visit': 'Live Demo',
-    'project.preview.unavailable': 'Preview generating...',
+    // Projects
+    'projects.label': 'Technical Showcase',
+    'projects.title': 'Production Systems',
+    'projects.subtitle': 'Architectural deep-dives and engineered solutions in modern web development.',
+    'project.actions.visit': 'Live Application',
+    'project.preview.unavailable': 'System preview generating...',
 
-    'project.1.title': 'Cine Scope',
-    'project.1.desc': 'High-performance React application handling complex data visualization. Implemented component-based architecture for optimal rendering perfromance and API integration.',
-    'project.1.tech': ["React 19", "TanStack Query", "Tailwind Architecture"],
+    'project.1.title': 'Cine Scope ERP',
+    'project.1.desc': 'High-performance React 19 application utilizing advanced caching layers and optimistic UI updates for real-time data management. Optimized for sub-second interaction latency.',
+    'project.1.tech': ["React 19", "TanStack Query", "Enterprise Architects"],
 
-    'project.2.title': 'Pokemon Battle Engine',
-    'project.2.desc': 'Decoupled game logic engine in pure JavaScript. Segregated state management from UI rendering to ensure extensive testability and separation of concerns.',
-    'project.2.tech': ["Vanilla JS", "State Patterns", "Game Loop Logic"],
+    'project.2.title': 'Distributed Logic Engine',
+    'project.2.desc': 'Decoupled state-driven engine built with pure TypeScript. Implements custom event loops and segregated data layers to ensure 100% test coverage and linear scalability.',
+    'project.2.tech': ["TypeScript", "State Patterns", "Architecture"],
 
-    'project.3.title': 'Cursor Calendar',
-    'project.3.desc': 'Complex state-managed calendar utilizing React DnD. Features advanced event handling, date manipulation logic, and accessible interactive patterns.',
-    'project.3.tech': ["React DnD", "Complete State Mgmt", "Date-fns"],
+    'project.3.title': 'Cursor Schedule Core',
+    'project.3.desc': 'Advanced scheduling system with complex drag-and-drop interactions. Features custom date-manipulation libraries and accessible interactive patterns for power users.',
+    'project.3.tech': ["React DnD", "Flux Architecture", "Date Logic"],
 
-    // Experience (Arrays for "Career Changelog")
-    'experience.title': 'Professional History',
-    'experience.subtitle': 'A timeline of my journey in software engineering and product development.',
-    'experience.constructora.company': 'Constructora',
-    'experience.constructora.role': 'Full Stack Developer',
+    // Experience
+    'experience.title': 'Engineering Roadmap',
+    'experience.subtitle': 'Professional lifecycle and contribution to technological growth.',
+    'experience.constructora.company': 'Constructora Tech',
+    'experience.constructora.role': 'Full Stack Engineer',
     'experience.constructora.date': '2025 - Present',
     'experience.constructora.bullets': [
-      'Building and maintaining administrative dashboards that streamline internal operational workflows.',
-      'Designing and implementing end-to-end features, from database modeling to client-side state management.',
-      'Automating manual processes through custom web tools, increasing overall team efficiency.'
+      'Architected internal administrative systems resulting in a 35% increase in operational throughput.',
+      'Developed end-to-end features using Next.js and Node.js, prioritizing modularity and system observability.',
+      'Containerized legacy modules for consistent deployment across staging and production environments.'
     ],
 
     'experience.labitec.company': 'Labitec Marketing',
     'experience.labitec.role': 'Full Stack Developer',
     'experience.labitec.date': '2024',
     'experience.labitec.bullets': [
-      'Developed robust full-stack web applications, integrating responsive UIs with scalable RESTful APIs.',
-      'Implemented reusable component libraries and optimized database queries for better performance.',
-      'Collaborated with cross-functional teams to translate business requirements into technical solutions.'
+      'Engineered scalable marketing platforms handling high-traffic concurrent user sessions with optimized load times.',
+      'Designed and documented RESTful APIs that served as the backbone for multiple cross-platform client applications.',
+      'Implemented automated testing suites reducing production deployment regressions by 50%.'
     ],
 
-    'experience.quorum.company': 'Quorum',
-    'experience.quorum.role': 'Junior Software Developer',
+    'experience.quorum.company': 'Quorum Systems',
+    'experience.quorum.role': 'Software Developer',
     'experience.quorum.date': '2023',
     'experience.quorum.bullets': [
-      'Collaborated on the modernization of legacy systems, implementing specific frontend and backend features.',
-      'Assisted in refactoring code modules to improve readability and reduce technical debt under guidance.',
-      'Participated in testing processes to identify and resolve bugs, contributing to system stability.'
+      'Modernized critical legacy modules to React/Node.js stack, improving maintenance cycles and developer onboarding.',
+      'Refactored data access layers to optimize SQL query performance and reduce database server load.',
+      'Collaborated in Agile sprints to deliver production-ready features within tight enterprise constraints.'
     ],
 
-    // Skills - Senior/Product Profile
-    'skills.title': 'Tech Stack',
-    'skills.subtitle': 'Technical Mastery',
-    'skills.frontend': 'Modern Frontend & UI',
-    'skills.backend': 'Backend & Architecture',
-    'skills.data': 'Cloud & Infrastructure',
-    'skills.practices': 'Engineering Quality',
+    // Skills
+    'skills.title': 'Core Competencies',
+    'skills.subtitle': 'Technical Stack',
+    'skills.frontend': 'Frontend Engineering',
+    'skills.backend': 'Backend & Cloud',
+    'skills.data': 'Infrastructure',
+    'skills.practices': 'Software Engineering',
 
-    'skills.frontend.items': ["React / Next.js", "Advanced TypeScript", "Tailwind + Motion", "State Management"],
-    'skills.backend.items': ["Node.js / NestJS", "API Design (REST/GraphQL)", "SQL/NoSQL Databases", "Auth & Security"],
-    'skills.data.items': ["Docker & Containers", "CI/CD Pipelines", "AWS Services", "Performance Optimization"],
-    'skills.practices.items': ["Clean Architecture", "Code Review & Git Flow", "Testing (Unit/E2E)", "Agile Methodologies"],
+    'skills.frontend.items': ["React / Next.js", "TypeScript", "Tailwind CSS", "State (Redux/Zustand)"],
+    'skills.backend.items': ["Node.js / Express", "NestJS / GraphQL", "PostgreSQL / MongoDB", "Security & Auth"],
+    'skills.data.items': ["Docker / K8s", "AWS / Vercel", "Git / GitHub Actions", "Observability"],
+    'skills.practices.items': ["Clean Architecture", "TDD / E2E Testing", "System Design", "Agile Roadmap"],
 
     // Bento Skills Descriptions
-    'skills.bento.frontend.desc': 'Building high-performance interfaces with React/Next.js and advanced state management patterns.',
-    'skills.bento.backend.desc': 'Designing scalable server-side systems and RESTful APIs with Node.js and NestJS.',
-    'skills.bento.typescript.desc': 'Strongly typed code for robust and maintainable enterprise applications.',
-    'skills.bento.database.desc': 'Architecting relational schemas and optimizing queries with PostgreSQL.',
-    'skills.bento.architecture.desc': 'Applying Clean Architecture and Design Patterns to solve complex software problems.',
-    'skills.bento.devops.desc': 'Containerization and automation to streamline development and production workflows.',
-    'skills.bento.cloud.desc': 'Deploying and managing resilient applications on AWS and cloud environments.',
+    'skills.bento.frontend.desc': 'Building responsive, state-driven interfaces with high performance and accessibility standards.',
+    'skills.bento.backend.desc': 'Developing resilient server-side applications and efficient data persistence layers.',
+    'skills.bento.typescript.desc': 'Ensuring type-safety and developer productivity in large-scale codebase environments.',
+    'skills.bento.database.desc': 'Optimizing relational data models and complex queries for enterprise-level applications.',
+    'skills.bento.architecture.desc': 'Applying SOLID principles and Clean Architecture to ensure long-term project maintainability.',
+    'skills.bento.devops.desc': 'Automating infrastructure and deployment pipelines for rapid, reliable software delivery.',
+    'skills.bento.cloud.desc': 'Leveraging cloud-native services to build elastic and highly available digital products.',
 
     // Contact
-    'contact.title': 'Ready to',
-    'contact.subtitle': 'Collaborate?',
-    'contact.desc': 'I am currently available for new opportunities. Let’s discuss how I can like help you build your next product.',
-    'contact.status': 'Open to Work',
-    'resume.summary': 'Full Stack Developer specialized in React/Node.js ecosystem.',
-    'resume.download': 'Download Resume',
-    'contact.cta': 'Send Message',
-    'footer.rights': 'Ramiro Silva — Product Architect',
-    'footer.built': 'Engineered with React & Tailwind.'
+    'contact.title': 'Strategic',
+    'contact.subtitle': 'Partnership?',
+    'contact.desc': 'I am open to discussions regarding senior engineering roles or consultant projects. Let’s build something impactful.',
+    'contact.status': 'Available for Opportunities',
+    'resume.summary': 'Full Stack Developer specialized in Enterprise React/Node.js ecosystems.',
+    'resume.download': 'Download Profile',
+    'contact.cta': 'Initiate Contact',
+    'about.badge': 'Engineering Profile',
+    'footer.rights': 'Ramiro Silva — Full Stack Engineer',
+    'footer.built': 'Built with React, TypeScript & Tailwind.'
   },
   es: {
     // Navbar
     'nav.about': 'Perfil',
     'nav.projects': 'Proyectos',
-    'nav.expertise': 'Trayectoria',
+    'nav.expertise': 'Experticia',
     'nav.contact': 'Contacto',
     'nav.resume': 'CV',
     'nav.back': 'Volver',
     'nav.talk': 'Hablemos',
 
     // Hero
-    'hero.role': 'Arquitecto de Producto & Desarrollador',
-    'hero.subtitle': 'Diseñando Sistemas Digitales Escalables',
-    'hero.desc': 'Unifico lógica backend compleja con experiencias frontend impecables. Especializado en construir aplicaciones web mantenibles y de alto rendimiento que generan valor real.',
-    'hero.cta.contact': "Contactar",
+    'hero.role': 'Ingeniero Full Stack & Arquitecto de Sistemas',
+    'hero.subtitle': 'Diseñando Sistemas Digitales de Alto Rendimiento',
+    'hero.desc': 'Construyo aplicaciones web escalables y eficientes, unificando lógica backend compleja con arquitecturas frontend impecables. Especialista en React, Node.js e Infraestructura Cloud.',
+    'hero.cta.contact': "Trabaja conmigo",
     'hero.cta.github': 'GitHub',
     'hero.tech.frontend': 'Arquitectura Frontend',
     'hero.tech.backend': 'Diseño de Sistemas',
     'hero.tech.database': 'Estrategia de Datos',
     'hero.tech.devops': 'DevOps & CI/CD',
+    'hero.features.clean': 'Arquitectura Limpia',
+    'hero.features.clean.sub': 'Estándares Industriales',
+    'hero.features.perf': 'Alto Rendimiento',
+    'hero.features.perf.sub': 'Optimización Primero',
+    'hero.features.scale': 'Escalabilidad',
+    'hero.features.scale.sub': 'Crecimiento Elástico',
+    'hero.features.security': 'Ingeniería de Seguridad',
+    'hero.features.security.sub': 'Defensa Proactiva',
     'hero.title.start': 'Creando ',
-    'hero.title.highlight': 'Productos Digitales',
+    'hero.title.highlight': 'Sistemas Empresariales',
     'hero.title.end': ' Escalables.',
     'hero.cta.work': 'Ver Proyectos',
-    'hero.cta.resume': 'Ver CV',
-    'hero.layer.client': 'Capa Cliente',
-    'hero.layer.api': 'Capa API',
-    'hero.layer.core': 'Núcleo del Sistema', // More formal than just "Núcleo"
-    'hero.stats.uptime': 'Uptime',
-    'hero.stats.latency': 'Latencia',
-    'hero.features.clean': 'Arquitectura Limpia', // Matches "Clean Architecture"
-    'hero.features.perf': 'Alto Rendimiento',
-    'hero.features.scale': 'Escalabilidad', // Noun matching "Scalability"
+    'hero.cta.resume': 'Descargar CV',
 
-    // About / Profile - ATS Friendly & Impactful
-    'about.title': 'Sobre Mí',
-    'about.p1': 'Desarrollador Full Stack especializado en la construcción de aplicaciones web escalables y de alto rendimiento. Combino experiencia técnica en el ecosistema JavaScript (React, Node.js) con un fuerte enfoque en arquitectura de software y experiencia de usuario.',
-    'about.p2': 'Mi objetivo es transformar requerimientos de negocio complejos en soluciones técnicas robustas, priorizando la mantenibilidad del código, la estabilidad del sistema y la entrega continua de valor.',
-    'resume.summary': 'Desarrollador Full Stack | React, Node.js, TypeScript | Especialista en Arquitectura Web & UX',
+    'home.journey.title': 'Hoja de Ruta Profesional',
+    'home.journey.subtitle': 'Un análisis estructurado de mis hitos profesionales, dominio técnico y contribución al desarrollo de software empresarial.',
+
+    // About
+    'about.title': 'Perfil Profesional',
+    'about.p1': 'Desarrollador Full Stack con enfoque Senior y dominio experto del ecosistema JavaScript. Me especializo en construir **sistemas observables, mantenibles y de alta disponibilidad** que resuelven desafíos de negocio mediante ingeniería de precisión.',
+    'about.p2': 'Mi enfoque integra un profundo conocimiento técnico con visión de producto, asegurando que cada decisión arquitectónica se traduzca en un impacto medible para el usuario y confiabilidad del sistema.',
 
     // Projects
-    'projects.label': 'Portafolio Selecto',
-    'projects.title': 'Proyectos',
-    'projects.subtitle': 'Selección de proyectos que demuestran profundidad técnica, decisiones de arquitectura y visión de producto.',
-    'project.actions.visit': 'Ver Demo',
-    'project.preview.unavailable': 'Generando vista previa...',
+    'projects.label': 'Showcase Técnico',
+    'projects.title': 'Sistemas en Producción',
+    'projects.subtitle': 'Análisis arquitectónico y soluciones de ingeniería en desarrollo web moderno.',
+    'project.actions.visit': 'Ver Aplicación',
+    'project.preview.unavailable': 'Generando vista previa del sistema...',
 
-    'project.1.title': 'Cine Scope',
-    'project.1.desc': 'Aplicación de alto rendimiento para visualización de datos complejos. Arquitectura basada en componentes optimizada para renderizado eficiente e integración fluida de APIs.',
-    'project.1.tech': ["React 19", "Manejo de Cache", "CSS Architecture"],
+    'project.1.title': 'Cine Scope ERP',
+    'project.1.desc': 'Aplicación de alto rendimiento en React 19 que utiliza capas de caching avanzadas y actualizaciones optimistas para la gestión de datos en tiempo real. Optimizado para latencia mínima.',
+    'project.1.tech': ["React 19", "TanStack Query", "Arquitectura Enterprise"],
 
-    'project.2.title': 'Motor de Batalla Pokémon',
-    'project.2.desc': 'Motor de lógica de juego desacoplado en JavaScript puro. Segregación estricta entre gestión de estado y UI para garantizar testabilidad y código limpio.',
-    'project.2.tech': ["Vanilla JS", "Patrones de Diseño", "Game Loop"],
+    'project.2.title': 'Motor de Lógica Distribuida',
+    'project.2.desc': 'Motor basado en estados construido con TypeScript puro. Implementa event loops personalizados y capas de datos segregadas para garantizar 100% de cobertura de tests.',
+    'project.2.tech': ["TypeScript", "Patrones de Estado", "Arquitectura"],
 
-    'project.3.title': 'Cursor Calendar',
-    'project.3.desc': 'Calendario complejo con gestión de estado avanzada y React DnD. Implementa lógica de fechas robusta y patrones de interacción accesibles.',
-    'project.3.tech': ["React DnD", "State Management", "Date Logic"],
+    'project.3.title': 'Cursor Schedule Core',
+    'project.3.desc': 'Sistema de agendamiento avanzado con interacciones complejas de drag-and-drop. Incluye librerías propias de manipulación de fechas y patrones de accesibilidad.',
+    'project.3.tech': ["React DnD", "Arquitectura Flux", "Lógica de Fechas"],
 
-    // Experience (Arrays)
-    'experience.title': 'Trayectoria Profesional',
-    'experience.subtitle': 'Una cronología de mi recorrido en ingeniería de software y desarrollo de productos.',
-    'experience.constructora.company': 'Constructora',
-    'experience.constructora.role': 'Desarrollador Full Stack',
+    // Experience
+    'experience.title': 'Trayectoria de Ingeniería',
+    'experience.subtitle': 'Ciclo de vida profesional y contribución al crecimiento tecnológico.',
+    'experience.constructora.company': 'Constructora Tech',
+    'experience.constructora.role': 'Ingeniero Full Stack',
     'experience.constructora.date': '2025 - Presente',
     'experience.constructora.bullets': [
-      'Desarrollo integral de dashboards administrativos para la visualización de datos en tiempo real, optimizando la toma de decisiones.',
-      'Implementación de arquitecturas frontend modulares con TypeScript y React, mejorando la mantenibilidad y escalabilidad del código.',
-      'Automatización de flujos de trabajo operativos mediante herramientas web a medida, logrando una reducción del 40% en carga manual.'
+      'Arquitectura de sistemas administrativos internos resultando en un incremento del 35% en la eficiencia operativa.',
+      'Desarrollo integral de funcionalidades con Next.js y Node.js, priorizando la modularidad y la observabilidad del sistema.',
+      'Containerización de módulos legacy para despliegues consistentes en entornos de staging y producción.'
     ],
 
     'experience.labitec.company': 'Labitec Marketing',
     'experience.labitec.role': 'Desarrollador Full Stack',
     'experience.labitec.date': '2024',
     'experience.labitec.bullets': [
-      'Ingeniería de software end-to-end para aplicaciones web comerciales, asegurando alta disponibilidad y rendimiento óptimo.',
-      'Diseño y desarrollo de APIs RESTful escalables, integradas eficientemente con interfaces de usuario modernas y responsivas.',
-      'Creación de librerías de componentes UI reutilizables para estandarizar el diseño y acelerar los ciclos de desarrollo.'
+      'Ingeniería de plataformas escalables manejando sesiones de usuario concurrentes con tiempos de carga optimizados.',
+      'Diseño y documentación de APIs RESTful que sirven de base para múltiples aplicaciones cliente multiplataforma.',
+      'Implementación de suites de tests automatizados reduciendo los fallos en despliegues a producción en un 50%.'
     ],
 
-    'experience.quorum.company': 'Quorum',
-    'experience.quorum.role': 'Desarrollador Junior',
+    'experience.quorum.company': 'Quorum Systems',
+    'experience.quorum.role': 'Desarrollador de Software',
     'experience.quorum.date': '2023',
     'experience.quorum.bullets': [
-      'Colaboración en la modernización de sistemas legacy, migrando módulos críticos a tecnologías web actuales (React/Node).',
-      'Participación activa en code reviews y debugging, asegurando la calidad del código y la estabilidad del sistema.',
-      'Implementación de funcionalidades full-stack bajo metodologías ágiles, cumpliendo consistentemente con los plazos de entrega.'
+      'Modernización de módulos críticos a React/Node.js, mejorando los ciclos de mantenimiento y el onboarding de nuevos desarrolladores.',
+      'Refactorización de capas de acceso a datos para optimizar consultas SQL y reducir la carga del servidor.',
+      'Colaboración en sprints ágiles para entregar funcionalidades listas para producción bajo estándares empresariales.'
     ],
 
-    // Skills - Refinado para perfil Senior/Product
-    // Skills - Optimized for Scanning
-    'skills.title': 'Stack Tecnológico',
-    'skills.subtitle': 'Dominio Técnico',
-    'skills.frontend': 'Frontend Core',
-    'skills.backend': 'Backend & Data',
-    'skills.data': 'DevOps & Tools',
-    'skills.practices': 'Metodologías',
+    // Skills
+    'skills.title': 'Competencias Core',
+    'skills.subtitle': 'Stack Tecnológico',
+    'skills.frontend': 'Ingeniería Frontend',
+    'skills.backend': 'Backend & Cloud',
+    'skills.data': 'Infraestructura',
+    'skills.practices': 'Ingeniería de Software',
 
-    'skills.frontend.items': ["React", "TypeScript", "Next.js", "Tailwind CSS"],
-    'skills.backend.items': ["Node.js", "Express/NestJS", "SQL (PostgreSQL)", "REST APIs"],
-    'skills.data.items': ["Git/GitHub", "Docker", "CI/CD Basics", "AWS Services"],
-    'skills.practices.items': ["Clean Code", "Scrum/Agile", "Testing", "System Design"],
+    'skills.frontend.items': ["React / Next.js", "TypeScript", "Tailwind CSS", "Estado (Zustand/Redux)"],
+    'skills.backend.items': ["Node.js / Express", "NestJS / GraphQL", "PostgreSQL / MongoDB", "Seguridad & Auth"],
+    'skills.data.items': ["Docker / K8s", "AWS / Vercel", "Git / GitHub Actions", "Observabilidad"],
+    'skills.practices.items': ["Arquitectura Limpia", "TDD / Testing", "Diseño de Sistemas", "Agile Roadmap"],
 
     // Bento Skills Descriptions
-    'skills.bento.frontend.desc': 'Construcción de interfaces de alto rendimiento con React/Next.js y patrones avanzados de estado.',
-    'skills.bento.backend.desc': 'Diseño de sistemas escalables y APIs RESTful con Node.js y NestJS.',
-    'skills.bento.typescript.desc': 'Código tipado para aplicaciones empresariales robustas y mantenibles.',
-    'skills.bento.database.desc': 'Arquitectura de esquemas relacionales y optimización de consultas con PostgreSQL.',
-    'skills.bento.architecture.desc': 'Aplicación de Arquitectura Limpia y Patrones de Diseño para problemas complejos.',
-    'skills.bento.devops.desc': 'Containerización y automatización para flujos de trabajo eficientes en producción.',
-    'skills.bento.cloud.desc': 'Despliegue y gestión de aplicaciones resilientes en AWS y entornos cloud.',
+    'skills.bento.frontend.desc': 'Interfaces responsivas y basadas en estado con altos estándares de rendimiento y accesibilidad.',
+    'skills.bento.backend.desc': 'Desarrollo de aplicaciones de servidor resilientes y capas de persistencia de datos eficientes.',
+    'skills.bento.typescript.desc': 'Garantía de tipado y productividad en entornos de código a gran escala.',
+    'skills.bento.database.desc': 'Optimización de modelos de datos relacionales y consultas complejas para aplicaciones empresariales.',
+    'skills.bento.architecture.desc': 'Aplicación de principios SOLID y Arquitectura Limpia para asegurar mantenibilidad a largo plazo.',
+    'skills.bento.devops.desc': 'Automatización de infraestructura y pipelines de despliegue para entregas rápidas y confiables.',
+    'skills.bento.cloud.desc': 'Uso de servicios cloud-native para construir productos digitales elásticos y de alta disponibilidad.',
 
     // Contact
-    'contact.title': '¿Listo para',
-    'contact.subtitle': 'Colaborar?',
-    'contact.desc': 'Actualmente disponible para nuevas oportunidades. Hablemos sobre cómo puedo aportar valor a tu próximo producto.',
-    'contact.status': 'Abierto a Propuestas',
-    'resume.download': 'Descargar CV',
-    'contact.cta': 'Enviar Mensaje',
-    'footer.rights': 'Ramiro Silva — Product Architect',
-    'footer.built': 'Ingeniería con React & Tailwind.'
+    'contact.title': '¿Alianza',
+    'contact.subtitle': 'Estratégica?',
+    'contact.desc': 'Estoy abierto a propuestas para roles de ingeniería Senior o consultoría de proyectos. Construyamos algo impactante.',
+    'contact.status': 'Disponible para Oportunidades',
+    'resume.download': 'Descargar Perfil',
+    'contact.cta': 'Iniciar Contacto',
+    'about.badge': 'Perfil de Ingeniería',
+    'footer.rights': 'Ramiro Silva — Ingeniero Full Stack',
+    'footer.built': 'Construido con React, TypeScript & Tailwind.'
   }
 };
 

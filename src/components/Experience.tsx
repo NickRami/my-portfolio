@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useApp } from "../context/AppContext";
-import { Briefcase, Calendar, ChevronRight } from "lucide-react";
+import { Briefcase } from "lucide-react";
 
 export default function Experience() {
   const { t } = useApp();
