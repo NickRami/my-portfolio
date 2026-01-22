@@ -19,12 +19,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-yellow-400/20 selection:text-yellow-400 overflow-x-hidden relative transition-colors duration-300">
+    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden relative transition-colors duration-300">
        {/* Mouse Follower Gradient */}
        <div 
           className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
           style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(250, 204, 21, 0.05), transparent 40%)`
+            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(249, 115, 22, 0.05), transparent 40%)`
           }}
        />
        

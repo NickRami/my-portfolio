@@ -43,7 +43,7 @@ export default function ProjectsPreview() {
       <div className="max-w-full">
 
         {/* Header simple y directo */}
-        <div className="mb-16 border-b border-border/30 pb-8">
+        <div className="mb-16 border-b border-border pb-8">
           <div className="flex items-center gap-3 mb-4">
             <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
               <FolderGit2 size={20} />
@@ -69,7 +69,7 @@ export default function ProjectsPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.1 }}
-                className="flex flex-col bg-card border border-border/50 rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300 group shadow-lg"
+                className="flex flex-col bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300 group shadow-lg"
               >
                 {/* 1. Preview Visual (Clear & Large) */}
                 <a
@@ -111,7 +111,7 @@ export default function ProjectsPreview() {
                   <div className="space-y-4 mt-auto">
                     <div className="flex flex-wrap gap-2">
                       {techs && techs.map((tech, i) => (
-                        <span key={i} className="text-[10px] font-mono px-2 py-1 rounded-md bg-muted/50 border border-border/50 text-muted-foreground">
+                        <span key={i} className="text-[10px] font-mono px-2 py-1 rounded-md bg-muted/50 border border-border text-muted-label">
                           {tech}
                         </span>
                       ))}

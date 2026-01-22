@@ -19,7 +19,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border/20">
+    <section id="skills" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border">
 
       <div className="max-w-6xl mx-auto">
         {/* Header Compacto */}
@@ -43,7 +43,7 @@ export default function Skills() {
               transition={{ delay: idx * 0.1 }}
               className="space-y-4"
             >
-              <h3 className="text-lg font-bold text-foreground/90 border-b border-border/40 pb-2">
+              <h3 className="text-lg font-bold text-foreground/90 border-b border-border pb-2">
                 {cat.title}
               </h3>
               <div className="flex flex-col gap-2">

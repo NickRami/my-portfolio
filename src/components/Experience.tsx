@@ -33,7 +33,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border/20">
+    <section id="experience" className="py-24 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto border-t border-border">
 
       <div className="max-w-4xl mx-auto">
         {/* Header */}
@@ -49,7 +49,7 @@ export default function Experience() {
         {/* Timeline "Git Log" Style */}
         <div className="relative space-y-12">
           {/* Vertical Line Gradient */}
-          <div className="absolute left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/50 via-border/50 to-transparent md:left-[11px]" />
+          <div className="absolute left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/50 via-border to-transparent md:left-[11px]" />
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -69,7 +69,7 @@ export default function Experience() {
                 <h3 className="text-xl font-bold text-foreground">
                   {exp.role} <span className="text-muted-foreground font-normal">@ {exp.company}</span>
                 </h3>
-                <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground bg-muted/50 px-2 py-1 rounded">
+                <div className="flex items-center gap-2 text-xs font-mono text-muted-label bg-muted/50 px-2 py-1 rounded">
                   <Calendar size={12} className="opacity-70" />
                   {exp.date}
                 </div>

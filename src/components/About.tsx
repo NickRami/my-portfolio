@@ -5,7 +5,7 @@ export default function About() {
     const { t } = useApp();
 
     return (
-        <section id="about" className="py-20 bg-muted/30">
+        <section id="about" className="py-20 bg-secondary">
             <div className="max-w-screen-2xl mx-auto px-4 md:px-12 lg:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
