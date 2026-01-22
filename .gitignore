@@ -15,11 +15,19 @@ dist-ssr
 
 # Environment variables and sensitive data
 .env
+.env.*
+!.env.example
+*.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env*.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
 
 # API keys and credentials
 **/config/secrets.json
