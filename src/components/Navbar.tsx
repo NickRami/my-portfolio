@@ -71,6 +71,12 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <div className="flex md:hidden items-center gap-4">
+            <button
+              onClick={handleLanguageToggle}
+              className="text-xs font-bold p-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {language.toUpperCase()}
+            </button>
             <button onClick={toggleTheme} className="text-muted-foreground">
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>

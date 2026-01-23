@@ -151,7 +151,12 @@ const translations = {
     'contact.cta': 'Initiate Contact',
     'about.badge': 'Engineering Profile',
     'footer.rights': 'Ramiro Silva — Full Stack Engineer',
-    'footer.built': 'Built with React, TypeScript & Tailwind.'
+    'footer.built': 'Built with React, TypeScript & Tailwind.',
+    'footer.desc': 'Software Engineer passionate about building scalable, high-performance applications with clean code and modern tech stacks.',
+    'footer.nav': 'Navigation',
+    'footer.location': 'Location',
+    'footer.location.text': 'San Rafael Mendoza, Argentina',
+    'footer.back_to_top': 'Back to Top'
   },
   es: {
     // Navbar
@@ -286,7 +291,12 @@ const translations = {
     'contact.cta': 'Iniciar Contacto',
     'about.badge': 'Perfil de Ingeniería',
     'footer.rights': 'Ramiro Silva — Ingeniero Full Stack',
-    'footer.built': 'Construido con React, TypeScript & Tailwind.'
+    'footer.built': 'Construido con React, TypeScript & Tailwind.',
+    'footer.desc': 'Ingeniero de Software apasionado por construir aplicaciones escalables y de alto rendimiento con código limpio y stacks modernos.',
+    'footer.nav': 'Navegación',
+    'footer.location': 'Ubicación',
+    'footer.location.text': 'San Rafael Mendoza, Argentina',
+    'footer.back_to_top': 'Volver Arriba'
   }
 };
 

@@ -22,7 +22,7 @@ export default function Footer() {
                             <span className="text-2xl font-black tracking-tight text-foreground">Ramiro Silva</span>
                         </div>
                         <p className="text-muted-foreground text-lg max-w-sm leading-relaxed">
-                            Software Engineer passionate about building scalable, high-performance applications with clean code and modern tech stacks.
+                            {t('footer.desc')}
                         </p>
                         <div className="flex gap-4">
                             <a href="https://github.com/NickRami" target="_blank" className="p-2.5 rounded-lg bg-secondary border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-all">
@@ -39,7 +39,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="space-y-6">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-foreground">Navigation</h4>
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-foreground">{t('footer.nav')}</h4>
                         <nav className="flex flex-col gap-3">
                             <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors">{t('nav.projects')}</a>
                             <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors">{t('nav.expertise')}</a>
@@ -50,15 +50,15 @@ export default function Footer() {
 
                     {/* Contact Details */}
                     <div className="space-y-6">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-foreground">Location</h4>
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-foreground">{t('footer.location')}</h4>
                         <div className="space-y-3 text-muted-foreground">
-                            <p>San Rafael Mendoza, Argentina</p>
+                            <p>{t('footer.location.text')}</p>
                             <div className="pt-2">
                                 <button
                                     onClick={scrollToTop}
                                     className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
                                 >
-                                    Back to Top <ArrowUp size={16} />
+                                    {t('footer.back_to_top')} <ArrowUp size={16} />
                                 </button>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export default function Footer() {
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <span>© {new Date().getFullYear()}</span>
                         <span className="w-1 h-1 bg-border rounded-full" />
-                        <span>Built with React & Tailwind</span>
+                        <span>{t('footer.built')}</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
                         {t('footer.rights')}
