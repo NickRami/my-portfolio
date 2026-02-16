@@ -11,8 +11,8 @@ export default function Navbar() {
   const isHome = location.pathname === '/';
 
   const navLinks = [
-    { name: t('nav.expertise'), href: isHome ? "#skills" : "/#skills" },
     { name: t('nav.projects'), href: isHome ? "#projects" : "/#projects" },
+    { name: t('nav.expertise'), href: isHome ? "#skills" : "/#skills" },
     { name: t('nav.about'), href: isHome ? "#about" : "/#about" },
     { name: t('nav.contact'), href: isHome ? "#contact" : "/#contact" },
   ];
