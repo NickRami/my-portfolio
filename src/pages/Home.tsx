@@ -34,9 +34,14 @@ export default function Home() {
       />
 
       <Navbar />
+
+      {/* 1. HERO: The Hook & Introduction */}
       <Hero />
 
-      {/* Unified Journey Section */}
+      {/* 2. PROJECTS: Visual Proof of Work (Highest Engagement) */}
+      <ProjectsPreview />
+
+      {/* 3. JOURNEY: Professional Validation (Experience & Skills) */}
       <section id="skills" className="section-padding relative overflow-hidden">
         {/* Subtle Background Glow for this section */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
@@ -73,8 +78,10 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 4. ABOUT: Culture Fit & Human Connection */}
       <About />
-      <ProjectsPreview />
+
+      {/* 5. CONTACT: Final CTA */}
       <Contact />
 
       <Footer />
