@@ -23,26 +23,35 @@
 
 
 :root {
-  /* Dark Mode (Default) - Matching user provided design */
-  --background: #101e22;
-  --foreground: #ffffff;
+  /* Dark Mode (Default) - High Contrast Engineering Theme */
+  --background: #020617;
+  /* Slate 950 - Deep Navy Black */
+  --foreground: #f8fafc;
+  /* Slate 50 - Almost White */
 
-  --primary: #0db9f2;
+  --primary: #0ea5e9;
+  /* Sky 500 - Electric Blue */
   --primary-foreground: #101e22;
 
   /* Sections */
-  --secondary: #182d34;
-  --secondary-foreground: #90bccb;
+  --secondary: #1e293b;
+  /* Slate 800 */
+  --secondary-foreground: #e2e8f0;
+  /* Slate 200 */
 
   /* Cards */
-  --card: #182d34;
-  --card-foreground: #ffffff;
+  --card: #0f172a;
+  /* Slate 900 */
+  --card-foreground: #f8fafc;
+  /* Slate 50 */
 
   /* Muted / Labels */
-  --muted: #182d34;
-  --muted-foreground: #90bccb;
+  --muted: #1e293b;
+  /* Slate 800 */
+  --muted-foreground: #94a3b8;
+  /* Slate 400 - Readable Grey */
   /* Body text (Secondary) */
-  --text-muted: #90bccb;
+  --text-muted: #94a3b8;
   /* Labels */
 
   --border: #315a68;

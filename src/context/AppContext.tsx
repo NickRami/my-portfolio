@@ -27,7 +27,6 @@ const translations = {
     'nav.talk': "Let's Talk",
 
     // Hero
-    // Hero
     'hero.role': 'Senior Full Stack Engineer',
     'hero.subtitle': 'Scaling Digital Products',
     'hero.desc': 'Senior Engineer specialized in React, Node.js, and Cloud Architecture. I build fast, scalable, and SEO-optimized web applications designed for business growth and high performance.',
@@ -51,8 +50,8 @@ const translations = {
     'hero.stats.uptime': 'Uptime',
     'hero.stats.latency': 'Latency',
     'hero.title.start': 'Building ',
-    'hero.title.highlight': 'High-Performance',
-    'hero.title.end': ' Web Architecture.',
+    'hero.title.highlight': 'Future-Ready',
+    'hero.title.end': ' Architecture.',
     'hero.cta.work': 'My Work',
     'hero.cta.resume': 'Download CV',
 
@@ -71,6 +70,7 @@ const translations = {
     'about.developer': 'Developer',
     'about.fullstack': 'Full Stack',
     'about.typescript': 'TypeScript',
+    'about.badge': 'System Profile',
 
     // Projects
     'projects.label': 'Technical Showcase',
@@ -149,7 +149,8 @@ const translations = {
     'resume.summary': 'Full Stack Developer specialized in Enterprise React/Node.js ecosystems.',
     'resume.download': 'Download Profile',
     'contact.cta': 'Initiate Contact',
-    'about.badge': 'Engineering Profile',
+
+    // Footer
     'footer.rights': 'Ramiro Silva — Full Stack Engineer',
     'footer.built': 'Built with React, TypeScript & Tailwind.',
     'footer.desc': 'Software Engineer passionate about building scalable, high-performance applications with clean code and modern tech stacks.',
@@ -162,7 +163,7 @@ const translations = {
     // Navbar
     'nav.about': 'Perfil',
     'nav.projects': 'Proyectos',
-    'nav.expertise': 'Experticia',
+    'nav.expertise': 'Experiencia', // Changed from Experticia
     'nav.contact': 'Contacto',
     'nav.resume': 'CV',
     'nav.back': 'Volver',
@@ -192,8 +193,8 @@ const translations = {
     'hero.stats.uptime': 'Uptime',
     'hero.stats.latency': 'Latencia',
     'hero.title.start': 'Construyendo ',
-    'hero.title.highlight': 'Arquitectura Web',
-    'hero.title.end': ' de Alto Rendimiento.',
+    'hero.title.highlight': 'Arquitectura',
+    'hero.title.end': ' Preparada para el Futuro.',
     'hero.cta.work': 'Ver Portafolio',
     'hero.cta.resume': 'Descargar CV',
 
@@ -202,8 +203,8 @@ const translations = {
 
     // About
     'about.title': 'Perfil Profesional',
-    'about.p1': 'Desarrollador Full Stack con enfoque Senior y dominio experto del ecosistema JavaScript. Me especializo en construir **sistemas observables, mantenibles y de alta disponibilidad** que resuelven desafíos de negocio mediante ingeniería de precisión.',
-    'about.p2': 'Mi enfoque integra un profundo conocimiento técnico con visión de producto, asegurando que cada decisión arquitectónica se traduzca en un impacto medible para el usuario y confiabilidad del sistema.',
+    'about.p1': 'Ingeniero Full Stack con enfoque Senior y dominio experto del ecosistema JavaScript. Me especializo en construir **sistemas observables, mantenibles y de alta disponibilidad** que resuelven desafíos de negocio.', // Adjusted phrasing
+    'about.p2': 'Mi enfoque integra un profundo conocimiento técnico con visión de producto, asegurando que cada decisión arquitectónica se traduzca en impacto medible.',
     'about.clean_code': 'Código Limpio',
     'about.clean_code_desc': 'Arquitectura robusta, eficiente y mantenible.',
     'about.fast_delivery': 'Entrega Rápida',
@@ -212,25 +213,26 @@ const translations = {
     'about.developer': 'Desarrollador',
     'about.fullstack': 'Full Stack',
     'about.typescript': 'TypeScript',
+    'about.badge': 'Perfil de Sistemas',
 
     // Projects
-    'projects.label': 'Showcase Técnico',
+    'projects.label': 'Portafolio Técnico', // Changed from Showcase
     'projects.title': 'Sistemas en Producción',
     'projects.subtitle': 'Análisis arquitectónico y soluciones de ingeniería en desarrollo web moderno.',
     'project.actions.visit': 'Ver en Vivo',
     'project.preview.unavailable': 'Generando vista previa del sistema...',
 
     'project.1.title': 'Cine Scope ERP',
-    'project.1.desc': 'Aplicación de alto rendimiento en React 19 que utiliza capas de caching avanzadas y actualizaciones optimistas para la gestión de datos en tiempo real. Optimizado para latencia mínima.',
-    'project.1.tech': ["React 19", "TanStack Query", "Arquitectura Enterprise"],
+    'project.1.desc': 'Aplicación de alto rendimiento en React 19 que utiliza capas de caching avanzadas y actualizaciones optimistas para gestión de datos en tiempo real.',
+    'project.1.tech': ["React 19", "TanStack Query", "Enterprise Arch"],
 
     'project.2.title': 'Motor de Lógica Distribuida',
-    'project.2.desc': 'Motor basado en estados construido con TypeScript puro. Implementa event loops personalizados y capas de datos segregadas para garantizar 100% de cobertura de tests.',
-    'project.2.tech': ["TypeScript", "Patrones de Estado", "Arquitectura"],
+    'project.2.desc': 'Motor basado en estados construido con TypeScript puro. Implementa event loops personalizados y capas de datos segregadas.',
+    'project.2.tech': ["TypeScript", "Patrones de Estado", "Architecture"],
 
     'project.3.title': 'Cursor Schedule Core',
-    'project.3.desc': 'Sistema de agendamiento avanzado con interacciones complejas de drag-and-drop. Incluye librerías propias de manipulación de fechas y patrones de accesibilidad.',
-    'project.3.tech': ["React DnD", "Arquitectura Flux", "Lógica de Fechas"],
+    'project.3.desc': 'Sistema de agendamiento avanzado con interacciones complejas de drag-and-drop y lógica de fechas personalizada.',
+    'project.3.tech': ["React DnD", "Arquitectura Flux", "Date Logic"],
 
     // Experience
     'experience.title': 'Trayectoria de Ingeniería',
@@ -257,7 +259,7 @@ const translations = {
     'experience.quorum.role': 'Desarrollador de Software',
     'experience.quorum.date': '2023',
     'experience.quorum.bullets': [
-      'Modernización de módulos críticos a React/Node.js, mejorando los ciclos de mantenimiento y el onboarding de nuevos desarrolladores.',
+      'Modernización de módulos críticos a React/Node.js, mejorando los ciclos de mantenimiento y el onboarding.',
       'Refactorización de capas de acceso a datos para optimizar consultas SQL y reducir la carga del servidor.',
       'Colaboración en sprints ágiles para entregar funcionalidades listas para producción bajo estándares empresariales.'
     ],
@@ -276,7 +278,7 @@ const translations = {
     'skills.quality': 'Control de Calidad',
     'skills.quality_desc': 'Estándares de testing y CI/CD',
     'skills.years': '+4 Años',
-    'skills.years_label': 'Experiencia en Desarrollo Profesional',
+    'skills.years_label': 'Experiencia en Desarrollo',
     'skills.projects_count': '+20',
     'skills.projects_label': 'Proyectos',
     'skills.commits_count': '+5k',
@@ -285,14 +287,15 @@ const translations = {
     // Contact
     'contact.title': '¿Alianza',
     'contact.subtitle': 'Estratégica?',
-    'contact.desc': 'Estoy abierto a propuestas para roles de ingeniería Senior o consultoría de proyectos. Construyamos algo impactante.',
+    'contact.desc': 'Abierto a propuestas para roles de ingeniería Senior o consultoría. Construyamos algo impactante.',
     'contact.status': 'Disponible para Oportunidades',
     'resume.download': 'Descargar Perfil',
     'contact.cta': 'Iniciar Contacto',
-    'about.badge': 'Perfil de Ingeniería',
+
+    // Footer
     'footer.rights': 'Ramiro Silva — Ingeniero Full Stack',
     'footer.built': 'Construido con React, TypeScript & Tailwind.',
-    'footer.desc': 'Ingeniero de Software apasionado por construir aplicaciones escalables y de alto rendimiento con código limpio y stacks modernos.',
+    'footer.desc': 'Ingeniero de Software apasionado por construir aplicaciones escalables y de alto rendimiento.',
     'footer.nav': 'Navegación',
     'footer.location': 'Ubicación',
     'footer.location.text': 'San Rafael Mendoza, Argentina',

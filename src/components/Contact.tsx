@@ -36,17 +36,17 @@ export default function Contact() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
               <a
-                href="mailto:ramisilva8@gmail.com?subject=Job Opportunity"
+                href="mailto:ramisilva8@gmail.com?subject=Contact from Portfolio"
                 className="group flex items-center justify-center gap-3 bg-primary text-background px-10 py-5 rounded-2xl font-black text-lg transition-all hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 w-full sm:w-auto"
               >
                 {t('contact.cta')} <ArrowRight className="group-hover:translate-x-2 transition-transform" size={24} />
               </a>
 
               <div className="flex items-center gap-4">
-                <a href="https://www.linkedin.com/in/ramiro-silva-333918231" target="_blank" className="p-5 rounded-2xl bg-secondary border border-border hover:border-primary/50 text-foreground transition-all hover:scale-110 hover:text-primary" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/ramiro-silva-333918231" target="_blank" className="p-5 rounded-2xl bg-secondary border border-border hover:border-primary/50 text-foreground transition-all hover:scale-110 hover:text-primary">
                   <Linkedin size={28} />
                 </a>
-                <a href="https://github.com/NickRami" target="_blank" className="p-5 rounded-2xl bg-secondary border border-border hover:border-primary/50 text-foreground transition-all hover:scale-110 hover:text-white" title="GitHub">
+                <a href="https://github.com/NickRami" target="_blank" className="p-5 rounded-2xl bg-secondary border border-border hover:border-primary/50 text-foreground transition-all hover:scale-110 hover:text-white">
                   <Github size={28} />
                 </a>
               </div>
