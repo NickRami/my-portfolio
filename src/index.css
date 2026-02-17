@@ -171,8 +171,8 @@ body {
 
   /* Consistent Section Spacing - Scales with Viewport Height */
   .section-padding {
-    /* Mobile: ~5rem, Laptop (768px height): ~6rem, Desktop: ~7rem */
-    padding-block: clamp(5rem, 10svh, 8rem);
+    /* Mobile: ~6rem, Laptop (768px height): ~8rem, Desktop: ~10rem */
+    padding-block: clamp(6rem, 12svh, 10rem);
   }
 
   .mouse-follower {
