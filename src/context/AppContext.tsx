@@ -308,6 +308,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem('portfolio-language');
+    // Default to 'en' if no saved preference or if saved preference is invalid
     return (saved === 'es' || saved === 'en') ? saved : 'en';
   });
 

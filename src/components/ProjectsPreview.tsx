@@ -40,7 +40,7 @@ export default function ProjectsPreview() {
   const { t } = useApp();
 
   return (
-    <section id="projects" className="section-padding">
+    <section id="projects" className="section-padding section-blueprint">
       <div className="container-responsive">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3">

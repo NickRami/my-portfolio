@@ -27,7 +27,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="section-padding relative overflow-hidden bg-background">
+        <section id="about" className="section-padding section-blueprint relative overflow-hidden bg-background">
 
             {/* ── TECHNICAL BACKGROUND ──────────────────────── */}
             <div className="absolute inset-0 pointer-events-none">

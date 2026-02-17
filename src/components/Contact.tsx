@@ -5,7 +5,7 @@ export default function Contact() {
   const { t } = useApp();
 
   return (
-    <section id="contact" className="section-padding overflow-hidden">
+    <section id="contact" className="section-padding section-blueprint overflow-hidden">
       <div className="container-responsive relative">
         {/* Background Decorative Glow */}
         <div className="absolute -top-24 -right-24 size-[500px] bg-primary/5 blur-[120px] rounded-full -z-10" />
