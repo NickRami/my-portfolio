@@ -98,7 +98,7 @@ export default function Navbar() {
                 transition={{ delay: 0.5, duration: 0.4 }}
                 className="text-sm font-mono text-muted-foreground uppercase tracking-widest"
               >
-                Engineer
+                Senior Full Stack
               </motion.span>
             </motion.div>
           </Link>
@@ -138,10 +138,6 @@ export default function Navbar() {
                 className="text-xs font-bold p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-primary w-10"
               >
                 {language.toUpperCase()}
-              </button>
-
-              <button className="flex min-w-[120px] items-center justify-center rounded-lg h-9 px-5 bg-foreground text-background text-xs font-bold transition-all hover:scale-105 active:scale-95">
-                {t('nav.resume')}
               </button>
             </div>
           </div>

@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, FileUser, Github, Linkedin, Mail, Terminal } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Terminal } from "lucide-react";
 import { useApp } from "../context/AppContext";
 
 export default function Hero() {
-  const { t, language } = useApp();
+  const { t } = useApp();
   const containerRef = useRef<HTMLElement>(null);
 
   const socialLinks = [
@@ -88,14 +88,6 @@ export default function Hero() {
                   <Terminal size={18} />
                   {t('hero.cta.work')}
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-
-                <a
-                  href={language === "es" ? "/curriculum" : "/resume"}
-                  className="group px-8 py-3.5 rounded-lg border border-border hover:border-foreground/20 bg-transparent text-foreground font-medium text-base transition-all w-full sm:w-auto flex items-center justify-center gap-2 hover:bg-foreground/5"
-                >
-                  <FileUser size={18} />
-                  {t('hero.cta.resume')}
                 </a>
               </div>
 
