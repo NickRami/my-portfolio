@@ -47,33 +47,8 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start text-left space-y-8"
           >
-            {/* Status Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              <span className="text-xs font-mono font-medium text-primary tracking-wide">
-                {t('contact.status')}
-              </span>
-            </motion.div>
-
             {/* Typography */}
             <div className="space-y-4">
-              <motion.h2
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="inline-block text-sm md:text-base font-mono text-primary px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20"
-              >
-                {t('hero.role')}
-              </motion.h2>
-
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
