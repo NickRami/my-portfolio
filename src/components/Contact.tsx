@@ -85,10 +85,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Footer Note */}
-          <p className="text-sm text-muted-foreground/40 font-mono uppercase tracking-widest">
-            —   San Rafael, Mendoza   —
-          </p>
+
 
         </div>
       </div>

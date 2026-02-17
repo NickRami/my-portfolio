@@ -307,24 +307,24 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('portfolio-language');
-    // Default to 'en' if no saved preference or if saved preference is invalid
-    return (saved === 'es' || saved === 'en') ? saved : 'en';
+    const saved = localStorage.getItem('portfolio-lang-prefs');
+    // Default setting: English ('en')
+    return (saved === 'en' || saved === 'es') ? saved : 'en';
   });
 
   const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem('portfolio-theme');
+    const saved = localStorage.getItem('portfolio-theme-prefs');
     return (saved === 'dark' || saved === 'light') ? saved : 'dark';
   });
 
   const [devMode, setDevMode] = useState<boolean>(false);
 
   useEffect(() => {
-    localStorage.setItem('portfolio-language', language);
+    localStorage.setItem('portfolio-lang-prefs', language);
   }, [language]);
 
   useEffect(() => {
-    localStorage.setItem('portfolio-theme', theme);
+    localStorage.setItem('portfolio-theme-prefs', theme);
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
