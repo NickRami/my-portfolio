@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Terminal, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, Terminal, ArrowUp, MessageCircle } from "lucide-react";
 import { useApp } from "../context/AppContext";
 
 
@@ -10,7 +10,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="border-t border-border bg-background pt-20 pb-10">
+        <footer className="border-t border-white/5 bg-background pt-20 pb-10">
             <div className="max-w-[1400px] mx-auto px-6 md:px-20">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     {/* Brand Column */}
@@ -24,15 +24,18 @@ export default function Footer() {
                         <p className="text-muted-foreground text-lg max-w-sm leading-relaxed">
                             {t('footer.desc')}
                         </p>
-                        <div className="flex gap-4">
-                            <a href="https://github.com/NickRami" target="_blank" className="p-2.5 rounded-lg bg-secondary border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-all">
+                        <div className="flex gap-3">
+                            <a href="https://github.com/NickRami" target="_blank" className="p-2.5 rounded-xl bg-white/5 border border-white/8 text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
                                 <Github size={20} />
                             </a>
-                            <a href="https://www.linkedin.com/in/ramiro-silva-333918231" target="_blank" className="p-2.5 rounded-lg bg-secondary border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-all">
+                            <a href="https://www.linkedin.com/in/ramiro-silva-333918231" target="_blank" className="p-2.5 rounded-xl bg-white/5 border border-white/8 text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="mailto:ramisilva8@gmail.com" className="p-2.5 rounded-lg bg-secondary border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-all">
+                            <a href="mailto:ramisilva8@gmail.com" className="p-2.5 rounded-xl bg-white/5 border border-white/8 text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
                                 <Mail size={20} />
+                            </a>
+                            <a href="https://wa.me/542604631531" target="_blank" className="p-2.5 rounded-xl bg-white/5 border border-white/8 text-muted-foreground hover:text-green-400 hover:border-green-400/30 transition-all">
+                                <MessageCircle size={20} />
                             </a>
                         </div>
                     </div>
@@ -53,6 +56,8 @@ export default function Footer() {
                         <h4 className="text-sm font-bold uppercase tracking-widest text-foreground">{t('footer.location')}</h4>
                         <div className="space-y-3 text-muted-foreground">
                             <p>{t('footer.location.text')}</p>
+                            <p className="text-sm">ramisilva8@gmail.com</p>
+                            <p className="text-sm">+54 2604 631531</p>
                             <div className="pt-2">
                                 <button
                                     onClick={scrollToTop}
@@ -65,10 +70,10 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <span>© {new Date().getFullYear()}</span>
-                        <span className="w-1 h-1 bg-border rounded-full" />
+                        <span className="w-1 h-1 bg-white/10 rounded-full" />
                         <span>{t('footer.built')}</span>
                     </div>
                     <p className="text-sm text-muted-foreground">

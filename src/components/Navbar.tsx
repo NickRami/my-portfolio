@@ -69,7 +69,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-background/60 backdrop-blur-xl border-b border-white/5 supports-[backdrop-filter]:bg-background/20 h-[var(--header-height)] transition-all duration-300">
+      <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-white/5 supports-[backdrop-filter]:bg-background/40 h-[var(--header-height)] transition-all duration-300">
         <div className="container-responsive h-full flex items-center justify-between">
           <Link to="/" className="flex items-center gap-4 group">
             <div className="size-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 transition-transform group-hover:scale-105 group-hover:rotate-3">
@@ -98,7 +98,7 @@ export default function Navbar() {
                 transition={{ delay: 0.5, duration: 0.4 }}
                 className="text-xs font-mono text-muted-foreground uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-md border border-white/5"
               >
-                Senior Full Stack
+                Full Stack Dev
               </motion.span>
             </motion.div>
           </Link>

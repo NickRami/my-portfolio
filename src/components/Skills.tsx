@@ -1,144 +1,132 @@
 import { motion } from "framer-motion";
 import { useApp } from "../context/AppContext";
-import { Cpu, Layout, Terminal, Database, ShieldCheck, Cloud } from "lucide-react";
+import { Cpu, Layout, Server, Database, Wrench } from "lucide-react";
+
+interface SkillCategory {
+  icon: typeof Layout;
+  titleKey: string;
+  descKey: string;
+  technologies: string[];
+  gradient: string;
+  iconColor: string;
+}
 
 export default function Skills() {
   const { t } = useApp();
 
+  const categories: SkillCategory[] = [
+    {
+      icon: Layout,
+      titleKey: 'skills.frontend',
+      descKey: 'skills.frontend_desc',
+      technologies: ['React.js', 'Next.js (App Router)', 'Tailwind CSS', 'Shadcn UI', 'Zustand'],
+      gradient: 'from-blue-500/10 to-cyan-500/10',
+      iconColor: 'text-blue-400',
+    },
+    {
+      icon: Server,
+      titleKey: 'skills.backend',
+      descKey: 'skills.backend_desc',
+      technologies: ['Node.js', 'Prisma ORM', 'Strapi', 'Supabase', 'Firebase'],
+      gradient: 'from-emerald-500/10 to-teal-500/10',
+      iconColor: 'text-emerald-400',
+    },
+    {
+      icon: Database,
+      titleKey: 'skills.databases',
+      descKey: 'skills.databases_desc',
+      technologies: ['PostgreSQL', 'SQL'],
+      gradient: 'from-violet-500/10 to-purple-500/10',
+      iconColor: 'text-violet-400',
+    },
+    {
+      icon: Wrench,
+      titleKey: 'skills.other',
+      descKey: 'skills.other_desc',
+      technologies: ['TypeScript', 'Git', 'Clerk Auth', 'Zod'],
+      gradient: 'from-amber-500/10 to-orange-500/10',
+      iconColor: 'text-amber-400',
+    },
+  ];
+
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex items-center gap-2 mb-2">
+    <div className="flex flex-col gap-8">
+      <div className="flex items-center gap-3 mb-2">
         <Cpu className="text-primary" size={24} />
         <h2 className="text-foreground text-2xl font-bold tracking-tight">
           {t('skills.title')}
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-fr">
-        {/* Languages Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="md:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col justify-start hover:bg-card/80 transition-colors relative overflow-hidden group h-full"
-        >
-          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <Terminal size={64} className="text-foreground" />
-          </div>
-          <div className="mb-auto">
-            <Terminal className="text-primary mb-3" size={24} />
-            <h3 className="text-foreground text-lg font-bold mb-1">{t('skills.languages')}</h3>
-            <p className="text-muted-foreground text-sm mb-4">{t('skills.languages_desc')}</p>
-          </div>
-          <div className="flex flex-wrap gap-2 mt-4">
-            {['TypeScript', 'JavaScript', 'Node.js', 'SQL'].map((lang) => (
-              <span key={lang} className="bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">
-                {lang}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+      {/* Skills Categories Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {categories.map((category, index) => (
+          <motion.div
+            key={category.titleKey}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="glass-card rounded-2xl p-6 group relative overflow-hidden"
+          >
+            {/* Subtle gradient background */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
 
-        {/* Ecosystem & BaaS Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-card to-background border border-border p-6 rounded-3xl flex flex-col hover:border-primary/40 transition-all relative h-full"
-        >
-          <Cloud className="text-primary mb-3" size={24} />
-          <h3 className="text-foreground text-lg font-bold mb-1">{t('skills.infrastructure')}</h3>
-          <p className="text-muted-foreground text-sm mb-6">{t('skills.infrastructure_desc')}</p>
-          <div className="space-y-4 flex-1 flex flex-col justify-center">
-            <div className="bg-background/50 p-3 rounded-lg border border-border flex-1">
-              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">BaaS Ecosystem</p>
-              <p className="text-muted-foreground text-sm">Supabase, Firebase, Appwrite</p>
-            </div>
-            <div className="bg-background/50 p-3 rounded-lg border border-border flex-1">
-              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">Headless CMS</p>
-              <p className="text-muted-foreground text-sm">Strapi, Contentful, Sanity</p>
-            </div>
-            <div className="bg-background/50 p-3 rounded-lg border border-border flex-1">
-              <p className="text-primary text-[10px] font-bold mb-2 uppercase tracking-widest">Cloud Providers</p>
-              <p className="text-muted-foreground text-sm">AWS, Google Cloud, Docker, Vercel</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Engineering Stack Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="md:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col hover:bg-card/80 transition-colors group h-full"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-foreground text-lg font-bold">{t('skills.engineering')}</h3>
-            <Layout className="text-primary group-hover:rotate-12 transition-transform" size={24} />
-          </div>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-2 mt-auto">
-            {['Next.js / React', 'Express.js', 'React Router', 'Zustand', 'Zod', 'Tailwind / SASS'].map((fw) => (
-              <div key={fw} className="flex items-center gap-2 text-muted-foreground text-sm">
-                <span className="size-2 bg-primary rounded-full"></span> {fw}
+            <div className="relative z-10">
+              {/* Header */}
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`p-2.5 rounded-xl bg-white/5 border border-white/5 ${category.iconColor} group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon size={20} />
+                </div>
+                <div>
+                  <h3 className="text-foreground text-base font-bold">{t(category.titleKey)}</h3>
+                  <p className="text-muted-foreground text-xs">{t(category.descKey)}</p>
+                </div>
               </div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* Databases Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="md:col-span-1 lg:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
-        >
-          <Database className="text-primary mb-2" size={32} />
-          <h4 className="text-foreground text-sm font-bold">{t('skills.data_strategy')}</h4>
-          <p className="text-muted-foreground text-[10px] mt-1 font-medium">{t('skills.data_strategy_desc')}</p>
-        </motion.div>
-
-        {/* Quality Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="md:col-span-1 lg:col-span-2 bg-card border border-border p-6 rounded-3xl flex flex-col items-center justify-center text-center hover:bg-card/80 transition-colors h-full"
-        >
-          <ShieldCheck className="text-primary mb-2" size={32} />
-          <h4 className="text-foreground text-sm font-bold">{t('skills.quality')}</h4>
-          <p className="text-muted-foreground text-[10px] mt-1 font-medium">{t('skills.quality_desc')}</p>
-        </motion.div>
-
-        {/* Stats Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="md:col-span-2 lg:col-span-4 bg-primary text-primary-foreground p-6 rounded-3xl flex flex-wrap items-center justify-between relative overflow-hidden h-full min-h-[120px]"
-        >
-          <div className="z-10">
-            <h3 className="text-3xl font-black leading-none">{t('skills.years')}</h3>
-            <p className="font-bold text-sm opacity-80 uppercase tracking-tighter">{t('skills.years_label')}</p>
-          </div>
-          <div className="flex gap-4 z-10 mt-4 sm:mt-0">
-            <div className="flex flex-col items-center">
-              <span className="text-xl font-black">{t('skills.projects_count')}</span>
-              <span className="text-[10px] font-bold uppercase">{t('skills.projects_label')}</span>
+              {/* Technology Tags */}
+              <div className="flex flex-wrap gap-2">
+                {category.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="bg-white/5 text-foreground/80 border border-white/8 px-3 py-1.5 rounded-lg text-xs font-medium tracking-wide hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-200 cursor-default"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="w-[1px] bg-primary-foreground/20 h-8"></div>
-            <div className="flex flex-col items-center">
-              <span className="text-xl font-black">{t('skills.commits_count')}</span>
-              <span className="text-[10px] font-bold uppercase">{t('skills.commits_label')}</span>
-            </div>
-          </div>
-          <div className="absolute -right-10 -bottom-10 size-40 bg-white/10 rounded-full blur-3xl"></div>
-        </motion.div>
+          </motion.div>
+        ))}
       </div>
+
+      {/* Stats Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5 }}
+        className="relative bg-gradient-to-r from-primary to-blue-600 text-white p-6 rounded-2xl flex flex-wrap items-center justify-between overflow-hidden"
+      >
+        <div className="z-10">
+          <h3 className="text-3xl font-black leading-none">{t('skills.years')}</h3>
+          <p className="font-bold text-sm opacity-80 uppercase tracking-tighter">{t('skills.years_label')}</p>
+        </div>
+        <div className="flex gap-6 z-10 mt-4 sm:mt-0">
+          <div className="flex flex-col items-center">
+            <span className="text-2xl font-black">{t('skills.projects_count')}</span>
+            <span className="text-[10px] font-bold uppercase opacity-80">{t('skills.projects_label')}</span>
+          </div>
+          <div className="w-px bg-white/20 h-10"></div>
+          <div className="flex flex-col items-center">
+            <span className="text-2xl font-black">{t('skills.commits_count')}</span>
+            <span className="text-[10px] font-bold uppercase opacity-80">{t('skills.commits_label')}</span>
+          </div>
+        </div>
+        {/* Decorative blur */}
+        <div className="absolute -right-10 -bottom-10 size-40 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute -left-10 -top-10 size-32 bg-white/5 rounded-full blur-2xl"></div>
+      </motion.div>
     </div>
   );
 }

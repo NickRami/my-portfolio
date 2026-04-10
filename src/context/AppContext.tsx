@@ -27,9 +27,9 @@ const translations = {
     'nav.talk': "Let's Talk",
 
     // Hero
-    'hero.role': 'Senior Full Stack Engineer',
+    'hero.role': 'Full Stack Developer',
     'hero.subtitle': 'Scaling Digital Products',
-    'hero.desc': 'Senior Engineer specialized in React, Node.js, and Cloud Architecture. I build fast, scalable, and SEO-optimized web applications designed for business growth and high performance.',
+    'hero.desc': 'Full Stack Developer specialized in JavaScript, TypeScript, and the React/Next.js ecosystem. I build fast, scalable, and SEO-optimized web applications designed for business growth and high performance.',
     'hero.cta.contact': "Let's Talk",
     'hero.cta.github': 'GitHub',
     'hero.tech.frontend': 'Frontend Architecture',
@@ -60,7 +60,7 @@ const translations = {
 
     // About
     'about.title': 'Professional Profile',
-    'about.p1': 'Senior-focused Full Stack Developer with expert-level proficiency in the JavaScript ecosystem. I specialize in building **observable, maintainable, and highly available systems** that solve real-world business challenges through engineered precision.',
+    'about.p1': 'Full Stack Developer with expert-level proficiency in the JavaScript/TypeScript ecosystem. I specialize in building **observable, maintainable, and highly available systems** that solve real-world business challenges through engineered precision.',
     'about.p2': 'My approach integrates deep technical knowledge with product-led thinking, ensuring that every architectural decision translates into measurable user impact and system reliability.',
     'about.clean_code': 'Clean Code',
     'about.clean_code_desc': 'Writing maintainable, efficient, and robust architecture.',
@@ -95,21 +95,23 @@ const translations = {
     'experience.title': 'Engineering Roadmap',
     'experience.subtitle': 'Professional lifecycle and contribution to technological growth.',
     'experience.constructora.company': 'Constructora Tech',
-    'experience.constructora.role': 'Full Stack Engineer',
+    'experience.constructora.role': 'Full Stack Developer',
     'experience.constructora.date': '2025 - Present',
     'experience.constructora.bullets': [
-      'Architected internal administrative systems resulting in a 35% increase in operational throughput.',
-      'Developed end-to-end features using Next.js and Node.js, prioritizing modularity and system observability.',
-      'Containerized legacy modules for consistent deployment across staging and production environments.'
+      'Designed and implemented a RESTful API architecture with Node.js and Express, establishing scalable endpoints for the management of construction projects, budgets, and task tracking.',
+      'Engineered a relational database (PostgreSQL) optimizing queries with Prisma ORM, reducing data load times by 40% through strategic indexing and normalized schema design.',
+      'Automated internal processes such as report generation, inventory tracking, and notifications via cron jobs and serverless functions, eliminating 15+ hours of weekly manual work.',
+      'Developed a responsive Next.js (App Router) admin panel with Zustand and Shadcn UI for internal teams, improving operational throughput by 35%.'
     ],
 
-    'experience.labitec.company': 'Labitec Marketing',
+    'experience.labitec.company': 'Labict Marketing',
     'experience.labitec.role': 'Full Stack Developer',
     'experience.labitec.date': '2024',
     'experience.labitec.bullets': [
-      'Engineered scalable marketing platforms handling high-traffic concurrent user sessions with optimized load times.',
-      'Designed and documented RESTful APIs that served as the backbone for multiple cross-platform client applications.',
-      'Implemented automated testing suites reducing production deployment regressions by 50%.'
+      'Architected a headless CMS integration with Strapi to manage dynamic marketing content, decoupling the frontend layer and enabling non-technical teams to publish campaigns autonomously.',
+      'Built and documented RESTful APIs serving as the backbone for multiple client-facing applications, implementing authentication flows with Clerk and input validation with Zod.',
+      'Optimized Core Web Vitals (LCP, FID, CLS) achieving a 95+ Lighthouse performance score through image lazy loading, code splitting, and static generation strategies in Next.js.',
+      'Designed a scalable PostgreSQL database schema for lead tracking and analytics, enabling real-time marketing performance dashboards with Supabase real-time subscriptions.'
     ],
 
     'experience.quorum.company': 'Quorum Systems',
@@ -124,6 +126,14 @@ const translations = {
     // Skills
     'skills.title': 'Core Competencies',
     'skills.subtitle': 'Technical Stack',
+    'skills.frontend': 'Frontend',
+    'skills.frontend_desc': 'Modern UI architecture & component systems',
+    'skills.backend': 'Backend',
+    'skills.backend_desc': 'Server architectures & cloud services',
+    'skills.databases': 'Databases',
+    'skills.databases_desc': 'Data modeling & persistence layer',
+    'skills.other': 'Other',
+    'skills.other_desc': 'Developer tools & quality assurance',
     'skills.languages': 'Languages',
     'skills.languages_desc': 'Core development foundations',
     'skills.infrastructure': 'Infrastructure & BaaS',
@@ -142,37 +152,47 @@ const translations = {
     'skills.commits_label': 'Commits',
 
     // Contact
-    'contact.title': 'Strategic',
-    'contact.subtitle': 'Partnership?',
-    'contact.desc': 'I am open to discussions regarding senior engineering roles or consultant projects. Let’s build something impactful.',
+    'contact.title': 'Let\'s Work',
+    'contact.subtitle': 'Together',
+    'contact.desc': 'Based in San Rafael, Mendoza. Available for remote or on-site positions. Let\'s build something impactful.',
     'contact.status': 'Available for Opportunities',
-    'resume.summary': 'Full Stack Developer specialized in Enterprise React/Node.js ecosystems.',
+    'contact.location': 'San Rafael, Mendoza, Argentina',
+    'contact.availability': 'Open to remote & on-site work',
+    'contact.whatsapp_label': 'WhatsApp',
+    'contact.whatsapp_text': 'Quick direct message',
+    'contact.email_label': 'Email',
+    'contact.email_text': 'For formal inquiries',
+    'contact.linkedin_label': 'LinkedIn',
+    'contact.linkedin_text': 'Professional profile',
+    'contact.github_label': 'GitHub',
+    'contact.github_text': 'Open source & code',
+    'resume.summary': 'Full Stack Developer specialized in React/Node.js ecosystems.',
     'resume.download': 'Download Profile',
     'contact.cta': 'Initiate Contact',
 
     // Footer
-    'footer.rights': 'Ramiro Silva — Full Stack Engineer',
+    'footer.rights': 'Gustavo Ramiro Silva — Full Stack Developer',
     'footer.built': 'Built with React, TypeScript & Tailwind.',
-    'footer.desc': 'Software Engineer passionate about building scalable, high-performance applications with clean code and modern tech stacks.',
+    'footer.desc': 'Full Stack Developer passionate about building scalable, high-performance applications with clean code and modern tech stacks.',
     'footer.nav': 'Navigation',
     'footer.location': 'Location',
-    'footer.location.text': 'San Rafael Mendoza, Argentina',
+    'footer.location.text': 'San Rafael, Mendoza, Argentina',
     'footer.back_to_top': 'Back to Top'
   },
   es: {
     // Navbar
     'nav.about': 'Perfil',
     'nav.projects': 'Proyectos',
-    'nav.expertise': 'Experiencia', // Changed from Experticia
+    'nav.expertise': 'Experiencia',
     'nav.contact': 'Contacto',
     'nav.resume': 'CV',
     'nav.back': 'Volver',
     'nav.talk': 'Hablemos',
 
     // Hero
-    'hero.role': 'Senior Full Stack Engineer',
+    'hero.role': 'Full Stack Developer',
     'hero.subtitle': 'Escalando Productos Digitales',
-    'hero.desc': 'Ingeniero Senior especializado en React, Node.js y Arquitectura Cloud. Construyo aplicaciones web rápidas, escalables y optimizadas para SEO y crecimiento de negocio.',
+    'hero.desc': 'Desarrollador Full Stack especializado en JavaScript, TypeScript y el ecosistema React/Next.js. Construyo aplicaciones web rápidas, escalables y optimizadas para SEO y crecimiento de negocio.',
     'hero.cta.contact': "Hablemos",
     'hero.cta.github': 'GitHub',
     'hero.tech.frontend': 'Arquitectura Frontend',
@@ -203,7 +223,7 @@ const translations = {
 
     // About
     'about.title': 'Perfil Profesional',
-    'about.p1': 'Ingeniero Full Stack con enfoque Senior y dominio experto del ecosistema JavaScript. Me especializo en construir **sistemas observables, mantenibles y de alta disponibilidad** que resuelven desafíos de negocio.', // Adjusted phrasing
+    'about.p1': 'Desarrollador Full Stack con dominio experto del ecosistema JavaScript/TypeScript. Me especializo en construir **sistemas observables, mantenibles y de alta disponibilidad** que resuelven desafíos de negocio reales.',
     'about.p2': 'Mi enfoque integra un profundo conocimiento técnico con visión de producto, asegurando que cada decisión arquitectónica se traduzca en impacto medible.',
     'about.clean_code': 'Código Limpio',
     'about.clean_code_desc': 'Arquitectura robusta, eficiente y mantenible.',
@@ -216,7 +236,7 @@ const translations = {
     'about.badge': 'Perfil de Sistemas',
 
     // Projects
-    'projects.label': 'Portafolio Técnico', // Changed from Showcase
+    'projects.label': 'Portafolio Técnico',
     'projects.title': 'Sistemas en Producción',
     'projects.subtitle': 'Análisis arquitectónico y soluciones de ingeniería en desarrollo web moderno.',
     'project.actions.visit': 'Ver en Vivo',
@@ -238,21 +258,23 @@ const translations = {
     'experience.title': 'Trayectoria de Ingeniería',
     'experience.subtitle': 'Ciclo de vida profesional y contribución al crecimiento tecnológico.',
     'experience.constructora.company': 'Constructora Tech',
-    'experience.constructora.role': 'Ingeniero Full Stack',
+    'experience.constructora.role': 'Full Stack Developer',
     'experience.constructora.date': '2025 - Presente',
     'experience.constructora.bullets': [
-      'Arquitectura de sistemas administrativos internos resultando en un incremento del 35% en la eficiencia operativa.',
-      'Desarrollo integral de funcionalidades con Next.js y Node.js, priorizando la modularidad y la observabilidad del sistema.',
-      'Containerización de módulos legacy para despliegues consistentes en entornos de staging y producción.'
+      'Diseñé e implementé una arquitectura de API RESTful con Node.js y Express, estableciendo endpoints escalables para la gestión de proyectos de construcción, presupuestos y seguimiento de tareas.',
+      'Ingeniería de base de datos relacional (PostgreSQL) optimizando consultas con Prisma ORM, reduciendo tiempos de carga en un 40% mediante indexación estratégica y diseño de esquema normalizado.',
+      'Automatización de procesos internos como generación de reportes, control de inventario y notificaciones mediante cron jobs y funciones serverless, eliminando 15+ horas semanales de trabajo manual.',
+      'Desarrollo de panel administrativo responsivo en Next.js (App Router) con Zustand y Shadcn UI para equipos internos, mejorando la eficiencia operativa en un 35%.'
     ],
 
-    'experience.labitec.company': 'Labitec Marketing',
-    'experience.labitec.role': 'Desarrollador Full Stack',
+    'experience.labitec.company': 'Labict Marketing',
+    'experience.labitec.role': 'Full Stack Developer',
     'experience.labitec.date': '2024',
     'experience.labitec.bullets': [
-      'Ingeniería de plataformas escalables manejando sesiones de usuario concurrentes con tiempos de carga optimizados.',
-      'Diseño y documentación de APIs RESTful que sirven de base para múltiples aplicaciones cliente multiplataforma.',
-      'Implementación de suites de tests automatizados reduciendo los fallos en despliegues a producción en un 50%.'
+      'Arquitectura de integración con CMS headless (Strapi) para gestionar contenido de marketing dinámico, desacoplando el frontend y permitiendo que equipos no técnicos publiquen campañas de forma autónoma.',
+      'Construcción y documentación de APIs RESTful como backbone para múltiples aplicaciones cliente, implementando flujos de autenticación con Clerk y validación de datos con Zod.',
+      'Optimización de Core Web Vitals (LCP, FID, CLS) alcanzando un score de 95+ en Lighthouse mediante lazy loading, code splitting y estrategias de generación estática en Next.js.',
+      'Diseño de esquema escalable en PostgreSQL para tracking de leads y analytics, habilitando dashboards de rendimiento en tiempo real con suscripciones real-time de Supabase.'
     ],
 
     'experience.quorum.company': 'Quorum Systems',
@@ -267,6 +289,14 @@ const translations = {
     // Skills
     'skills.title': 'Competencias Core',
     'skills.subtitle': 'Stack Tecnológico',
+    'skills.frontend': 'Frontend',
+    'skills.frontend_desc': 'Arquitectura UI moderna y sistemas de componentes',
+    'skills.backend': 'Backend',
+    'skills.backend_desc': 'Arquitecturas de servidor y servicios cloud',
+    'skills.databases': 'Bases de Datos',
+    'skills.databases_desc': 'Modelado de datos y capa de persistencia',
+    'skills.other': 'Otros',
+    'skills.other_desc': 'Herramientas de desarrollo y calidad',
     'skills.languages': 'Lenguajes',
     'skills.languages_desc': 'Fundamentos del desarrollo core',
     'skills.infrastructure': 'Infraestructura & BaaS',
@@ -285,20 +315,30 @@ const translations = {
     'skills.commits_label': 'Commits',
 
     // Contact
-    'contact.title': '¿Alianza',
-    'contact.subtitle': 'Estratégica?',
-    'contact.desc': 'Abierto a propuestas para roles de ingeniería Senior o consultoría. Construyamos algo impactante.',
+    'contact.title': 'Trabajemos',
+    'contact.subtitle': 'Juntos',
+    'contact.desc': 'Basado en San Rafael, Mendoza. Disponible para posiciones remotas o presenciales. Construyamos algo impactante.',
     'contact.status': 'Disponible para Oportunidades',
+    'contact.location': 'San Rafael, Mendoza, Argentina',
+    'contact.availability': 'Abierto a trabajo remoto y presencial',
+    'contact.whatsapp_label': 'WhatsApp',
+    'contact.whatsapp_text': 'Mensaje directo rápido',
+    'contact.email_label': 'Email',
+    'contact.email_text': 'Para consultas formales',
+    'contact.linkedin_label': 'LinkedIn',
+    'contact.linkedin_text': 'Perfil profesional',
+    'contact.github_label': 'GitHub',
+    'contact.github_text': 'Código y open source',
     'resume.download': 'Descargar Perfil',
     'contact.cta': 'Iniciar Contacto',
 
     // Footer
-    'footer.rights': 'Ramiro Silva — Ingeniero Full Stack',
+    'footer.rights': 'Gustavo Ramiro Silva — Full Stack Developer',
     'footer.built': 'Construido con React, TypeScript & Tailwind.',
-    'footer.desc': 'Ingeniero de Software apasionado por construir aplicaciones escalables y de alto rendimiento.',
+    'footer.desc': 'Desarrollador Full Stack apasionado por construir aplicaciones escalables y de alto rendimiento.',
     'footer.nav': 'Navegación',
     'footer.location': 'Ubicación',
-    'footer.location.text': 'San Rafael Mendoza, Argentina',
+    'footer.location.text': 'San Rafael, Mendoza, Argentina',
     'footer.back_to_top': 'Volver Arriba'
   }
 };

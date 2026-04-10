@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FolderGit2 } from 'lucide-react';
+import { FolderGit2, ArrowUpRight } from 'lucide-react';
 import { useApp } from "../context/AppContext";
 
 interface Project {
@@ -51,7 +51,7 @@ export default function ProjectsPreview() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
           {projects.map((project, index) => {
             const techs = t(project.techKey) as string[];
             return (
@@ -63,34 +63,43 @@ export default function ProjectsPreview() {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-card border border-border rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col shadow-xl">
+                <div className="glass-card rounded-2xl overflow-hidden h-full flex flex-col shadow-xl">
+                  {/* Image */}
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={project.image || `https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&embed=screenshot.url`}
                       alt={t(project.titleKey)}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
                   </div>
-                  <div className="p-8 flex-1 flex flex-col">
+
+                  {/* Content */}
+                  <div className="p-6 flex-1 flex flex-col">
+                    {/* Tech Tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {techs && techs.slice(0, 3).map((tech, i) => (
-                        <span key={i} className="bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-lg text-[10px] font-bold uppercase">
+                        <span key={i} className="bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">
                           {tech}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-foreground text-2xl font-bold mb-3">{t(project.titleKey)}</h3>
-                    <p className="text-muted-foreground text-sm mb-8 leading-relaxed flex-1">
+
+                    <h3 className="text-foreground text-xl font-bold mb-3">{t(project.titleKey)}</h3>
+                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-1">
                       {t(project.descKey)}
                     </p>
+
+                    {/* CTA Button */}
                     <div className="mt-auto">
                       <a
                         href={project.url}
                         target="_blank"
-                        className="block w-full bg-primary text-background py-4 rounded-xl font-bold text-sm text-center transition-all hover:scale-[1.02] hover:brightness-110 active:scale-95 shadow-lg shadow-primary/20"
+                        className="btn-primary group/btn flex items-center justify-center gap-2 w-full bg-primary text-white py-3.5 rounded-xl font-bold text-sm transition-all active:scale-95"
                       >
                         {t('project.actions.visit')}
+                        <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </a>
                     </div>
                   </div>

@@ -42,7 +42,7 @@ export default function Experience() {
 
       <div className="relative space-y-2">
         {/* Timeline Line */}
-        <div className="absolute left-5 top-2 bottom-0 w-[2px] bg-gradient-to-b from-primary via-border to-transparent"></div>
+        <div className="absolute left-5 top-2 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary/20 to-transparent"></div>
 
         {experiences.map((exp, index) => (
           <motion.div
@@ -54,23 +54,23 @@ export default function Experience() {
             className="relative pl-14 pb-10 group"
           >
             {/* Dot Indicator */}
-            <div className={`absolute left-[13px] top-1.5 size-4 rounded-full border-4 border-background z-10 transition-all duration-300 ${index === 0 ? 'bg-primary ring-4 ring-primary/20 scale-125' : 'bg-border group-hover:bg-primary'}`}></div>
+            <div className={`absolute left-[13px] top-1.5 size-4 rounded-full border-4 border-background z-10 transition-all duration-300 ${index === 0 ? 'bg-primary ring-4 ring-primary/20 scale-125' : 'bg-muted-foreground/30 group-hover:bg-primary'}`}></div>
 
-            {/* Experience Card */}
-            <div className="bg-card border border-border p-6 rounded-3xl hover:border-primary/50 transition-all shadow-sm">
+            {/* Experience Card - Glassmorphism */}
+            <div className="glass-card p-6 rounded-2xl">
               <div className="flex flex-col sm:flex-row justify-between items-start mb-2 gap-2">
                 <div>
                   <h3 className="text-foreground text-lg font-bold">{exp.role}</h3>
                   <p className="text-primary font-semibold text-sm">{exp.company}</p>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-bold ${index === 0 ? 'bg-primary/10 text-primary' : 'bg-border/30 text-muted-foreground'}`}>
+                <span className={`px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap ${index === 0 ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-white/5 text-muted-foreground border border-white/8'}`}>
                   {exp.date}
                 </span>
               </div>
               <ul className="mt-4 space-y-2 text-muted-foreground text-sm">
                 {exp.bullets.map((bullet: string, i: number) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="text-primary">•</span>
+                  <li key={i} className="flex gap-2 leading-relaxed">
+                    <span className="text-primary mt-1 shrink-0">▸</span>
                     {bullet}
                   </li>
                 ))}
